@@ -60,6 +60,12 @@ Cài ở `.claude/skills/design-taste-frontend/` (Leonxlnx/taste-skill, commit `
 3. `reviewer` review PR, ghi Approve hoặc Request changes. Không tự merge.
 4. Rin merge. `frontend` nối dòng vào `specs/changelog.md` trong chính PR đó.
 
+Lệnh GitHub (trong phiên Claude Code chỉ dùng được REST, `gh issue create`/`gh pr create`/`gh pr review` sẽ lỗi vì GraphQL bị chặn):
+- Tạo issue: `gh api repos/mlinhclaud/phfm_web/issues -f title="..." -f body="..." -f "labels[]=round-4"`
+- Comment issue/PR: `gh api repos/mlinhclaud/phfm_web/issues/<số>/comments -f body="..."`
+- Mở PR: `gh api repos/mlinhclaud/phfm_web/pulls -f title="..." -f head="<nhánh>" -f base=main -f body="$(cat body.md)"`
+- Review PR: `gh api repos/mlinhclaud/phfm_web/pulls/<số>/reviews -f event=COMMENT -f body="..."` (GitHub không cho tài khoản tự Approve PR của chính mình, nên ghi kết luận **Approve** hoặc **Request changes** ở dòng đầu body)
+
 ## Làm song song Cowork và Claude Code cloud
 
 - Cowork (claude.ai) làm việc cần kết nối riêng: tạo ảnh Higgsfield (model Nano Banana Pro), đọc/ghi artifact (bảng Nội dung, canvas), file trên máy Rin. Nhánh `cowork/*`, `sync/*`.

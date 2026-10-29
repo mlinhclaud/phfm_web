@@ -16,4 +16,4 @@ Kiểm tra từng PR:
 6. A11y: tương phản chữ ≥ 4.5:1 (chữ lớn 3:1), focus nhìn thấy được, ảnh có alt hợp lý, nút bấm ≥ 44px trên mobile.
 7. Code: vá bằng `rep()` có kiểm tra số lần khớp, CSS không đè lan sang trang khác, changelog đã cập nhật.
 
-Viết nhận xét bằng `gh pr review <số> --approve` hoặc `--request-changes`, liệt kê cụ thể: file, chỗ, vì sao, gợi ý sửa. Không merge.
+Ghi nhận xét bằng `gh api repos/mlinhclaud/phfm_web/pulls/<số>/reviews -f event=COMMENT -f body=...`. Dòng đầu body là **Approve** hoặc **Request changes**, sau đó liệt kê cụ thể: file, chỗ, vì sao, gợi ý sửa. Không merge.

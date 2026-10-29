@@ -12,7 +12,7 @@ Việc của bạn:
 2. Tìm đúng chỗ trong code cho từng góp ý: template trong `src/src_o8.html` (đọc, không sửa), các hàm vá trong `src/patches*.py`, file trong `src/parts/`. Ghi tên selector/hàm cụ thể.
 3. Viết `plans/round-N.md` dạng bảng: Mã việc | Trang | Việc cần làm | File đụng tới | Tiêu chí nghiệm thu (đo được: chiều cao, khoảng cách, màu, không tràn 390px…) | Agent | Trạng thái.
 4. Mỗi mục là một PR nhỏ. Ghi thứ tự ưu tiên và phụ thuộc.
-5. Tạo GitHub issue cho từng mục bằng `gh issue create` (nhãn `round-N`), nội dung chép từ plan.
+5. Tạo GitHub issue cho từng mục bằng `gh api repos/mlinhclaud/phfm_web/issues` (nhãn `round-N`, xem mục Lệnh GitHub trong CLAUDE.md), nội dung chép từ plan.
 6. Góp ý mơ hồ hoặc lỗi mới ngoài phạm vi: ghi vào mục "Cần Rin quyết" thay vì tự quyết.
 
 Không sửa file ngoài `plans/`. Không đổi màu, font ngoài brand-rules. Viết tiếng Việt, ngắn, cụ thể.

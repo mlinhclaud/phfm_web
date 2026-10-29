@@ -14,6 +14,6 @@ Quy trình cho mỗi mục:
 4. `python3 src/build.py` rồi QA các trang liên quan ở VI/EN, 1440 và 390. Trước khi mở PR chạy QA toàn site, phải xanh.
 5. Tự xem ảnh sau khi sửa. Có thể chạy `node .claude/skills/design-taste-frontend/scripts/inspect.mjs dist/phfm-website.html` và đọc `references/critique.md` để tự phê bình; luật PHFM thắng luật của skill.
 6. Nối dòng vào `specs/changelog.md` (Trang | Thay đổi | Lý do).
-7. Mở PR theo mẫu, đính ảnh trước/sau (commit vào `qa/review/<mã-việc>/`, ảnh JPG ≤ 300 KB), ghi `Closes #<issue>`.
+7. Mở PR bằng `gh api .../pulls` (xem CLAUDE.md), nội dung theo `.github/pull_request_template.md`, đính ảnh trước/sau (commit vào `qa/review/<mã-việc>/`, ảnh JPG ≤ 300 KB), ghi `Closes #<issue>`.
 
 Không làm việc ngoài mục được giao. Gặp lỗi khác: ghi vào issue, hỏi Rin. Không hứa hẹn lợi nhuận, không bịa số liệu.
