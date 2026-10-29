@@ -32,6 +32,11 @@
 .nm-ghero>img.gh-v{object-position:75% 50%}
 @media(max-width:760px){
   .fh>img{object-position:80% 50%!important}
-  .nm-ghero>img.gh-p{object-position:88% 50%}
-  .nm-ghero>img.gh-v{object-position:80% 50%}
+  .nm-ghero>img.gh-p{object-position:88% 50%!important}
+  .nm-ghero>img.gh-v{object-position:80% 50%!important}
+}
+/* Hướng dẫn: ảnh mới tối hơn ảnh cũ, lớp mờ trắng rộng hơn và tiêu đề hẹp lại để chữ tối không rơi lên vùng ảnh tối (>= 701px; dưới đó ảnh nằm riêng dưới chữ) */
+@media(min-width:701px){
+  .nm-ghero h1{max-width:min(720px,60vw)!important}
+  .nm-ghero>img+div{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 55%,rgba(255,255,255,0) 82%)!important}
 }
