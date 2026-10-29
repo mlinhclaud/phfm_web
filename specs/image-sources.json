@@ -238,19 +238,104 @@
   "crop": null,
   "round": 3
  },
- "r4_ab_hero": {
-  "source": "generated/about_hero_r4_window.webp",
+ "r5_about_hero": {
+  "source": "generated/r5_about_hero.webp",
   "maxw": 1920,
   "crop": null
  },
- "r4_ab_hero_m": {
-  "source": "generated/about_hero_r4_window.webp",
-  "maxw": 900,
-  "crop": [
-   0.45,
-   0.0,
-   1.0,
-   1.0
-  ]
+ "r5_phvsf_hero": {
+  "source": "generated/r5_phvsf_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r5_vns_hero": {
+  "source": "generated/r5_vns_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r5_member_hero": {
+  "source": "generated/r5_member_hero.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_pf_hero": {
+  "source": "generated/r5_pf_hero.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_adv_hero": {
+  "source": "generated/r5_adv_hero.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_acad_hero": {
+  "source": "generated/r5_acad_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r5_cr_hero": {
+  "source": "generated/r5_cr_hero.webp",
+  "maxw": 1200,
+  "crop": null
+ },
+ "r5_gp_hero": {
+  "source": "generated/r5_gp_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r5_gv_hero": {
+  "source": "generated/r5_gv_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r5_nw_msci": {
+  "source": "generated/r5_nw_msci.webp",
+  "maxw": 1344,
+  "crop": null
+ },
+ "r5_nw_rot": {
+  "source": "generated/r5_nw_rot.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_macro": {
+  "source": "generated/r5_nw_macro.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_rebal": {
+  "source": "generated/r5_nw_rebal.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_aug": {
+  "source": "generated/r5_nw_aug.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_fund": {
+  "source": "generated/r5_nw_fund.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_bank": {
+  "source": "generated/r5_nw_bank.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_dca": {
+  "source": "generated/r5_nw_dca.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_h2": {
+  "source": "generated/r5_nw_h2.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r5_nw_div": {
+  "source": "generated/r5_nw_div.webp",
+  "maxw": 960,
+  "crop": null
  }
 }
