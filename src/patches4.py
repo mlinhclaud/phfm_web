@@ -111,4 +111,42 @@ def p_r4_09(s):
     return s
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4css]
+# ---------------------------------------------------------------- R4-04: ô giá ở hero VNSHINE và PHVSF
+def p_r4_04(s):
+    """Hàng chỉ số (Giá đóng cửa · NAV/CCQ · Ngày) thành lưới cột đều .px-row (CSS ở r4.css, khối R4-04).
+    Bảng hiệu quả: cột nào mọi hàng đều '—' thì ẩn (tính trong renderVals, theo dữ liệu, không theo tên quỹ),
+    thêm một dòng ghi chú khi có cột bị ẩn. Ngày niêm yết lấy từ PHFM_ANCHORS[quỹ].start (ngày dòng số liệu đầu tiên)."""
+    LB = 'font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)'
+    old = """<div style="display:flex;gap:40px;flex-wrap:wrap">
+              <sc-if value="{{ f.isEtf }}"><div><div style="%s">{{ d.fundUi.closePrice }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuPrice }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div></sc-if>
+              <div><div style="%s">{{ f.navLabel }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuNav }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div>
+              <div><div style="%s">{{ d.fundUi.date }}</div><div style="font-size:24px;line-height:40px;font-weight:700;color:var(--ink);margin-top:6px">{{ f.asOf }}</div></div>
+            </div>""" % (LB, LB, LB)
+    new = """<div data-keepgrid class="px-row" style="--pxc:{{ f.pxCols }};--pxm:{{ f.pxColsM }}">
+              <sc-if value="{{ f.isEtf }}"><div class="px-c"><div class="px-l">{{ d.fundUi.closePrice }}</div><div class="px-v">{{ f.cuPrice }}</div><div class="px-u">{{ f.navUnit }}</div></div></sc-if>
+              <div class="px-c"><div class="px-l">{{ f.navLabel }}</div><div class="px-v">{{ f.cuNav }}</div><div class="px-u">{{ f.navUnit }}</div></div>
+              <div class="px-c"><div class="px-l">{{ d.fundUi.date }}</div><div class="px-v">{{ f.asOf }}</div></div>
+            </div>"""
+    s = rep(s, old, new)
+    # số cột bảng hiệu quả theo dữ liệu (tiêu đề và từng hàng)
+    s = rep(s, 'grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr))', 'grid-template-columns:minmax(0,1.3fr) repeat({{ f.heroNCol }},minmax(0,1fr))', 2)
+    # ghi chú cột bị ẩn, ngay dưới bảng
+    s = rep(s, '<div style="font-size:12px;line-height:18px;font-style:italic;color:var(--muted);margin-top:14px">{{ f.heroNote }}</div>',
+               '<sc-if value="{{ f.hasHidCol }}"><div class="px-note">{{ f.hidColNote }}</div></sc-if>\n            <div style="font-size:12px;line-height:18px;font-style:italic;color:var(--muted);margin-top:14px">{{ f.heroNote }}</div>')
+    # logic: ẩn cột toàn '—'. Chạy sau khi cuRows đã tính từ chuỗi chung (p_fundcalc ở patches.py)
+    s = rep(s, "        f.heroCols2 = wide ?",
+               """        { const nc = F.heroCols.length, keep = [], hid = [];
+          for (let i = 0; i < nc; i++) (f.cuRows.some(r => r.v[i] && r.v[i].t !== '—') ? keep : hid).push(i);
+          if (!keep.length) { keep.push(...hid); hid.length = 0; }
+          f.heroColsL = f.heroColsL.filter((_, i) => keep.indexOf(i) >= 0);
+          f.cuRows = f.cuRows.map(r => ({ ...r, v: r.v.filter((_, i) => keep.indexOf(i) >= 0) }));
+          f.heroNCol = String(keep.length); f.pxCols = F.isEtf ? 'repeat(3,auto)' : 'repeat(2,minmax(0,1fr))'; f.pxColsM = F.isEtf ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)';
+          const st = ((window.PHFM_ANCHORS || {})[p] || {}).start; f.hasHidCol = hid.length > 0 && !!st;
+          if (f.hasHidCol) { const dmy = st.slice(8, 10) + '/' + st.slice(5, 7) + '/' + st.slice(0, 4), lbl = hid.map(i => F.heroCols[i]).join(', ');
+            f.hidColNote = F.isEtf ? L3('Quỹ niêm yết ngày ' + dmy + ', chưa đủ dữ liệu ' + lbl + '.', 'The fund listed on ' + dmy + ', so there is not enough data for ' + lbl + ' yet.')
+              : L3('Quỹ thành lập ngày ' + dmy + ', chưa đủ dữ liệu ' + lbl + '.', 'The fund was set up on ' + dmy + ', so there is not enough data for ' + lbl + ' yet.'); } }
+        f.heroCols2 = wide ?""")
+    return s
+
+
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4_04, p_r4css]
