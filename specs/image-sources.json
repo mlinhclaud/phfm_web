@@ -252,5 +252,45 @@
    1.0,
    1.0
   ]
+ },
+ "r4_phvsf_hero": {
+  "source": "generated/stock_desk_monitors.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r4_vns_hero": {
+  "source": "generated/stock_price_board.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r4_pf_hero": {
+  "source": "generated/stock_report_topdown.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r4_gp_hero": {
+  "source": "generated/stock_phone_cafe.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r4_gv_hero": {
+  "source": "generated/stock_etf_workstation.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r4_nw_macro": {
+  "source": "generated/stock_candlestick.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r4_nw_rebal": {
+  "source": "generated/stock_rebalance_hands.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r4_nw_dca": {
+  "source": "generated/stock_dca_calendar.webp",
+  "maxw": 960,
+  "crop": null
  }
 }
