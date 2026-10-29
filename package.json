@@ -1,0 +1,14 @@
+{
+  "name": "phfm_web",
+  "private": true,
+  "description": "Website PHFM (bản Teal Vanguard) - build một file HTML tự chứa",
+  "scripts": {
+    "build": "python3 src/build.py",
+    "qa": "node qa/qa.js",
+    "check": "python3 src/build.py && node qa/qa.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.0"
+  },
+  "engines": { "node": ">=20" }
+}

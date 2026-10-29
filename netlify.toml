@@ -1,0 +1,7 @@
+# Chỉ dùng cho link xem thử từng PR (Actions tự deploy vào alias pr-<số>). Không phải bản chính thức phfm.vn.
+[build]
+  publish = "preview"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

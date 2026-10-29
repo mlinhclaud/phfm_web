@@ -1,0 +1,256 @@
+{
+ "ab_hero": {
+  "source": "teal/214-tu-van-khach-hang.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 1
+ },
+ "vn_city": {
+  "source": "teal/244-vnshine-binh-minh-thanh-pho.webp",
+  "maxw": 1920,
+  "crop": [
+   0,
+   0.055,
+   1,
+   1
+  ],
+  "round": 1
+ },
+ "cr_team": {
+  "source": "teal/224-doi-ngu-hop-phong-kinh.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 1
+ },
+ "cr_grow": {
+  "source": "teal/hf_20261021_160012_2f931d30-4796-47c0-bab0-6c89ca9fd914.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 1
+ },
+ "nw_city": {
+  "source": "teal/228-flycam-khu-tai-chinh.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 1
+ },
+ "pk_I02": {
+  "source": "teal/237-mat-kinh-truu-tuong.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I03": {
+  "source": "teal/235-cap-doi-xem-app.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I05": {
+  "source": "teal/hf_20261021_145703_104ff3c1-65d8-426d-9aea-a39e68078928.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I06": {
+  "source": "teal/224-doi-ngu-hop-phong-kinh.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I07": {
+  "source": "teal/hf_20261021_160011_d3fb7c09-2427-42cc-8c20-89f8c8f487b0.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I11": {
+  "source": "teal/hf_20261021_160011_59a4433a-87e8-4b64-a33a-d2ff6af5e908.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I12": {
+  "source": "teal/245-vnshine-ban-lam-viec-chi-so.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I13": {
+  "source": "teal/206-cap-doi-lap-ke-hoach.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I14": {
+  "source": "teal/221-xem-danh-muc-tablet.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I15": {
+  "source": "teal/hf_20261021_160011_d070e025-9525-4a66-a974-16bcb531b15c.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I17": {
+  "source": "teal/241-hero-kinh-vien-vong.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I18": {
+  "source": "teal/239-tay-nang-mam-cay.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "pk_I08": {
+  "source": "generated/hf_20261029_132430_1ee739b2-0fed-404c-9984-9e0b11d053be.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 2
+ },
+ "r3_vns_hero": {
+  "source": "generated/vns_h2.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 3
+ },
+ "r3_adv_hero": {
+  "source": "generated/adv_b.webp",
+  "maxw": 1920,
+  "crop": null,
+  "round": 3
+ },
+ "r3_nw_msci": {
+  "source": "generated/nw_msci2.webp",
+  "maxw": 1344,
+  "crop": null,
+  "round": 3
+ },
+ "r3_nw_rot": {
+  "source": "generated/nw_rot2.webp",
+  "maxw": 960,
+  "crop": null,
+  "round": 3
+ },
+ "p_investingpro": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_digifinance": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "soc_zl": {
+  "source": "generated/soc_zl.webp",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_fmarket": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_finhay": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_bidv": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_phs": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_tcbs": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_vnd": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_ocbs": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "soc_ig": {
+  "source": "generated/soc_ig.webp",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_bvsc": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_vietcap": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_digiinvest": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_ey": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_hsc": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "p_mirae": {
+  "source": "partner/ (đã cắt nền, chỉnh cỡ)",
+  "maxw": null,
+  "crop": null,
+  "round": 3
+ },
+ "r4_ab_hero": {
+  "source": "generated/about_hero_r4_window.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r4_ab_hero_m": {
+  "source": "generated/about_hero_r4_window.webp",
+  "maxw": 900,
+  "crop": [
+   0.45,
+   0.0,
+   1.0,
+   1.0
+  ]
+ }
+}

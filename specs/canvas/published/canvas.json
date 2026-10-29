@@ -1,0 +1,246 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-29T16:40:00Z"
+ },
+ "title": "Website PHFM - Teal Vanguard · Trang con",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 5135,
+   "title": "Về chúng tôi · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Funds.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 1132,
+   "title": "Danh sách quỹ · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Phvsf.dc.html": {
+   "x": 3040,
+   "y": 0,
+   "w": 1440,
+   "h": 5986,
+   "title": "Quỹ mở PHVSF · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Vnshine.dc.html": {
+   "x": 4560,
+   "y": 0,
+   "w": 1440,
+   "h": 7211,
+   "title": "PHFM VNSHINE ETF · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Member.dc.html": {
+   "x": 6080,
+   "y": 0,
+   "w": 1440,
+   "h": 2148,
+   "title": "Quỹ thành viên · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Portfolio.dc.html": {
+   "x": 7600,
+   "y": 0,
+   "w": 1440,
+   "h": 2565,
+   "title": "Quản lý danh mục · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Advisory.dc.html": {
+   "x": 9120,
+   "y": 0,
+   "w": 1440,
+   "h": 2383,
+   "title": "Tư vấn đầu tư · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Ir.dc.html": {
+   "x": 0,
+   "y": 7631,
+   "w": 1440,
+   "h": 2414,
+   "title": "Công bố thông tin · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "News.dc.html": {
+   "x": 1520,
+   "y": 7631,
+   "w": 1440,
+   "h": 3102,
+   "title": "Góc nhìn & Tin tức · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Academy.dc.html": {
+   "x": 3040,
+   "y": 7631,
+   "w": 1440,
+   "h": 3143,
+   "title": "Học viện Đầu tư · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "GuidePhvsf.dc.html": {
+   "x": 4560,
+   "y": 7631,
+   "w": 1440,
+   "h": 4373,
+   "title": "Hướng dẫn đầu tư PHVSF · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "GuideVnshine.dc.html": {
+   "x": 6080,
+   "y": 7631,
+   "w": 1440,
+   "h": 4006,
+   "title": "Hướng dẫn đầu tư VNSHINE · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Faq.dc.html": {
+   "x": 7600,
+   "y": 7631,
+   "w": 1440,
+   "h": 2879,
+   "title": "Câu hỏi thường gặp · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Glossary.dc.html": {
+   "x": 9120,
+   "y": 7631,
+   "w": 1440,
+   "h": 3068,
+   "title": "Thuật ngữ đầu tư · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Careers.dc.html": {
+   "x": 0,
+   "y": 12424,
+   "w": 1440,
+   "h": 2304,
+   "title": "Tuyển dụng · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Contact.dc.html": {
+   "x": 1520,
+   "y": 12424,
+   "w": 1440,
+   "h": 1506,
+   "title": "Liên hệ · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Forms.dc.html": {
+   "x": 3040,
+   "y": 12424,
+   "w": 1440,
+   "h": 1723,
+   "title": "Biểu mẫu · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Terms.dc.html": {
+   "x": 4560,
+   "y": 12424,
+   "w": 1440,
+   "h": 1178,
+   "title": "Điều khoản sử dụng · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Privacy.dc.html": {
+   "x": 6080,
+   "y": 12424,
+   "w": 1440,
+   "h": 1071,
+   "title": "Chính sách bảo mật · Tiếng Việt · Desktop",
+   "expand": "fill",
+   "is_interactive": true
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Funds.dc.html",
+  "Phvsf.dc.html",
+  "Vnshine.dc.html",
+  "Member.dc.html",
+  "Portfolio.dc.html",
+  "Advisory.dc.html",
+  "Ir.dc.html",
+  "News.dc.html",
+  "Academy.dc.html",
+  "GuidePhvsf.dc.html",
+  "GuideVnshine.dc.html",
+  "Faq.dc.html",
+  "Glossary.dc.html",
+  "Careers.dc.html",
+  "Contact.dc.html",
+  "Forms.dc.html",
+  "Terms.dc.html",
+  "Privacy.dc.html"
+ ],
+ "notes": {
+  "r0": {
+   "x": 0,
+   "y": -300,
+   "text": "Giới thiệu · Sản phẩm & Dịch vụ",
+   "kind": "title1",
+   "maxW": 10560
+  },
+  "r1": {
+   "x": 0,
+   "y": 7331,
+   "text": "Công bố thông tin · Tin tức · Học viện",
+   "kind": "title1",
+   "maxW": 10560
+  },
+  "r2": {
+   "x": 0,
+   "y": 12124,
+   "text": "Tuyển dụng · Liên hệ · Biểu mẫu · Pháp lý",
+   "kind": "title1",
+   "maxW": 7520
+  },
+  "n0": {
+   "x": -620,
+   "y": 0,
+   "w": 520,
+   "fill": "teal",
+   "size": "m",
+   "text": "Trang chủ nằm ở canvas \"Website PHFM - Teal Vanguard\".\n\nỞ đây: 19 trang con, bản tiếng Việt, desktop 1440px.\n\nSửa trực tiếp bố cục, khoảng cách, màu, cỡ chữ, ảnh. Chữ lấy từ dữ liệu (tên quỹ, đoạn mô tả, số liệu) sửa ở artifact \"Nội dung website PHFM\".\n\nSửa xong nhắn Claude: \"đưa thay đổi canvas trang con vào web\"."
+  }
+ },
+ "designSystems": [
+  {
+   "title": "PHFM Teal Editorial",
+   "namespace": "phfm-teal",
+   "artifact": "https://claude.ai/artifact/PekYinK6dcUwREhm7xVVZ9",
+   "version": null,
+   "copiedAt": "2026-10-29T16:45:00Z"
+  }
+ ]
+}

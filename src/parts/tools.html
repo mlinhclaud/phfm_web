@@ -1,0 +1,188 @@
+<script>/* PHFM – nút Công cụ nổi: Ước tính đầu tư định kỳ · Trắc nghiệm khẩu vị rủi ro · Bắt đầu từ con số 0 (bản teal) */
+(function(){
+if(window.__pt)return;window.__pt=1;
+var T={
+vi:{tools:'Công cụ',close:'Đóng',
+ calc:'Ước tính đầu tư định kỳ',calcD:'Thử tính giá trị khoản tích luỹ mỗi tháng',
+ quiz:'Trắc nghiệm khẩu vị rủi ro',quizD:'6 câu hỏi, khoảng 1 phút',
+ zero:'Bắt đầu từ con số 0',zeroD:'Kiến thức cơ bản cho người mới',
+ m:'Số tiền mỗi tháng',y:'Số năm',r:'Lợi suất giả định / năm',cur:'đ',yr:'năm',
+ inv:'Tổng tiền góp',val:'Giá trị ước tính',gain:'Phần tăng thêm',
+ calcNote:'Phép tính giả định góp đều cuối mỗi tháng và lợi suất không đổi; chưa tính phí, thuế và biến động thị trường. Kết quả chỉ mang tính minh hoạ, không phải dự báo hay cam kết lợi nhuận.',
+ legInv:'Tiền góp',legVal:'Giá trị ước tính',
+ q:'Câu',of:'/',back:'Quay lại',again:'Làm lại',
+ draft:'Bản nháp minh hoạ · Bộ câu hỏi và khuyến nghị chờ PHFM duyệt.',
+ resT:'Khẩu vị rủi ro của bạn',
+ resNote:'Kết quả chỉ mang tính tham khảo, không phải tư vấn đầu tư. Hãy đọc kỹ Bản cáo bạch trước khi quyết định.',
+ lv:['Thận trọng','Cân bằng','Tăng trưởng'],
+ lvD:['Bạn ưu tiên giữ an toàn cho khoản tiền. Quỹ cổ phiếu có biến động, nên bắt đầu bằng việc tìm hiểu kiến thức cơ bản và đầu tư định kỳ một khoản nhỏ, nhàn rỗi, trong dài hạn.',
+      'Bạn chấp nhận biến động ở mức vừa phải để đổi lấy tăng trưởng dài hạn. Đầu tư định kỳ vào quỹ mở giúp trung bình hoá giá mua và giữ kỷ luật.',
+      'Bạn sẵn sàng đón nhận biến động để hướng tới tăng trưởng cao hơn trong dài hạn. Có thể kết hợp quỹ mở được quản lý chủ động với quỹ ETF.'],
+ go:{zero:'Bắt đầu từ con số 0',phvsf:'Quỹ mở PHVSF',etf:'PHFM VNSHINE ETF',calc:'Thử ước tính'},
+ Q:[['Mục tiêu chính khi đầu tư của bạn là gì?',['Giữ an toàn cho khoản tiền','Tăng trưởng vừa phải, ổn định','Tăng trưởng cao, chấp nhận biến động']],
+    ['Bạn dự định để khoản tiền này đầu tư trong bao lâu?',['Dưới 1 năm','Từ 1 đến 3 năm','Trên 3 năm']],
+    ['Khoản đầu tư 100 triệu đồng giảm còn 80 triệu sau 3 tháng. Bạn sẽ…',['Bán ngay để tránh lỗ thêm','Giữ nguyên và chờ thị trường hồi phục','Mua thêm vì giá đang rẻ']],
+    ['Bạn đã từng đầu tư những gì?',['Chưa từng đầu tư','Gửi tiết kiệm, vàng, bảo hiểm','Cổ phiếu, chứng chỉ quỹ']],
+    ['Số tiền định đầu tư chiếm bao nhiêu trong tiền nhàn rỗi của bạn?',['Phần lớn','Khoảng một nửa','Một phần nhỏ']],
+    ['Khi nghe tin thị trường giảm mạnh, bạn thường cảm thấy…',['Rất lo lắng','Hơi lo nhưng vẫn bình tĩnh','Xem đó là cơ hội']]]},
+en:{tools:'Tools',close:'Close',
+ calc:'Regular investment estimator',calcD:'See how a monthly plan could grow',
+ quiz:'Risk appetite quiz',quizD:'6 questions, about 1 minute',
+ zero:'Start from zero',zeroD:'The basics for first-time investors',
+ m:'Monthly amount',y:'Years',r:'Assumed annual return',cur:'VND',yr:'yrs',
+ inv:'Total contributed',val:'Estimated value',gain:'Growth',
+ calcNote:'Assumes equal contributions at the end of each month and a constant return; excludes fees, taxes and market volatility. For illustration only, not a forecast or a promise of returns.',
+ legInv:'Contributed',legVal:'Estimated value',
+ q:'Question',of:'/',back:'Back',again:'Retake',
+ draft:'Illustrative draft · Questions and recommendations pending PHFM review.',
+ resT:'Your risk appetite',
+ resNote:'For reference only, not investment advice. Please read the prospectus before investing.',
+ lv:['Conservative','Balanced','Growth'],
+ lvD:['You put safety first. Equity funds fluctuate, so start by learning the basics and investing a small, spare amount regularly over the long term.',
+      'You accept moderate swings in exchange for long-term growth. A regular plan in an open-ended fund averages your purchase price and keeps you disciplined.',
+      'You are ready to ride out volatility for higher long-term growth. You may combine an actively managed open-ended fund with an ETF.'],
+ go:{zero:'Start from zero',phvsf:'PHVSF Open-Ended Fund',etf:'PHFM VNSHINE ETF',calc:'Try the estimator'},
+ Q:[['What is your main investment goal?',['Keep my money safe','Steady, moderate growth','High growth, accepting volatility']],
+    ['How long do you plan to stay invested?',['Less than 1 year','1 to 3 years','More than 3 years']],
+    ['Your VND 100 million investment falls to VND 80 million in 3 months. You would…',['Sell now to avoid further losses','Hold and wait for a recovery','Buy more while prices are low']],
+    ['What have you invested in before?',['Nothing yet','Savings, gold, insurance','Stocks or fund units']],
+    ['How much of your spare cash would this be?',['Most of it','About half','A small part']],
+    ['When you hear the market has dropped sharply, you feel…',['Very worried','A little worried but calm','It is an opportunity']]]},
+zh:{tools:'工具',close:'關閉',
+ calc:'定期定額試算',calcD:'試算每月累積投資的價值',
+ quiz:'風險偏好測驗',quizD:'6 道題，約 1 分鐘',
+ zero:'從零開始',zeroD:'新手投資人的基礎知識',
+ m:'每月金額',y:'年數',r:'假設年報酬率',cur:'越南盾',yr:'年',
+ inv:'累計投入',val:'估計價值',gain:'增長部分',
+ calcNote:'假設每月月底定額投入且報酬率固定；未計入費用、稅負及市場波動。結果僅供說明，並非預測或報酬承諾。',
+ legInv:'累計投入',legVal:'估計價值',
+ q:'第',of:'/',back:'上一步',again:'重新測驗',
+ draft:'示意草稿 · 題目與建議待 PHFM 審核。',
+ resT:'您的風險偏好',
+ resNote:'結果僅供參考，並非投資建議。投資前請詳閱公開說明書。',
+ lv:['保守型','穩健型','成長型'],
+ lvD:['您以資金安全為優先。股票型基金會有波動，建議先了解基礎知識，並以閒置的小額資金長期定期投資。',
+      '您願意承受適度波動以換取長期成長。定期投資開放式基金有助於平均買入成本並保持紀律。',
+      '您願意承受波動以追求更高的長期成長，可搭配主動管理的開放式基金與 ETF。'],
+ go:{zero:'從零開始',phvsf:'PHVSF 開放式基金',etf:'PHFM VNSHINE ETF',calc:'試算看看'},
+ Q:[['您投資的主要目標是什麼？',['保本為主','穩定、適度成長','高成長，可接受波動']],
+    ['您預計這筆資金投資多久？',['少於 1 年','1 至 3 年','超過 3 年']],
+    ['您投資 1 億越南盾，3 個月後跌至 8 千萬。您會…',['立即賣出避免再虧','繼續持有等待回升','趁低價加碼']],
+    ['您曾經投資過哪些項目？',['從未投資','存款、黃金、保險','股票或基金']],
+    ['這筆投資占您閒置資金的比例？',['大部分','約一半','一小部分']],
+    ['聽到市場大跌時，您通常會…',['非常擔心','有點擔心但仍冷靜','視為機會']]]}};
+var TH={1:['#0A3440','#FFFFFF','#0B6274']};
+var ON=[1];
+function L(){var l=(window.__phfmRoute?window.__phfmRoute().lang:'vi');return T[l]?l:'vi'}
+function t(){return T[L()]}
+function opt(){return 1}
+function fr(){return false}
+var css='#pt-fab{position:fixed;right:24px;bottom:24px;z-index:85;border:2px solid #E9C46A!important;display:flex;align-items:center;gap:8px;height:48px;padding:0 18px 0 14px;border:0;border-radius:999px;font:600 14px/1 Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 28px rgba(10,52,64,.28);transition:transform .2s,right .2s}'+
+'#pt-fab:hover{transform:translateY(-2px)}#pt-fab svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}'+
+'#pt-menu{position:fixed;right:24px;bottom:84px;z-index:86;width:300px;background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(10,52,64,.2);padding:8px;display:none;font-family:Inter,system-ui,sans-serif}'+
+'#pt-menu.on{display:block;animation:ptIn .18s ease-out}@keyframes ptIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}'+
+'#pt-menu button{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:12px;cursor:pointer;color:#16262B}'+
+'#pt-menu button:hover,#pt-menu button:focus-visible{background:#E3EEF0;outline:none}#pt-menu .ic{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center}'+
+'#pt-menu .ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}#pt-menu b{display:block;font-size:14px;line-height:1.35}#pt-menu small{display:block;font-size:12.5px;color:#4D6066;margin-top:2px;line-height:1.4}'+
+'#pt-ov{position:fixed;inset:0;z-index:95;background:rgba(10,52,64,.45);display:none;align-items:center;justify-content:center;padding:16px;font-family:Inter,system-ui,sans-serif}#pt-ov.on{display:flex}'+
+'#pt-dlg{background:#fff;color:#16262B;width:min(560px,100%);max-height:calc(100vh - 32px);overflow:auto;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);padding:28px 28px 24px;position:relative}'+
+'#pt-dlg h3{margin:0 40px 6px 0;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-.01em}#pt-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border:0;border-radius:50%;background:#E3EEF0;cursor:pointer;font-size:20px;line-height:1;color:#0A3440}'+
+'.pt-n{margin-top:8px;width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid #D8E7EA;border-radius:4px;font:600 14px Inter,system-ui,sans-serif;color:#16262B;background:#fff}.pt-f{margin-top:18px}.pt-f label{display:flex;justify-content:space-between;font-size:13.5px;color:#4D6066;margin-bottom:8px}.pt-f label b{color:#16262B;font-variant-numeric:tabular-nums}.pt-f input[type=range]{width:100%;accent-color:var(--pt-acc)}'+
+'.pt-res{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.pt-res div{background:#E3EEF0;border-radius:10px;padding:12px}.pt-res small{display:block;font-size:12px;color:#4D6066}.pt-res b{display:block;font-size:17px;margin-top:4px;font-variant-numeric:tabular-nums}.pt-res .hi b{color:var(--pt-acc)}'+
+'.pt-chart{margin-top:16px}.pt-chart svg{width:100%;height:auto;display:block}.pt-leg{display:flex;gap:16px;font-size:12px;color:#4D6066;margin-top:6px}.pt-leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}'+
+'.pt-note{font-size:12px;line-height:1.55;color:#4D6066;margin:14px 0 0}.pt-draft{display:inline-block;font-size:11.5px;color:#0A3440;background:#E3EEF0;border-radius:6px;padding:4px 8px;margin-top:4px}'+
+'.pt-prog{height:4px;background:#D8E7EA;border-radius:4px;margin:16px 0 18px;overflow:hidden}.pt-prog i{display:block;height:100%;background:var(--pt-acc);transition:width .25s}'+
+'.pt-qn{font-size:12.5px;color:#4D6066}.pt-qt{font-size:18px;font-weight:600;line-height:1.4;margin:6px 0 14px}'+
+'.pt-opt{display:block;width:100%;text-align:left;border:1px solid #D8E7EA;background:#fff;border-radius:10px;padding:14px 16px;margin-top:10px;font:500 15px/1.4 Inter,system-ui,sans-serif;color:#16262B;cursor:pointer}.pt-opt:hover,.pt-opt:focus-visible{border-color:var(--pt-acc);background:#F2F8F9;outline:none}.pt-opt span{display:inline-block;width:24px;font-weight:700;color:var(--pt-acc)}'+
+'.pt-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pt-btn{border:0;border-radius:999px;padding:12px 18px;font:600 14px/1 Inter,system-ui,sans-serif;cursor:pointer}.pt-btn.o{background:#fff;border:1px solid #D8E7EA;color:#16262B}.pt-link{background:none;border:0;color:#4D6066;font:500 13.5px Inter,system-ui,sans-serif;cursor:pointer;padding:8px 0;margin-top:8px}'+
+'.pt-lv{display:flex;gap:6px;margin:14px 0 10px}.pt-lv i{flex:1;height:8px;border-radius:4px;background:#D8E7EA}.pt-lv i.on{background:var(--pt-acc)}.pt-big{font-size:26px;font-weight:700;color:var(--pt-acc);margin:4px 0 8px}'+
+'@media (max-width:640px){#pt-fab{right:16px;bottom:16px;height:44px;padding:0 14px 0 12px}#pt-menu{right:16px;left:16px;width:auto;bottom:70px}#pt-ov{align-items:flex-end;padding:0}#pt-dlg{width:100%;border-radius:18px 18px 0 0;max-height:88vh;padding:24px 18px 20px}.pt-res{grid-template-columns:1fr 1fr}.pt-res div:last-child{grid-column:1/-1}}';
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+var IC={tools:'<svg viewBox="0 0 24 24"><path d="M4 7h10M4 17h6"/><circle cx="17" cy="7" r="3"/><circle cx="13" cy="17" r="3"/><path d="M16 17h4"/></svg>',
+calc:'<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg>',
+quiz:'<svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M6 15l4-6 4 3 4-7"/></svg>',
+zero:'<svg viewBox="0 0 24 24"><path d="M4 6l8-3 8 3-8 3z"/><path d="M6 8v5c0 1.7 2.7 3 6 3s6-1.3 6-3V8"/><path d="M20 6v6"/></svg>'};
+var fab=document.createElement('button');fab.id='pt-fab';fab.type='button';fab.setAttribute('aria-haspopup','menu');fab.setAttribute('translate','no');
+var menu=document.createElement('div');menu.id='pt-menu';menu.setAttribute('role','menu');menu.setAttribute('translate','no');
+var ov=document.createElement('div');ov.id='pt-ov';ov.setAttribute('translate','no');ov.innerHTML='<div id="pt-dlg" role="dialog" aria-modal="true"></div>';
+document.body.appendChild(menu);document.body.appendChild(fab);document.body.appendChild(ov);
+var dlg=ov.firstChild,cur='';
+function CBf(){return {vi:['Liên hệ để tìm giải pháp dành riêng cho bạn.','Tìm giải pháp phù hợp'],en:['Contact us to find a solution made for you.','Find the right solution'],zh:['歡迎聯絡我們，尋找專屬於您的方案。','尋找合適的方案']}[L()]}
+function theme(){var th=TH[opt()]||TH[1];var vis=ON.indexOf(opt())>=0;fab.style.display=vis?'':'none';if(!vis){menu.classList.remove('on');if(ov.classList.contains('on'))shut()}fab.style.background=th[0];fab.style.color=th[1];document.documentElement.style.setProperty('--pt-acc',th[2]);document.documentElement.style.setProperty('--pt-bg',th[0]);document.documentElement.style.setProperty('--pt-fg',th[1]);
+ var b4=fr()&&opt()===4,wide=window.innerWidth>640;fab.style.right=b4&&wide?'104px':'';menu.style.right=b4&&wide?'104px':'';fab.style.bottom=b4&&!wide?'104px':'';menu.style.bottom=b4&&!wide?'160px':''}
+window.addEventListener('resize',function(){theme()});
+function paint(){var x=t();theme();fab.innerHTML=IC.tools+'<span>'+x.tools+'</span>';fab.setAttribute('aria-label',x.tools);
+ var th=TH[opt()]||TH[1];
+ menu.innerHTML=['calc','quiz','zero'].map(function(k){return '<button type="button" role="menuitem" data-pt="'+k+'"><span class="ic" style="background:#E3EEF0;color:#0B6274">'+IC[k]+'</span><span><b>'+x[k]+'</b><small>'+x[k+'D']+'</small></span></button>'}).join('');
+ if(ov.classList.contains('on')){if(cur==='calc')calc();else if(cur==='quiz')quizRender()}}
+var lastL='',lastO='';setInterval(function(){var k=L()+opt()+fr();if(k!==lastL){lastL=k;paint()}},600);paint();
+fab.onclick=function(e){e.stopPropagation();menu.classList.toggle('on');fab.setAttribute('aria-expanded',menu.classList.contains('on'))};
+document.addEventListener('click',function(e){if(!e.target.closest('#pt-menu,#pt-fab'))menu.classList.remove('on')});
+menu.onclick=function(e){var b=e.target.closest('[data-pt]');if(!b)return;menu.classList.remove('on');act(b.dataset.pt)};
+function act(k){if(k==='calc'){open('calc');calc()}else if(k==='quiz'){open('quiz');qa=[];quizRender()}else if(k==='zero')nav('zero')}
+function open(k){cur=k;ov.classList.add('on');document.documentElement.style.overflow='hidden'}
+function shut(){ov.classList.remove('on');cur='';document.documentElement.style.overflow=''}
+ov.addEventListener('click',function(e){if(e.target===ov||e.target.id==='pt-x')shut();var g=e.target.closest('[data-go]');if(g&&dlg.contains(g)){e.preventDefault();var to=g.dataset.go;if(to==='calc'){open('calc');calc()}else{shut();nav(to)}}
+ if(e.target.closest('[data-again]')){qa=[];quizRender()}if(e.target.closest('[data-back]')){qa.pop();quizRender()}var o=e.target.closest('[data-a]');if(o){qa.push(+o.dataset.a);quizRender()}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(ov.classList.contains('on'))shut();menu.classList.remove('on')}});
+window.addEventListener('message',function(e){var d=e.data;if(d&&d.phfmTool)act(d.phfmTool)});
+function head(title,sub){return '<button id="pt-x" type="button" aria-label="'+t().close+'">×</button><h3>'+title+'</h3>'+(sub||'')}
+/* ---- navigation ---- */
+var FR={phvsf:[['Sản phẩm & Dịch vụ','Product & Service','產品與服務'],['Quỹ mở PHVSF','PHVSF Open-Ended Fund','PHVSF 開放式基金']],
+ etf:[['Sản phẩm & Dịch vụ','Product & Service','產品與服務'],['PHFM VNSHINE ETF']],
+ zero:[['Kiến thức Đầu tư','Investment Education','投資者教育']],
+ contact:[['Liên hệ','Contact','聯絡我們']]};
+var OUTP={phvsf:'phvsf',etf:'vnshine',zero:'academy',contact:'contact'};
+function nav(k){if(window.__phfmSetHash){window.__phfmSetHash(L(),OUTP[k]);try{scrollTo(0,0)}catch(_){}return}if(false){var f=document.getElementById('o5f');if(!f)return;var d=f.contentDocument,steps=FR[k].slice(),go=function(){if(!steps.length){try{f.contentWindow.scrollTo(0,0)}catch(_){}return}var set=steps.shift();var root=d.querySelector('header')||d.body;var el=[].slice.call(root.querySelectorAll('*')).reverse().find(function(a){return set.indexOf(a.textContent.trim().replace(/\s+/g,' '))>=0});if(el)el.click();setTimeout(go,380)};go();return}
+ location.hash='o'+(opt()===4?4:opt())+'.'+OUTP[k];try{scrollTo(0,0)}catch(_){}}
+/* ---- calculator ---- */
+var cs={m:3000000,y:10,r:8};
+function fmt(v){var l=L();return Math.round(v).toLocaleString(l==='vi'?'vi-VN':'en-US')}
+function cmp(v){var l=L(),x=t();if(l==='vi'){if(v>=1e9)return (v/1e9).toLocaleString('vi-VN',{maximumFractionDigits:2})+' tỷ đ';return (v/1e6).toLocaleString('vi-VN',{maximumFractionDigits:1})+' triệu đ'}
+ if(l==='zh'){if(v>=1e8)return (v/1e8).toLocaleString('en-US',{maximumFractionDigits:2})+' 億越南盾';return (v/1e4).toLocaleString('en-US',{maximumFractionDigits:0})+' 萬越南盾'}
+ if(v>=1e9)return 'VND '+(v/1e9).toLocaleString('en-US',{maximumFractionDigits:2})+' bn';return 'VND '+(v/1e6).toLocaleString('en-US',{maximumFractionDigits:1})+' m'}
+function sim(){var r=cs.r/100/12,inv=[],val=[],v=0;for(var mo=1;mo<=cs.y*12;mo++){v=v*(1+r)+cs.m;if(mo%12===0){inv.push(cs.m*mo);val.push(v)}}return {inv:inv,val:val}}
+function chart(s){var x=t(),W=520,H=200,p=34,mx=Math.max.apply(null,s.val)*1.05,n=s.val.length;
+ var X=function(i){return p+(W-p-8)*(i+1)/n},Y=function(v){return H-22-(H-34)*v/mx};
+ var line=function(a){return a.map(function(v,i){return (i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)}).join('')};
+ var area=function(a){return 'M'+X(0).toFixed(1)+' '+Y(0)+'L'+a.map(function(v,i){return X(i).toFixed(1)+' '+Y(v).toFixed(1)}).join('L')+'L'+X(n-1).toFixed(1)+' '+Y(0)+'Z'};
+ var acc=(getComputedStyle(document.documentElement).getPropertyValue('--pt-acc')||'#7A5C00').trim(),h=mx/2/1.05;
+ return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+x.val+'"><line x1="'+p+'" x2="'+(W-8)+'" y1="'+Y(0)+'" y2="'+Y(0)+'" stroke="#D8E7EA"/><line x1="'+p+'" x2="'+(W-8)+'" y1="'+Y(h)+'" y2="'+Y(h)+'" stroke="#E3EEF0" stroke-dasharray="3 4"/>'+
+  '<path d="'+area(s.val)+'" fill="'+acc+'" opacity=".14"/><path d="'+line(s.val)+'" fill="none" stroke="'+acc+'" stroke-width="2.5"/><path d="'+line(s.inv)+'" fill="none" stroke="#86B4BE" stroke-width="2" stroke-dasharray="5 4"/>'+
+  '<text x="'+(p-6)+'" y="'+(Y(0)+4)+'" font-size="11" text-anchor="end" fill="#4D6066">0</text>'+
+  '<text x="'+X(0)+'" y="'+(H-4)+'" font-size="11" text-anchor="middle" fill="#4D6066">1</text><text x="'+X(n-1)+'" y="'+(H-4)+'" font-size="11" text-anchor="end" fill="#4D6066">'+n+' '+x.yr+'</text></svg>'+
+  '<div class="pt-leg"><span><i style="background:'+acc+'"></i>'+x.legVal+'</span><span><i style="background:#86B4BE"></i>'+x.legInv+'</span><span style="margin-left:auto">'+cmp(h)+'</span></div>'}
+function upd(){var x=t(),s=sim(),I=s.inv[s.inv.length-1],V=s.val[s.val.length-1],q=function(id){return dlg.querySelector(id)};
+ q('#pt-mv').textContent=fmt(cs.m)+' '+x.cur;q('#pt-yv').textContent=cs.y+' '+x.yr;q('#pt-rv').textContent=cs.r.toLocaleString(L()==='vi'?'vi-VN':'en-US')+'%';
+ q('#pt-res').innerHTML='<div><small>'+x.inv+'</small><b>'+cmp(I)+'</b></div><div class="hi"><small>'+x.val+'</small><b>'+cmp(V)+'</b></div><div><small>'+x.gain+'</small><b>'+cmp(V-I)+'</b></div>';
+ q('#pt-ch').innerHTML=chart(s)}
+function calc(){var x=t();
+ dlg.innerHTML=head(x.calc)+
+  '<div class="pt-f"><label for="pt-m">'+x.m+'<b id="pt-mv"></b></label><input id="pt-m" type="range" min="100000" max="50000000" step="100000" value="'+cs.m+'"></div>'+
+  '<div class="pt-f"><label for="pt-y">'+x.y+'<b id="pt-yv"></b></label><input id="pt-y" type="range" min="1" max="30" step="1" value="'+cs.y+'"></div>'+
+  '<div class="pt-f"><label for="pt-r">'+x.r+'<b id="pt-rv"></b></label><input id="pt-r" type="range" min="0" max="15" step="0.5" value="'+cs.r+'"></div>'+
+  '<div class="pt-res" id="pt-res" aria-live="polite"></div><div class="pt-chart" id="pt-ch"></div><p class="pt-note">'+x.calcNote+'</p>';
+ ['m','y','r'].forEach(function(k){var el=dlg.querySelector('#pt-'+k);var nb=document.createElement('input');nb.type='number';nb.className='pt-n';nb.min=el.min;nb.max=el.max;nb.step=el.step;nb.value=cs[k];nb.setAttribute('aria-label',k);el.parentNode.appendChild(nb);
+  el.oninput=function(){cs[k]=+el.value;nb.value=el.value;upd()};
+  nb.oninput=function(){var v=parseFloat(nb.value);if(isNaN(v))return;v=Math.min(+el.max,Math.max(+el.min,v));cs[k]=v;el.value=v;upd()};
+  nb.onchange=function(){nb.value=cs[k]}});
+ upd();dlg.querySelector('#pt-x').focus()}
+/* ---- quiz ---- */
+var qa=[];
+function quizRender(){var x=t(),Q=x.Q,i=qa.length;
+ if(i<Q.length){var q=Q[i];dlg.innerHTML=head(x.quiz,'<span class="pt-draft">'+x.draft+'</span>')+
+  '<div class="pt-prog"><i style="width:'+Math.round(i/Q.length*100)+'%"></i></div><div class="pt-qn">'+x.q+' '+(i+1)+x.of+Q.length+'</div><div class="pt-qt">'+q[0]+'</div>'+
+  q[1].map(function(a,j){return '<button class="pt-opt" type="button" data-a="'+(j+1)+'"><span>'+'ABC'[j]+'</span>'+a+'</button>'}).join('')+
+  (i?'<button class="pt-link" type="button" data-back>← '+x.back+'</button>':'');
+  var f=dlg.querySelector('.pt-opt');if(f)f.focus();return}
+ var CB=CBf();var sc=qa.reduce(function(a,b){return a+b},0),lv=sc<=10?0:sc<=14?1:2;
+ var gos=[['zero','phvsf'],['phvsf','calc'],['etf','phvsf']][lv];
+ var th=TH[opt()]||TH[1];
+ dlg.innerHTML=head(x.quiz,'<span class="pt-draft">'+x.draft+'</span>')+
+  '<div class="pt-prog"><i style="width:100%"></i></div><div class="pt-qn">'+x.resT+'</div><div class="pt-big">'+x.lv[lv]+'</div>'+
+  '<div class="pt-lv">'+[0,1,2].map(function(k){return '<i class="'+(k<=lv?'on':'')+'"></i>'}).join('')+'</div>'+
+  '<p style="font-size:15px;line-height:1.6;margin:0">'+x.lvD[lv]+'</p>'+
+  '<p style="font-size:15px;line-height:1.6;margin:14px 0 0;font-weight:600">'+CB[0]+'</p><div class="pt-row"><a href="#" class="pt-btn" data-go="contact" style="background:'+th[0]+';color:'+th[1]+';text-decoration:none">'+CB[1]+' →</a></div>'+
+  '<button class="pt-link" type="button" data-again>↻ '+x.again+'</button><p class="pt-note">'+x.resNote+'</p>'}
+})();
+</script>

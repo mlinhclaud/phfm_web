@@ -1,0 +1,58 @@
+name: Build và QA
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Cài thư viện
+        run: |
+          pip install pillow
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Build
+        run: python3 src/build.py
+      - name: QA 20 trang × VI/EN × 1440/390
+        run: node qa/qa.js
+      - name: Lưu bản build và ảnh chụp
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phfm-${{ github.event.pull_request.number || github.run_number }}
+          path: |
+            dist/phfm-website.html
+            qa/out/audit.json
+            qa/out/shots/
+          retention-days: 14
+      - name: Link xem thử (Netlify, chỉ chạy khi đã có secret)
+        if: github.event_name == 'pull_request' && env.NETLIFY_AUTH_TOKEN != ''
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          mkdir -p preview && cp dist/phfm-website.html preview/index.html
+          npx --yes netlify-cli@17 deploy --dir=preview --alias=pr-${{ github.event.pull_request.number }} --message "PR #${{ github.event.pull_request.number }}" > deploy.log
+          URL=$(grep -oE 'https://pr-[^ ]+netlify\.app' deploy.log | head -1)
+          echo "Link xem thử: $URL" >> $GITHUB_STEP_SUMMARY
+          gh pr comment ${{ github.event.pull_request.number }} --body "Link xem thử (không phải phfm.vn): $URL" || true

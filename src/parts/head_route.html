@@ -1,0 +1,36 @@
+<title>PHFM · Công ty Cổ phần Quản lý Quỹ Phú Hưng</title>
+<meta name="description" content="Công ty Cổ phần Quản lý Quỹ Phú Hưng (PHFM): quỹ mở PHVSF, quỹ ETF PHFM VNSHINE, quỹ thành viên, quản lý danh mục và tư vấn đầu tư.">
+<script>
+/* Định tuyến theo URL: #/vi/vnshine, #/en/about ... (A01). Back/Forward, F5 và chia sẻ link đều giữ đúng trang.
+   Bên dev có thể đổi sang đường dẫn thật (/vi/vnshine) khi đưa lên CMS. */
+(function () {
+  var PAGES = ['home','about','phvsf','vnshine','member','portfolio','advisory','ir','news','academy','careers','contact','guidePhvsf','guideVnshine','faq','glossary','funds','forms','terms','privacy'];
+  var LANGS = ['vi','en','zh'];
+  window.__phfmRoute = function () {
+    var m = (location.hash || '').match(/^#\/?([a-z]{2})?\/?([A-Za-z]*)/) || [];
+    var lang = LANGS.indexOf(m[1]) >= 0 ? m[1] : 'vi';
+    var page = PAGES.indexOf(m[2]) >= 0 ? m[2] : 'home';
+    return { lang: lang, page: page };
+  };
+  window.__phfmSetHash = function (lang, page) {
+    var h = '#/' + (lang || 'vi') + '/' + (page || 'home');
+    if (location.hash !== h) location.hash = h;
+  };
+  window.__PHFM_LANG = window.__phfmRoute().lang;
+  var T = {
+    home: ['Trang chủ', 'Home'], about: ['Về chúng tôi', 'About us'], funds: ['Danh sách quỹ', 'Fund list'],
+    phvsf: ['Quỹ mở PHVSF', 'PHVSF Open-ended Fund'], vnshine: ['PHFM VNSHINE ETF', 'PHFM VNSHINE ETF'],
+    member: ['Quỹ thành viên', 'Member funds'], portfolio: ['Quản lý danh mục', 'Portfolio management'], advisory: ['Tư vấn đầu tư', 'Investment advisory'],
+    ir: ['Công bố thông tin', 'Information disclosure'], news: ['Góc nhìn & Tin tức', 'Insights & News'], academy: ['Học viện Đầu tư', 'Investment Academy'],
+    careers: ['Tuyển dụng', 'Careers'], contact: ['Liên hệ', 'Contact'], guidePhvsf: ['Hướng dẫn đầu tư PHVSF', 'How to invest in PHVSF'],
+    guideVnshine: ['Hướng dẫn đầu tư PHFM VNSHINE ETF', 'How to invest in PHFM VNSHINE ETF'], faq: ['Câu hỏi thường gặp', 'FAQ'],
+    glossary: ['Thuật ngữ đầu tư', 'Glossary'], forms: ['Biểu mẫu', 'Forms'], terms: ['Điều khoản sử dụng', 'Terms of use'], privacy: ['Chính sách bảo mật', 'Privacy policy']
+  };
+  window.__phfmTitle = function (page, lang) {
+    var t = T[page] || T.home, name = lang === 'vi' ? t[0] : t[1];
+    var brand = lang === 'vi' ? 'PHFM · Quản lý Quỹ Phú Hưng' : 'PHFM · Phu Hung Fund Management';
+    var title = page === 'home' ? brand : name + ' | PHFM';
+    if (document.title !== title) document.title = title;
+  };
+})();
+</script>

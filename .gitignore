@@ -1,0 +1,8 @@
+dist/
+build/
+qa/out/
+node_modules/
+__pycache__/
+*.pyc
+.taste-skill/
+.DS_Store

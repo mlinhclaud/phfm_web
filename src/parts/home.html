@@ -1,0 +1,132 @@
+  <sc-if value="{{ is.home }}" hint-placeholder-val="{{ true }}">
+    <main data-screen-label="01 Trang chủ" data-hm="1" class="hm">
+
+      <section class="hm-hero" aria-label="Banner" onMouseEnter="{{ th.hoverOn }}" onMouseLeave="{{ th.hoverOff }}">
+        <sc-if value="{{ th.slide.split }}" hint-placeholder-val="{{ true }}"><div aria-hidden="true" class="hm-skew"></div></sc-if>
+        <sc-if value="{{ th.slide.full }}" hint-placeholder-val="{{ false }}"><img src="{{ th.slide.bg }}" alt="" aria-hidden="true" class="hm-fullbg"><div aria-hidden="true" class="hm-fullov"></div></sc-if>
+        <div class="hm-hero-in">
+          <div class="hm-txt">
+            <div class="hm-eye"><i class="hm-bar"></i>{{ th.slide.eyebrow }}</div>
+            <h1>{{ th.slide.title }}</h1>
+            <p>{{ th.slide.lead }}</p>
+            <div class="hm-txt-cta"><a href="{{ th.slide.href }}" onClick="{{ th.slide.onClick }}" target="{{ th.slide.target }}" rel="noopener" class="cta cta-gold hm-btn-lg">{{ th.slide.cta }}</a></div>
+          </div>
+          <div class="hm-pic">
+            <sc-if value="{{ th.slide.split }}" hint-placeholder-val="{{ true }}">
+              <div aria-hidden="true" class="hm-ring"></div><div aria-hidden="true" class="hm-disc"></div>
+              <img src="{{ th.slide.img }}" alt="{{ th.slide.alt }}" class="hm-person">
+            </sc-if>
+          </div>
+        </div>
+        <div class="hm-dots"><sc-for list="{{ th.dots }}" as="dt" hint-placeholder-count="3"><button type="button" onClick="{{ dt.go }}" aria-label="{{ dt.label }}" aria-current="{{ dt.cur }}" class="hm-dot"><span class="{{ dt.cls }}"></span></button></sc-for></div>
+      </section>
+
+      <section class="hm-wants">
+        <div class="hm-wants-g" data-keepgrid>
+          <sc-for list="{{ th.wants }}" as="w" hint-placeholder-count="3">
+            <a href="{{ w.href }}" onClick="{{ w.onClick }}" class="want">
+              <span class="hm-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ w.icon }}"/></svg></span>
+              <span class="hm-want-b"><span class="{{ w.tcls }}">{{ w.t }}</span><span class="hm-want-d">{{ w.d }}</span></span>
+              <span class="want-go" aria-hidden="true">→</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <section class="hm-about">
+        <div class="hm-about-in" data-keepgrid>
+          <div class="hm-about-l">
+            <h2 class="hm-h2 hm-pre">{{ th.aboutTitle }}</h2>
+            <a href="{{ hrefs.about }}" onClick="{{ go.about }}" class="hm-link">{{ th.learn }} →</a>
+          </div>
+          <div class="hm-stats">
+            <sc-for list="{{ th.stats }}" as="st" hint-placeholder-count="3">
+              <div class="hm-stat"><div class="hm-statv" data-nocu="1">{{ st.v }}</div><div class="hm-statl">{{ st.l }}</div></div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section class="hm-prods">
+        <div class="hm-w hm-prods-in" data-keepgrid>
+          <div class="hm-sechead">
+            <div class="hm-sechead-t"><div class="hm-ey">{{ th.prodEyebrow }}</div><h2 class="hm-h2">{{ th.prodTitle }}</h2></div>
+            <a href="{{ hrefs.funds }}" onClick="{{ go.funds }}" class="hm-link hm-desk">{{ th.prodAll }} →</a>
+          </div>
+          <div class="hm-g3">
+            <sc-for list="{{ th.prods }}" as="p" hint-placeholder-count="3">
+              <a href="{{ p.href }}" onClick="{{ p.onClick }}" class="prod hm-prod">
+                <img src="{{ p.img }}" alt="{{ p.alt }}" class="hm-prod-img">
+                <span class="hm-prod-b"><span class="hm-prod-t">{{ p.t }}</span><span class="prod-go" aria-hidden="true">→</span></span>
+              </a>
+            </sc-for>
+          </div>
+          <div class="hm-g2">
+            <sc-for list="{{ th.svcs }}" as="sv" hint-placeholder-count="2">
+              <a href="{{ sv.href }}" onClick="{{ sv.onClick }}" class="prod hm-svc">
+                <span class="hm-ic hm-ic-s"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ sv.icon }}"/></svg></span>
+                <span class="hm-svc-b"><span class="hm-svc-tag">{{ th.svcTag }}</span><span class="hm-svc-t">{{ sv.t }}</span><span class="hm-svc-d">{{ sv.d }}</span></span>
+                <span class="prod-go hm-go40" aria-hidden="true">→</span>
+              </a>
+            </sc-for>
+          </div>
+          <a href="{{ hrefs.funds }}" onClick="{{ go.funds }}" class="hm-link hm-mob">{{ th.prodAll }} →</a>
+        </div>
+      </section>
+
+      <section class="hm-quote">
+        <div class="hm-quote-in">
+          <div aria-hidden="true" class="hm-orn"><i class="l"></i><i class="d"></i><i class="l"></i></div>
+          <p>{{ th.q1 }}<br><b class="hm-q2">{{ th.q2 }}</b></p>
+        </div>
+      </section>
+
+      <section class="hm-vns-s">
+        <div class="hm-w hm-vns" data-keepgrid>
+          <div class="hm-vns-pic"><img src="{{ img.hm_vns }}" alt="{{ th.vnsAlt }}" class="hm-vns-img"></div>
+          <div class="hm-vns-txt">
+            <div class="hm-ey">{{ th.vnsEyebrow }}</div>
+            <h2 class="hm-h2">PHFM VNSHINE ETF</h2>
+            <p class="hm-vns-p">{{ th.vnsBody }}</p>
+            <div class="hm-facts">
+              <sc-for list="{{ th.vnsFacts }}" as="vf" hint-placeholder-count="3"><div><div class="hm-fk">{{ vf.k }}</div><div class="hm-fv">{{ vf.v }}</div></div></sc-for>
+            </div>
+            <div><a href="{{ hrefs.vnshine }}" onClick="{{ go.vnshine }}" class="cta cta-teal hm-btn">{{ th.learn }}</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hm-news-s">
+        <div class="hm-w hm-news-in" data-keepgrid>
+          <div class="hm-sechead">
+            <div class="hm-sechead-t"><div class="hm-ey">{{ th.newsEyebrow }}</div><h2 class="hm-h2">{{ th.newsTitle }}</h2></div>
+            <a href="{{ hrefs.news }}" onClick="{{ go.news }}" class="hm-link hm-desk">{{ th.viewAll }} →</a>
+          </div>
+          <div class="hm-news">
+            <sc-for list="{{ th.news }}" as="n" hint-placeholder-count="3">
+              <a href="{{ hrefs.news }}" onClick="{{ go.news }}" class="hm-nitem">
+                <img src="{{ n.img }}" alt="{{ n.alt }}" class="hm-nimg">
+                <span class="hm-ntx"><span class="hm-nm">{{ n.m }}</span><span class="hm-nt">{{ n.t }}</span></span>
+              </a>
+            </sc-for>
+          </div>
+          <a href="{{ hrefs.news }}" onClick="{{ go.news }}" class="hm-link hm-mob">{{ th.viewAll }} →</a>
+        </div>
+      </section>
+
+      <section class="hm-cta">
+        <div class="hm-cta-in" data-keepgrid>
+          <div class="hm-cta-l">
+            <h2>{{ th.ctaTitle }}</h2>
+            <p>{{ th.ctaBody }}</p>
+            <div class="hm-cta-btns">
+              <a href="https://fund.phfm.vn" target="_blank" rel="noopener" class="cta cta-gold hm-btn">{{ th.ctaBtn }}</a>
+              <a href="{{ appUrl }}" target="_blank" rel="noopener" class="cta cta-ghost hm-btn">{{ th.ctaApp }}</a>
+            </div>
+          </div>
+          <div class="hm-cta-pic"><img src="{{ img.hm_cta }}" alt="{{ th.ctaAlt }}" class="hm-cta-img"></div>
+        </div>
+      </section>
+
+    </main>
+  </sc-if>

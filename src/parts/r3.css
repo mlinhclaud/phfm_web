@@ -1,0 +1,114 @@
+/* ===== Vòng 3 · phối teal đậm #0A3440 theo style Teal Vanguard của trang chủ ===== */
+
+/* menu: chỉ một gạch chân vàng (bỏ gạch hover chồng lên gạch trang đang mở) */
+header .th-nav>div:has(>div[style*="height:2px"])::after{display:none!important}
+
+/* ô chọn ngày: chữ và icon lịch nằm gọn trong khung */
+.dtw .dti{box-sizing:border-box!important;width:156px!important;min-width:156px;padding:0 34px 0 12px!important;overflow:hidden}
+.dtw .dti::-webkit-calendar-picker-indicator{position:absolute;right:10px;top:50%;transform:translateY(-50%);margin:0}
+.dtv{left:12px!important;right:34px;overflow:hidden;white-space:nowrap;text-overflow:clip;line-height:1}
+label .dtw .dti{width:100%!important}
+
+/* ---------- hero trang quỹ: nền teal đậm, ảnh bên phải ---------- */
+.fh{background:#0A3440!important;border-bottom:0!important}
+.fh>img{object-position:72% 50%!important}
+.fh>img+div{background:linear-gradient(90deg,#0A3440 0%,rgba(10,52,64,.97) 34%,rgba(10,52,64,.72) 52%,rgba(10,52,64,.12) 74%,rgba(10,52,64,0) 100%)!important}
+.fh>div:last-child>div:first-child{color:#FFFFFF}
+.fh>div:last-child>div:first-child>div:first-child,.fh>div:last-child>div:first-child>div:first-child *{color:#D8E7EA!important}
+.fh>div:last-child>div:first-child>div:nth-child(2){color:#E9C46A!important}
+.fh h1,.fh h1 *{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+.fh h1+div>span{background:rgba(233,196,106,.16)!important;color:#E9C46A!important;border:1px solid rgba(233,196,106,.45)}
+.fh>div:last-child>div:first-child>p{color:#E3EEF0!important}
+.fh>div:last-child>div:first-child>div:last-child>div:nth-child(2) button,
+.fh>div:last-child>div:first-child>div:last-child>div:nth-child(2) a{color:#FFFFFF!important;border-color:rgba(255,255,255,.75)!important;background:transparent!important}
+.fh>div:last-child>div:first-child>div:last-child>div:nth-child(2) button:hover{background:rgba(255,255,255,.1)!important}
+.fh>div:last-child>div:last-child{border:0!important;box-shadow:0 24px 60px rgba(0,0,0,.22)}
+@media (max-width:900px){
+  .fh>img+div{background:linear-gradient(180deg,rgba(10,52,64,.94) 0%,rgba(10,52,64,.9) 55%,rgba(10,52,64,.8) 100%)!important}
+}
+
+/* thanh mục con dính dưới header: dải teal đậm */
+.nm-sbar{background:#0A3440!important;border-bottom:0!important}
+.nm-sbar button,.nm-sbar button *{color:#D8E7EA!important}
+.nm-sbar button:hover,.nm-sbar button:hover *{color:#FFFFFF!important}
+.nm-sbar button[style*="font-weight: 700"],.nm-sbar button[style*="font-weight:700"],.nm-sbar .scp1,.nm-sbar .scp1 *{color:#FFFFFF!important}
+
+/* ---------- Quỹ phù hợp với bạn ---------- */
+.fit{margin-top:56px;background:#0A3440;border-radius:16px;padding:44px 48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:28px 64px;align-items:start;color:#fff}
+.fit-bar{display:block;width:48px;height:3px;background:#E9C46A;border-radius:2px;margin-bottom:18px}
+.fit-t{font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.01em;color:#FFFFFF;text-wrap:balance}
+.fit-l{display:flex;flex-direction:column}
+.fit-i{display:flex;gap:16px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,.14)}
+.fit-i:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.fit-c{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(233,196,106,.16);color:#E9C46A;display:grid;place-items:center}
+.fit-c svg{width:18px;height:18px}
+.fit-x{font-size:17px;line-height:26px;color:#E3EEF0}
+@media (max-width:760px){
+  .fit{grid-template-columns:minmax(0,1fr)!important;padding:32px 22px!important;gap:20px!important;border-radius:14px}
+  .fit-t{font-size:22px;line-height:30px}
+  .fit-x{font-size:16px;line-height:24px}
+}
+
+/* ---------- Thông tin giao dịch: ô chênh lệch giá/NAV ---------- */
+.pd-cell{padding:24px 28px;background:#0A3440}
+.pd-l{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E9C46A}
+.pd-v{font-size:30px;font-weight:700;color:#FFFFFF;margin-top:8px;font-variant-numeric:tabular-nums}
+
+/* ---------- Ban điều hành / Ban lãnh đạo: bấm cả thẻ ---------- */
+.nm-mgr,.ld-card{transition:border-color .2s,box-shadow .2s,transform .2s}
+.nm-mgr:hover,.ld-card:hover,.nm-mgr:focus-visible,.ld-card:focus-visible{border-color:#0B6274!important;box-shadow:0 14px 30px rgba(10,52,64,.12);transform:translateY(-2px);outline:none}
+.nm-mgr>div:first-child,.ld-card>div:first-child{background:#0A3440!important;color:#E9C46A!important}
+.ld-modal{position:fixed;inset:0;z-index:300;background:rgba(10,52,64,.6);display:none;align-items:center;justify-content:center;padding:24px;font-family:var(--font-sans)}
+.ld-modal.on{display:flex}
+.ld-box{position:relative;background:#fff;border-top:3px solid #E9C46A;border-radius:12px;max-width:720px;width:100%;max-height:86vh;overflow:auto;padding:40px}
+.ld-x{position:absolute;right:14px;top:12px;width:40px;height:40px;border:0;border-radius:50%;background:#E3EEF0;font-size:24px;line-height:1;color:#0A3440;cursor:pointer}
+.ld-top{display:flex;gap:20px;align-items:center}
+.ld-ini{flex:none;width:72px;height:72px;border-radius:50%;background:#0A3440;color:#E9C46A;display:grid;place-items:center;font-size:22px;font-weight:700}
+.ld-n{font-size:24px;line-height:32px;font-weight:700;color:#0A3440}
+.ld-r{font-size:15px;font-weight:600;color:#7D5F1A;margin-top:4px}
+.ld-edu{display:flex;flex-direction:column;gap:4px;margin-top:20px;font-size:14px;line-height:21px;color:#16262B;font-weight:500}
+.ld-p{font-size:16px;line-height:27px;color:#4D6066;margin:20px 0 0;text-wrap:pretty}
+@media (max-width:560px){.ld-modal{align-items:flex-end;padding:0}.ld-box{border-radius:18px 18px 0 0;padding:28px 20px}}
+
+/* ---------- Tài liệu quỹ ---------- */
+.fd-f{display:grid!important;align-items:end;grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:760px!important;gap:24px 40px!important}
+.fd-bar{margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.fd-n{font-size:14px;color:#4D6066;font-variant-numeric:tabular-nums}
+.fd-dl{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;border:0;border-radius:999px;background:#E9C46A;color:#16181A;font:600 15px/1 var(--font-sans);cursor:pointer}
+.fd-dl svg{width:18px;height:18px}
+.fd-dl:hover{background:#F2D27D}
+.fd-dl:disabled{background:#D8E7EA;color:#4D6066;cursor:not-allowed}
+.fd-head{display:flex;align-items:center;gap:16px;padding:6px 24px;border-bottom:1px solid #D8E7EA;background:#E3EEF0;font-size:13px;font-weight:600;color:#4D6066}
+.fd-cb{width:28px;height:44px;display:flex;align-items:center;cursor:pointer;flex:none}
+.fd-box{width:20px;height:20px;box-sizing:border-box;border:1.5px solid #4D6066;background:#fff;border-radius:4px;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700}
+.fd-box.on{background:#0A3440;border-color:#0A3440;color:#fff}
+.fd-r>span:nth-child(5),.fd-r>span:nth-child(4){font-variant-numeric:tabular-nums}
+@media (max-width:760px){
+  .fd-f{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+  .fd-bar{flex-direction:column;align-items:stretch}
+  .fd-dl{justify-content:center}
+  .fd-head{padding:4px 16px}
+  .nm-docr.fd-r{grid-template-columns:28px minmax(0,1fr) 40px!important;grid-template-rows:auto auto auto!important;gap:2px 12px!important;padding:16px!important}
+  .nm-docr.fd-r>:nth-child(1){grid-column:1!important;grid-row:1 / span 3!important;align-self:start!important}
+  .nm-docr.fd-r>:nth-child(2){display:none!important}
+  .nm-docr.fd-r>:nth-child(3){grid-column:2!important;grid-row:1!important;min-width:0}
+  .nm-docr.fd-r>:nth-child(3)>div:first-child{flex-wrap:wrap!important;row-gap:4px!important}
+  .nm-docr.fd-r>:nth-child(3) span{overflow-wrap:anywhere}
+  .nm-docr.fd-r>:nth-child(4){grid-column:2!important;grid-row:2!important;font-size:12.5px!important;margin-top:6px}
+  .nm-docr.fd-r>:nth-child(5){grid-column:2!important;grid-row:3!important;font-size:12.5px!important}
+  .nm-docr.fd-r>:nth-child(6){grid-column:3!important;grid-row:1 / span 3!important;align-self:start!important}
+}
+
+/* footer: 5 icon mạng xã hội */
+.soc-ig{width:28px;height:29px}.soc-zl{width:29px;height:30px}
+
+/* nút Công cụ: không đè lên thông báo */
+@media (max-width:640px){#pt-fab{bottom:calc(16px + env(safe-area-inset-bottom,0px))}}
+.ld-bio{display:none!important}
+
+@media (max-width:640px){#pt-fab span{display:none}#pt-fab{width:48px;height:48px!important;padding:0!important;justify-content:center}}
+
+/* hero các trang con khác: nền teal đậm, đổi biến màu cục bộ để chữ/viền tự sáng lên */
+.dh{--text-gold:#E9C46A;--espresso:#FFFFFF;--ink:#E3EEF0;--muted:#D8E7EA;--gold-ink:#E9C46A;--sand:rgba(255,255,255,.16);--ivory:#0A3440;--cream:#0A3440;background:#0A3440!important;border-bottom:0!important}
+.dh h1,.dh h1 *{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+.dh>img[src*="data:image"][style*="opacity"]{opacity:.06!important}
