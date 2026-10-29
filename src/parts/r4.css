@@ -10,7 +10,8 @@
    nên khoảng trên 64px đặt bằng margin-top; padding-top để 0. */
 .hero-sub{min-height:560px}
 .hero-sub.fh{min-height:600px}
-@media(min-width:1280px){.hero-sub>.hero-in{margin-top:64px!important;padding-top:0!important;padding-bottom:64px!important}}
+/* .hero-nar = layout hẹp (About, Học viện, dưới 1400px): giữ padding cũ ở 1280–1399 */
+@media(min-width:1280px){.hero-sub>.hero-in:not(.hero-nar){margin-top:64px!important;padding-top:0!important;padding-bottom:64px!important}}
 .hero-sub .hero-pic{aspect-ratio:10/9!important;object-position:50% 30%}
 /* ảnh member: cắt để chỉ còn anh tư vấn trẻ (desktop, tablet) */
 .hero-sub .hero-pic[data-svc=member]{object-position:20% 30%}

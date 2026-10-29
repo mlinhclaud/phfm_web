@@ -45,7 +45,7 @@ def p_r4_01(s):
     s = rep(s, '<div style="position:relative;width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 64px;box-sizing:border-box">',
                '<div class="hero-in" style="position:relative;width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 64px;box-sizing:border-box">', 2)
     s = rep(s, '<sc-if value="{{ heroNarrow }}">\n        <div style="max-width:1280px;margin:0 auto;padding:40px 48px 56px">',
-               '<sc-if value="{{ heroNarrow }}">\n        <div class="hero-in" style="max-width:1280px;margin:0 auto;padding:40px 48px 56px">')
+               '<sc-if value="{{ heroNarrow }}">\n        <div class="hero-in hero-nar" style="max-width:1280px;margin:0 auto;padding:40px 48px 56px">')
     s = rep(s, 'background:var(--ivory)">\n        <div style="max-width:1280px;margin:0 auto;padding:40px 48px 96px">',
                'background:var(--ivory)">\n        <div class="hero-in" style="max-width:1280px;margin:0 auto;padding:40px 48px 96px">')
     # ảnh trang dịch vụ (member, portfolio, advisory): tỉ lệ 4/5 làm hero cao 800px, đổi sang ngang hơn
@@ -55,7 +55,7 @@ def p_r4_01(s):
     s = rep(s, 'return { ...s, others: products.slice(2)', 'return { ...s, k: p, others: products.slice(2)')
     # Học viện, layout hẹp: khung nội dung chưa có class
     s = rep(s, '<div style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">',
-               '<div class="hero-in" style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">')
+               '<div class="hero-in hero-nar" style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">')
     # about, mobile: khối ảnh dưới chữ cao 420px, gắn class để thu ở r4.css
     s = rep(s, '<div style="position:relative;height:420px;overflow:hidden">',
                '<div class="hero-pic-box" style="position:relative;height:420px;overflow:hidden">')
