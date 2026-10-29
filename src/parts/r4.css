@@ -71,6 +71,11 @@
 .ab-j-y{font-size:16px;line-height:24px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
 .ab-j-tx{font-size:16px;line-height:24px;color:#E3EEF0;text-wrap:pretty}
 @media(min-width:1024px) and (max-width:1279px){.ab-j-in{padding-left:32px;padding-right:32px}.ab-j-cols{gap:32px}}
+/* cột 3 có nhiều mốc nhất: cho rộng hơn để các cột cao gần bằng nhau, không để mảng nền trống dưới cột 1 và 2 */
+@media(min-width:1024px){
+  .ab-j-cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
+  .ab-j-it{grid-template-columns:72px minmax(0,1fr)}
+}
 @media(max-width:1023px){
   .ab-j-in{padding:56px 32px 64px}
   .ab-j-cols{grid-template-columns:minmax(0,1fr);gap:48px;padding-left:36px;max-width:720px}
