@@ -10,13 +10,16 @@
    nên khoảng trên 64px đặt bằng margin-top; padding-top để 0. */
 .hero-sub{min-height:560px}
 .hero-sub.fh{min-height:600px}
-.hero-sub>.hero-in{margin-top:64px!important;padding-top:0!important;padding-bottom:64px!important}
+@media(min-width:1280px){.hero-sub>.hero-in{margin-top:64px!important;padding-top:0!important;padding-bottom:64px!important}}
 .hero-sub .hero-pic{aspect-ratio:10/9!important;object-position:50% 30%}
+/* ảnh member: cắt để chỉ còn anh tư vấn trẻ (desktop, tablet) */
+.hero-sub .hero-pic[data-svc=member]{object-position:20% 30%}
 @media(max-width:1279px){.hero-sub,.hero-sub.fh{min-height:480px}}
 @media(max-width:760px){
   .hero-sub,.hero-sub.fh{min-height:0}
   .hero-sub>.hero-in{margin-top:0!important;padding-top:32px!important;padding-bottom:40px!important}
   .hero-sub:not(.fh) .hero-in>div:nth-child(2){margin-top:28px!important;gap:28px!important}
   .hero-sub .hero-pic{aspect-ratio:16/10!important}
+  .hero-sub .hero-pic[data-svc=member]{object-position:0% 30%} /* không cắt nào ở 16/10 giấu hết khách lớn tuổi; ảnh thay ở R4-09 (#14) */
   .hero-sub .hero-pic-box{height:320px!important}
 }

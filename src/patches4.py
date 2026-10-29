@@ -50,7 +50,12 @@ def p_r4_01(s):
                'background:var(--ivory)">\n        <div class="hero-in" style="max-width:1280px;margin:0 auto;padding:40px 48px 96px">')
     # ảnh trang dịch vụ (member, portfolio, advisory): tỉ lệ 4/5 làm hero cao 800px, đổi sang ngang hơn
     s = rep(s, '<img src="{{ svc.img }}" alt="" style="display:block;width:100%;aspect-ratio:4/5;',
-               '<img class="hero-pic" src="{{ svc.img }}" alt="" style="display:block;width:100%;aspect-ratio:4/5;')
+               '<img class="hero-pic" data-svc="{{ svc.k }}" src="{{ svc.img }}" alt="" style="display:block;width:100%;aspect-ratio:4/5;')
+    # khoá trang dịch vụ (member, portfolio, advisory) để chỉnh khung cắt riêng từng ảnh
+    s = rep(s, 'return { ...s, others: products.slice(2)', 'return { ...s, k: p, others: products.slice(2)')
+    # Học viện, layout hẹp: khung nội dung chưa có class
+    s = rep(s, '<div style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">',
+               '<div class="hero-in" style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">')
     # about, mobile: khối ảnh dưới chữ cao 420px, gắn class để thu ở r4.css
     s = rep(s, '<div style="position:relative;height:420px;overflow:hidden">',
                '<div class="hero-pic-box" style="position:relative;height:420px;overflow:hidden">')
