@@ -1,1 +1,6 @@
 /* Vòng 4: CSS riêng của vòng 4, nạp sau r3.css. Chỉ có comment thì build không chèn thẻ <style>. */
+
+/* R4-05: chữ Hán 新 速 實 簡 ở Giá trị cốt lõi (Noto Serif TC 600, subset 4 chữ, nhúng base64) */
+@font-face{font-family:'Noto Serif TC';font-style:normal;font-weight:600;font-display:swap;src:url(@@HAN600@@) format('woff2');unicode-range:U+65B0,U+901F,U+5BE6,U+7C21}
+.ab-han{font-family:'Noto Serif TC',serif;font-weight:600;font-size:60px;line-height:1.1;color:#C0962D;margin:0 0 14px;letter-spacing:0}
+@media(max-width:760px){.ab-han{font-size:56px;margin-bottom:12px}}
