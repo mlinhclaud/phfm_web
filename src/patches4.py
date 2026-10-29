@@ -141,10 +141,11 @@ def p_r4_04(s):
           f.heroColsL = f.heroColsL.filter((_, i) => keep.indexOf(i) >= 0);
           f.cuRows = f.cuRows.map(r => ({ ...r, v: r.v.filter((_, i) => keep.indexOf(i) >= 0) }));
           f.heroNCol = String(keep.length); f.pxCols = F.isEtf ? 'repeat(3,auto)' : 'repeat(2,minmax(0,1fr))'; f.pxColsM = F.isEtf ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)';
-          const st = ((window.PHFM_ANCHORS || {})[p] || {}).start; f.hasHidCol = hid.length > 0 && !!st;
+          const st = ((window.PHFM_ANCHORS || {})[p] || {}).start; f.hasHidCol = hid.length > 0 && !!st && l !== 'zh'; // bản 中文: ẩn cột, chưa có câu ghi chú (chờ Rin và cô Helena duyệt)
           if (f.hasHidCol) { const dmy = st.slice(8, 10) + '/' + st.slice(5, 7) + '/' + st.slice(0, 4), lbl = hid.map(i => F.heroCols[i]).join(', ');
-            f.hidColNote = F.isEtf ? L3('Quỹ niêm yết ngày ' + dmy + ', chưa đủ dữ liệu ' + lbl + '.', 'The fund listed on ' + dmy + ', so there is not enough data for ' + lbl + ' yet.')
-              : L3('Quỹ thành lập ngày ' + dmy + ', chưa đủ dữ liệu ' + lbl + '.', 'The fund was set up on ' + dmy + ', so there is not enough data for ' + lbl + ' yet.'); } }
+            const dEn = (+st.slice(8, 10)) + ' ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][+st.slice(5, 7) - 1] + ' ' + st.slice(0, 4);
+            f.hidColNote = l === 'vi' ? (F.isEtf ? 'Quỹ niêm yết ngày ' : 'Quỹ thành lập ngày ') + dmy + ', chưa đủ dữ liệu ' + lbl + '.'
+              : 'The fund was ' + (F.isEtf ? 'listed' : 'set up') + ' on ' + dEn + ', so there is not enough data for ' + lbl + ' yet.'; } }
         f.heroCols2 = wide ?""")
     return s
 
