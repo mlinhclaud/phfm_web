@@ -12,15 +12,26 @@
 .hero-sub.fh{min-height:600px}
 /* .hero-nar = layout hẹp (About, Học viện, dưới 1400px): giữ padding cũ ở 1280–1399 */
 @media(min-width:1280px){.hero-sub>.hero-in:not(.hero-nar){margin-top:64px!important;padding-top:0!important;padding-bottom:64px!important}}
-.hero-sub .hero-pic{aspect-ratio:10/9!important;object-position:50% 30%}
-/* ảnh member: cắt để chỉ còn anh tư vấn trẻ (desktop, tablet) */
-.hero-sub .hero-pic[data-svc=member]{object-position:20% 30%}
+.hero-sub .hero-pic{aspect-ratio:10/9!important;object-position:50% 50%}
 @media(max-width:1279px){.hero-sub,.hero-sub.fh{min-height:480px}}
 @media(max-width:760px){
   .hero-sub,.hero-sub.fh{min-height:0}
   .hero-sub>.hero-in{margin-top:0!important;padding-top:32px!important;padding-bottom:40px!important}
   .hero-sub:not(.fh) .hero-in>div:nth-child(2){margin-top:28px!important;gap:28px!important}
   .hero-sub .hero-pic{aspect-ratio:16/10!important}
-  .hero-sub .hero-pic[data-svc=member]{object-position:0% 30%} /* không cắt nào ở 16/10 giấu hết khách lớn tuổi; ảnh thay ở R4-09 (#14) */
   .hero-sub .hero-pic-box{height:320px!important}
+}
+
+/* R4-09: khung cắt ảnh hero mới (stock-r5). Ảnh dịch vụ dọc 4:5 bị cắt ngang thành 10/9 (16/10 ở mobile): đặt trục dọc theo chủ thể.
+   Ảnh quỹ và hướng dẫn có chủ thể bên phải, chữ nằm bên trái. */
+.hero-sub .hero-pic[data-svc=member]{object-position:50% 80%}
+.hero-sub .hero-pic[data-svc=advisory]{object-position:50% 60%}
+.hero-sub .hero-pic[data-svc=portfolio]{object-position:50% 45%}
+.fh>img{object-position:75% 50%!important}
+.nm-ghero>img.gh-p{object-position:85% 50%}
+.nm-ghero>img.gh-v{object-position:75% 50%}
+@media(max-width:760px){
+  .fh>img{object-position:80% 50%!important}
+  .nm-ghero>img.gh-p{object-position:88% 50%}
+  .nm-ghero>img.gh-v{object-position:80% 50%}
 }

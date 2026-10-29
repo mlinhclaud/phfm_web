@@ -62,4 +62,53 @@ def p_r4_01(s):
     return s
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4css]
+# ---------------------------------------------------------------- R4-09: bộ ảnh stock mới (plans/stock-r5.md)
+def p_r4_09(s):
+    """Thay ảnh theo TỪNG VỊ TRÍ (H1-H10, N1-N10), không đổi hàng loạt theo khoá cũ.
+    Chạy sau p_imgmap/p_r3img/p_images nên chuỗi khớp là dạng cuối: window.__I.<khoá> hoặc {{ img.<khoá> }}.
+    Giữ nguyên: thẻ Học viện (pk_I03, vn_city) và nền CTA hai trang Hướng dẫn (ctaImg), vì không khớp chuỗi nào dưới đây."""
+    # H1 Về chúng tôi: hero chuyển sang kiểu .dh (nền teal đậm #0A3440, chữ trắng), ảnh bên phải, bỏ gradient trắng
+    s = rep(s, '<section id="ab-overview" class="hero-sub" style="', '<section id="ab-overview" class="dh hero-sub" style="')
+    # lớp mờ teal rộng hơn hero Học viện (ảnh About sáng hơn): chữ trắng đè lên ảnh vẫn >= 4.5:1
+    s = rep(s, '<img src="{{ img.ab_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 35%;display:block">\n          <div style="position:absolute;top:0;bottom:0;left:-2px;width:34%;background:linear-gradient(90deg, var(--ivory) 0%, var(--ivory) 12%, rgba(255,255,255,0) 100%)"></div>',
+               '<img src="{{ img.r5_about_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;display:block">\n          <div style="position:absolute;top:0;bottom:0;left:-2px;width:50%;background:linear-gradient(90deg, #0A3440 0%, #0A3440 36%, rgba(10,52,64,0) 100%)"></div>')
+    s = rep(s, '<img src="{{ img.ab_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% 40%;display:block">',
+               '<img src="{{ img.r5_about_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%;display:block">')
+    # H2, H3 hero trang quỹ (dữ liệu funds)
+    s = rep(s, 'heroImg:window.__I.pk_I03,', 'heroImg:window.__I.r5_phvsf_hero,')
+    s = rep(s, 'heroImg:window.__I.r3_vns_hero,price', 'heroImg:window.__I.r5_vns_hero,price')
+    # H4, H5, H6 ảnh hero trang dịch vụ (dữ liệu services)
+    s = rep(s, 'member:{img:window.__I.advisor,', 'member:{img:window.__I.r5_member_hero,')
+    s = rep(s, 'portfolio:{img:window.__I.pk_I05,', 'portfolio:{img:window.__I.r5_pf_hero,')
+    s = rep(s, 'advisory:{img:window.__I.r3_adv_hero,', 'advisory:{img:window.__I.r5_adv_hero,')
+    # H7 Học viện (hai bản: layout rộng và hẹp). Thẻ Học viện dùng pk_I03/vn_city ở dữ liệu guide, không đụng tới
+    # ảnh Học viện sáng hơn ảnh cũ: lớp mờ teal rộng như hero About để chữ trắng >= 4.5:1
+    s = rep(s, '<img src="{{ img.pk_I07 }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block">\n          <div style="position:absolute;top:0;bottom:0;left:-2px;width:34%;background:linear-gradient(90deg, var(--ivory) 0%, var(--ivory) 12%, rgba(255,255,255,0) 100%)"></div>',
+               '<img src="{{ img.r5_acad_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block">\n          <div style="position:absolute;top:0;bottom:0;left:-2px;width:50%;background:linear-gradient(90deg, #0A3440 0%, #0A3440 36%, rgba(10,52,64,0) 100%)"></div>')
+    s = rep(s, '<img src="{{ img.pk_I07 }}" alt="" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:36% 40%;margin-top:40px;border-radius:2px">',
+               '<img src="{{ img.r5_acad_hero }}" alt="" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 40%;margin-top:40px;border-radius:2px">')
+    # H8 Tuyển dụng: khoá `team` còn ở bài N7, nên chỉ đổi thẻ <img> hero (aspect 4/3)
+    s = rep(s, '<img src="{{ img.team }}" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px">',
+               '<img src="{{ img.r5_cr_hero }}" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px">')
+    # H9, H10 dải ảnh Hướng dẫn (VI/EN/中文): ảnh + alt + khung cắt. class gh-p / gh-v để r4.css đặt khung cắt mobile
+    gp = 'style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 55%;pointer-events:none">'
+    for alt_old, alt_new in [('Chồng đá cân bằng với đồng xu trên đỉnh', 'Nhà đầu tư xem ứng dụng đầu tư trên điện thoại'),
+                             ('Balanced stones with a coin on top', 'An investor checking an investing app on a phone'),
+                             ('頂端放著硬幣的平衡石堆', '投資人在手機上查看投資應用程式')]:
+        s = rep(s, '<img src="{{ img.pk_I03 }}" alt="%s" %s' % (alt_old, gp),
+                   '<img class="gh-pic gh-p" src="{{ img.r5_gp_hero }}" alt="%s" style="position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;object-position:85%% 50%%;pointer-events:none">' % alt_new)
+    gv = 'style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right 40%;pointer-events:none">'
+    for alt_old, alt_new in [('Tòa tháp kính vàng, hình ảnh chủ đạo của VNSHINE', 'Màn hình theo dõi giá và NAV của quỹ ETF'),
+                             ('Gold glass tower, the VNSHINE key visual', 'Screens tracking ETF price and NAV'),
+                             ('金色玻璃大樓，VNSHINE 主視覺', '追蹤 ETF 價格與 NAV 的螢幕')]:
+        s = rep(s, '<img src="{{ img.vn_city }}" alt="%s" %s' % (alt_old, gv),
+                   '<img class="gh-pic gh-v" src="{{ img.r5_gv_hero }}" alt="%s" style="position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;object-position:75%% 50%%;pointer-events:none">' % alt_new)
+    # N1-N10 ảnh bài Góc nhìn (từng bài, khớp theo cặp khoá cũ + chữ đầu của dòng)
+    for old, new in [('r3_nw_msci', 'r5_nw_msci'), ('r3_nw_rot', 'r5_nw_rot'), ('pk_I12', 'r5_nw_macro'), ('pk_I14', 'r5_nw_rebal'),
+                     ('nw_city', 'r5_nw_aug'), ('pk_I15', 'r5_nw_fund'), ('team', 'r5_nw_bank'), ('pk_I13', 'r5_nw_dca'),
+                     ('pk_I17', 'r5_nw_h2'), ('pk_I18', 'r5_nw_div')]:
+        s = rep(s, '\n   {img:window.__I.%s,cat:' % old, '\n   {img:window.__I.%s,cat:' % new)
+    return s
+
+
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4css]
