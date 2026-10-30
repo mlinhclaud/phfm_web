@@ -108,7 +108,22 @@ Dùng `qa/r5hero.js` và `qa/r5herocmp.py` (từ PR #36) để đo cả hai buil
 
 Số đo hero khớp bảng trên (≤ 4px) ở 1440, 1366, 1280, 1024, 390, VI và EN. Màu theo A (chạy `qa/r5contrast.js`, tương phản chữ ≥ 4.5:1). `node qa/qa.js` xanh toàn site. Ảnh trước/sau 1440 và 390 ở `qa/review/r6-01/`.
 
-## Cần hỏi Rin
+## Rin đã trả lời (30/10, 13:00)
+
+| Câu | Quyết định | Ảnh hưởng |
+|---|---|---|
+| Q1 Đường kẻ "line" (19 chỗ) | Giữ nguyên, không bỏ đường kẻ | Bỏ nhóm R6-06; 19 bình luận chuyển "Không làm (Rin quyết)" |
+| Q2 Đường kẻ trang Liên hệ | Giữ nguyên (theo Q1) | Không làm |
+| Q3 Lịch sử hình thành | Về khung thẻ bản gốc (Rin đã chọn "về bản gốc, màu mới") | Làm trong R6-01 |
+| Q4 Tên EN bốn giá trị | Giữ tên Việt kèm chữ Hán như hiện tại; tên EN chính thức để Rin gửi sau | Không làm, ghi bàn giao |
+| Q5 Shareholder Yield | "Tỷ suất Lợi nhuận Cổ đông" toàn site, theo brand-rules | Thêm vào R6-04; đóng issue #9 |
+| Q6 "Quỹ ETF đầu tiên…" | Giữ nguyên, ghi chờ pháp chế | Ghi danh sách chờ pháp chế |
+| Q7 Dòng "Số liệu minh hoạ" | Giữ (brand-rules), chữ nhỏ nghiêng | R6-04 |
+| Q8 Loại tài liệu | 8 loại (#116) cho Công bố thông tin; 9 loại (#134) cho Tài liệu quỹ PHVSF và VNSHINE; biểu mẫu chuyển sang trang Biểu mẫu | R6-04 |
+| Q9, Q10 Nội dung phfm.vn (performance, overview EN) | Chờ Rin gửi; tạm để như hiện tại | Placeholder |
+| Q11 Trang chủ | Giữ nguyên trang chủ | Không làm |
+
+## Cần hỏi Rin (đã trả lời ở trên)
 
 Mỗi câu có đề xuất. Chưa trả lời thì nhóm tương ứng chỉ làm phần "Cần làm" đã rõ.
 
