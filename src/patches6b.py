@@ -41,7 +41,7 @@ FORMS_SEC = '''
             </div>
           </sc-for>
         </div>
-        <div><a href="#" onClick="{{ go.forms }}" style="cursor:pointer;font-size:15px;font-weight:600">{{ r6b.all }} →</a></div>
+        <div><a href="#" class="r6b-all" onClick="{{ go.forms }}" style="cursor:pointer;font-size:15px;font-weight:600">{{ r6b.all }} →</a></div>
       </div>
     </section>
 '''

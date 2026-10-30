@@ -12,5 +12,8 @@ main:has(#r6-forms)+section{background:#FFFFFF!important}
 @media(max-width:760px){
   /* 390: nút Tải về chiếm cả hàng để chạm dễ (>= 44px), không tràn ngang */
   .r6b-frow .r6b-dl{width:100%;justify-content:center;height:44px}
+  /* vùng chạm >= 44px cho nút Tải về trong danh sách hồ sơ và link sang trang Biểu mẫu */
+  .r6b-dlrow .r6b-dl{height:44px}
+  .r6b-all{display:inline-flex;align-items:center;min-height:44px}
   .r6b-acard{padding:24px 20px!important}
 }
