@@ -133,3 +133,4 @@ main:not([data-hm]) h1,main:not([data-hm]) h2,main:not([data-hm]) h3{text-wrap:b
 #sec-nav .nm-tbl[style*="var(--cream)"]{background:#D8E7EA!important}
 /* cột năm của danh sách mốc đủ rộng cho "2012 - 2013" trên một dòng */
 .ab-j-it,.ab-j-it{grid-template-columns:90px minmax(0,1fr)!important}
+.fit-t{letter-spacing:0!important}
