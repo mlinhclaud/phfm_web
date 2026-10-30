@@ -111,4 +111,27 @@ def p_r4_09(s):
     return s
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4css]
+# ---------------------------------------------------------------- R4-04: ô giá ở hero VNSHINE và PHVSF
+def p_r4_04(s):
+    """Hàng chỉ số (Giá đóng cửa · NAV/CCQ · Ngày) thành lưới cột đều .px-row (CSS ở r4.css, khối R4-04).
+    Bảng hiệu quả giữ nguyên như trước (Rin quyết giữ cột 3 tháng, ô trống hiện "—")"""
+    LB = 'font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)'
+    old = """<div style="display:flex;gap:40px;flex-wrap:wrap">
+              <sc-if value="{{ f.isEtf }}"><div><div style="%s">{{ d.fundUi.closePrice }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuPrice }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div></sc-if>
+              <div><div style="%s">{{ f.navLabel }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuNav }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div>
+              <div><div style="%s">{{ d.fundUi.date }}</div><div style="font-size:24px;line-height:40px;font-weight:700;color:var(--ink);margin-top:6px">{{ f.asOf }}</div></div>
+            </div>""" % (LB, LB, LB)
+    new = """<div data-keepgrid class="px-row" style="--pxc:{{ f.pxCols }};--pxm:{{ f.pxColsM }}">
+              <sc-if value="{{ f.isEtf }}"><div class="px-c"><div class="px-l">{{ d.fundUi.closePrice }}</div><div class="px-v">{{ f.cuPrice }}</div><div class="px-u">{{ f.navUnit }}</div></div></sc-if>
+              <div class="px-c"><div class="px-l">{{ f.navLabel }}</div><div class="px-v">{{ f.cuNav }}</div><div class="px-u">{{ f.navUnit }}</div></div>
+              <div class="px-c"><div class="px-l">{{ d.fundUi.date }}</div><div class="px-v">{{ f.asOf }}</div></div>
+            </div>"""
+    s = rep(s, old, new)
+    # số cột của lưới chỉ số (desktop và mobile), tính sẵn trong renderVals
+    s = rep(s, "        f.heroCols2 = wide ?",
+               """        f.pxCols = F.isEtf ? 'repeat(3,auto)' : 'repeat(2,minmax(0,1fr))'; f.pxColsM = F.isEtf ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)';
+        f.heroCols2 = wide ?""")
+    return s
+
+
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4_04, p_r4css]

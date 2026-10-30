@@ -40,3 +40,15 @@
   .nm-ghero h1{max-width:min(720px,60vw)!important}
   .nm-ghero>img+div{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 55%,rgba(255,255,255,0) 82%)!important}
 }
+
+/* R4-04: ô giá hero trang quỹ. Hàng chỉ số là lưới (VNSHINE 3 cột, PHVSF 2 cột; --pxc đặt trong template từ renderVals).
+   Số 28px, nhãn 12px, đơn vị 12px nằm dưới số. Ô giá rộng 520px, ngày 28px rộng ~164px nên 3 cột bằng nhau (144px) không đủ chỗ:
+   VNSHINE desktop dùng cột theo nội dung, khoảng cách giữa các cột bằng nhau (space-between).
+   Mobile: VNSHINE 2 cột bằng nhau (Giá + NAV một hàng, Ngày hàng dưới, thẳng cột); PHVSF mỗi chỉ số một hàng vì NAV + ngày 28px không vừa 2 cột. */
+.px-row{display:grid;grid-template-columns:var(--pxc,repeat(3,auto));justify-content:space-between;column-gap:16px;row-gap:20px;align-items:start}
+.px-c{min-width:0}
+.px-l{font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.px-v{font-size:28px;line-height:36px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-top:6px;white-space:nowrap}
+.px-u{font-size:12px;line-height:16px;color:var(--muted);margin-top:2px}
+@media(max-width:760px){.px-row{grid-template-columns:var(--pxm,repeat(2,minmax(0,1fr)))!important;column-gap:12px}}
+@media(max-width:374px){.px-row{grid-template-columns:minmax(0,1fr)!important}}
