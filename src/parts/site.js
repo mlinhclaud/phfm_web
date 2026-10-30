@@ -1,7 +1,7 @@
 <script>
 /* Hành vi chung cho toàn site (chạy ngoài template):
    - chặn link href="#" làm mất đường dẫn trang (A01)
-   - nút tải tài liệu chưa có file: hiện thông báo thay vì nhảy trang (A05)
+   - nút tải tài liệu chưa có file: hiện thông báo thay vì nhảy trang (A05); nút có data-dl cũng được tính (R6-03, dùng cho bản 中文 chưa khớp chữ "Tải về"/"Download")
    - tìm kiếm trong site (A06) */
 (function () {
   var L = function () { return (document.documentElement.lang || 'vi').slice(0, 2) === 'vi' ? 'vi' : 'en'; };
@@ -24,7 +24,7 @@
     var lab = t.closest('[aria-label="Tải xuống"],[aria-label="Download"],[title="Tải xuống"],[title="Download"]');
     var el = t.closest('a,button,[role="button"]');
     var txt = el ? (el.textContent || '').replace(/\s+/g, ' ').trim() : '';
-    if (lab || (el && DL.test(txt) && !/app store|google play/i.test(txt))) {
+    if (lab || (el && el.hasAttribute('data-dl')) || (el && DL.test(txt) && !/app store|google play/i.test(txt))) {
       e.preventDefault(); e.stopPropagation(); toast(TX[L()].doc); return;
     }
     var a = t.closest('a[href="#"]'); if (a) e.preventDefault();
