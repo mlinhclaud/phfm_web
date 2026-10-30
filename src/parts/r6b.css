@@ -1,0 +1,16 @@
+/* ===== Vòng 6 · R6-03: nút Tải về, khối Biểu mẫu ở Hướng dẫn PHVSF và Học viện. Nạp sau r5.css. =====
+   Màu chỉ lấy trong bảng Teal Vanguard: #0B6274 #E3EEF0 #D8E7EA #FFFFFF */
+
+/* nút Tải về nhỏ hơn nút chuẩn (48px): dùng trong dòng danh sách và dòng biểu mẫu */
+.r6b-dl{height:40px;padding:0 18px;font-size:14px;gap:6px}
+.r6b-dlrow{margin-top:10px}
+
+/* Hướng dẫn PHVSF: khối Biểu mẫu nền mist, hàng biểu mẫu trắng; khối Đại lý phân phối liền sau đổi sang trắng để hai khối không cùng nền */
+#r6-forms{background:#E3EEF0!important;box-shadow:0 0 0 100vmax #E3EEF0;clip-path:inset(0 -100vmax)}
+main:has(#r6-forms)+section{background:#FFFFFF!important}
+
+@media(max-width:760px){
+  /* 390: nút Tải về chiếm cả hàng để chạm dễ (>= 44px), không tràn ngang */
+  .r6b-frow .r6b-dl{width:100%;justify-content:center;height:44px}
+  .r6b-acard{padding:24px 20px!important}
+}

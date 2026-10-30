@@ -73,3 +73,13 @@ Cột: Trang | Thay đổi | Lý do. Vòng mới nối thêm ở cuối bảng.
 | Hướng dẫn đầu tư (VNSHINE, PHVSF) | Số bước 01-04 đổi từ `#C0962D` sang vàng đậm `#7D5F1A`: 5,04:1 trên mist, 5,96:1 trên trắng (trước 2,32:1 trên mist) | Tương phản chữ lớn trên nền sáng |
 | Menu header | Vòng focus bàn phím đổi sang teal đậm `#0A3440` (13,3:1 trên nền trắng) | Brief: viền focus teal đậm trên nền sáng |
 | Công cụ QA | `qa.js`, `shot.js`, `insp.js` nhận biến `HTML`. Thêm `r5sections.js` (thứ tự nền section), `r5menu.js` (gạch menu), `r5spacing.js` (chữ ép), `r5hero.js` + `r5herocmp.py` (cỡ chữ hero), `r5contrast.js` (tương phản), `r5pixdiff.py` (so điểm ảnh), `survey-teal.js`, `r5bgprobe.js`, `r5shots.js` | Kiểm vòng 5 |
+
+## Vòng 6
+
+| Trang | Thay đổi | Lý do |
+|---|---|---|
+| Hướng dẫn VNSHINE (EN, 中文) | Bước 03 của Giao dịch thứ cấp: bỏ ô tròn teal đậm "✓" và nhãn "Step 03" / "步驟 03", đổi thành ô tròn vàng có số "03" và đường vàng chạy dài, cùng kiểu bước 01, 02 (bản VI vốn đã đúng). Hàm vá `p_r6_03_step03` trong `src/patches6b.py` (mới) | Bình luận #30 |
+| Hướng dẫn PHVSF (VI/EN/中文) | Nút "Tải về ↓" (nhỏ, 40px) dưới mục "Phiếu đăng ký mở tài khoản giao dịch chứng chỉ quỹ mở" trong Hồ sơ Nhà đầu tư cá nhân. Chưa có file: bấm hiện "Tài liệu đang được cập nhật" (cơ chế A05, thêm nhận `data-dl` ở `src/parts/site.js`). File PDF ghi `[placeholder]` ở `specs/dev-handoff.md` mục 3 | Bình luận #16 |
+| Hướng dẫn PHVSF (VI/EN/中文) | Khối "Biểu mẫu" mới sau bước 04, trước Đại lý phân phối: lead trang Biểu mẫu, 4 biểu mẫu Quỹ mở PHVSF (lấy từ `d.forms.groups[0]`), nút "Tải về" theo A05, link "Xem tất cả biểu mẫu" sang trang Biểu mẫu. Nền mist `#E3EEF0`; khối Đại lý phân phối liền sau đổi sang trắng để hai khối không cùng nền (R5). CSS ở `src/parts/r6b.css` (mới, nạp sau r5.css). Chữ mới chờ pháp chế: "Xem tất cả biểu mẫu" / "View all forms" | Bình luận #81 |
+| Học viện (VI/EN/中文) | Thẻ "Biểu mẫu" dưới Thuật ngữ đầu tư (cột trái): tiêu đề và lead lấy từ trang Biểu mẫu, nút "Xem tất cả biểu mẫu →" sang trang Biểu mẫu (không phải Công bố thông tin) | Bình luận #79 |
+| Công cụ QA | Thêm `qa/r6forms.js` (nút Tải về, link Biểu mẫu, bước 03, tràn ngang ở VI/EN/中文, 1440 và 390), `qa/r6shot.js` (chụp dải trang từ một phần tử, nhận `HTML=` để chụp bản khác) | Kiểm R6-03 |
