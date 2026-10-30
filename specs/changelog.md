@@ -41,3 +41,4 @@ Cột: Trang | Thay đổi | Lý do. Vòng mới nối thêm ở cuối bảng.
 
 | Trang | Thay đổi | Lý do |
 |---|---|---|
+| Toàn site | Thêm khung vòng 4: `src/patches4.py`, `src/parts/r4.css` (nạp sau r3.css). Giao diện không đổi, build giống hệt trước | Chuẩn bị cho R4-01 đến R4-05 |

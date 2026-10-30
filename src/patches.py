@@ -292,4 +292,5 @@ def p_fixes(s):
     return s
 
 import patches2 as _p2
-PATCHES = [p_routing, p_template, p_imgmap] + _p2.PRE + [p_images, p_home, p_header, p_scripts_exempt, p_fonts, p_retheme, p_funddata, p_dates, p_fixes] + _p2.POST
+import patches4 as _p4
+PATCHES = [p_routing, p_template, p_imgmap] + _p2.PRE + [p_images, p_home, p_header, p_scripts_exempt, p_fonts, p_retheme, p_funddata, p_dates, p_fixes] + _p2.POST + _p4.PATCHES4
