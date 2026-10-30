@@ -238,46 +238,6 @@
   "crop": null,
   "round": 3
  },
- "r5_about_hero": {
-  "source": "generated/r5_about_hero.webp",
-  "maxw": 1920,
-  "crop": null
- },
- "r5_phvsf_hero": {
-  "source": "generated/r5_phvsf_hero.webp",
-  "maxw": 1920,
-  "crop": null
- },
- "r5_vns_hero": {
-  "source": "generated/r5_vns_hero.webp",
-  "maxw": 1920,
-  "crop": null
- },
- "r5_member_hero": {
-  "source": "generated/r5_member_hero.webp",
-  "maxw": 960,
-  "crop": null
- },
- "r5_pf_hero": {
-  "source": "generated/r5_pf_hero.webp",
-  "maxw": 960,
-  "crop": null
- },
- "r5_adv_hero": {
-  "source": "generated/r5_adv_hero.webp",
-  "maxw": 960,
-  "crop": null
- },
- "r5_acad_hero": {
-  "source": "generated/r5_acad_hero.webp",
-  "maxw": 1920,
-  "crop": null
- },
- "r5_cr_hero": {
-  "source": "generated/r5_cr_hero.webp",
-  "maxw": 1200,
-  "crop": null
- },
  "r5_gp_hero": {
   "source": "generated/r5_gp_hero.webp",
   "maxw": 1920,
@@ -336,6 +296,46 @@
  "r5_nw_div": {
   "source": "generated/r5_nw_div.webp",
   "maxw": 960,
+  "crop": null
+ },
+ "r6_about_hero": {
+  "source": "generated/r6_about_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r6_phvsf_hero": {
+  "source": "generated/r6_phvsf_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r6_vns_hero": {
+  "source": "generated/r6_vns_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r6_member_hero": {
+  "source": "generated/r6_member_hero.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r6_pf_hero": {
+  "source": "generated/r6_pf_hero.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r6_adv_hero": {
+  "source": "generated/r6_adv_hero.webp",
+  "maxw": 960,
+  "crop": null
+ },
+ "r6_acad_hero": {
+  "source": "generated/r6_acad_hero.webp",
+  "maxw": 1920,
+  "crop": null
+ },
+ "r6_cr_hero": {
+  "source": "generated/r6_cr_hero.webp",
+  "maxw": 1200,
   "crop": null
  }
 }
