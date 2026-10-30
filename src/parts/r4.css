@@ -50,6 +50,5 @@
 .px-l{font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .px-v{font-size:28px;line-height:36px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-top:6px;white-space:nowrap}
 .px-u{font-size:12px;line-height:16px;color:var(--muted);margin-top:2px}
-.px-note{font-size:12px;line-height:18px;color:var(--muted);margin-top:12px}
 @media(max-width:760px){.px-row{grid-template-columns:var(--pxm,repeat(2,minmax(0,1fr)))!important;column-gap:12px}}
 @media(max-width:374px){.px-row{grid-template-columns:minmax(0,1fr)!important}}
