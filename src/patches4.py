@@ -111,6 +111,19 @@ def p_r4_09(s):
     return s
 
 
+# ---------------------------------------------------------------- #27: bản 中文 Lịch sử hình thành khớp bản Việt
+def p_fix27(s):
+    """Dữ liệu zh nằm ở window.PHFM_ZH (khoá tiếng Anh -> chữ Trung), edits.json chỉ áp cho vi/en nên vá thẳng bảng này.
+    Mốc 2026 cuối: bản VI/EN ghi 2.000 tỷ VNĐ, bảng zh cũ ghi 12,000 億 (1.200 tỷ) -> 20,000 億.
+    Khoá cầu nối (bảng M cuối file) trỏ về khoá cũ "1,200 bn", đổi khoá sang "2,000 bn" cho khỏi gây hiểu nhầm.
+    Giai đoạn 2 'Growth phase' chưa có bản dịch nên hiện tiếng Anh -> 成長 (cùng kiểu 奠基, 轉型; khoá "Growth" đã là 成長)."""
+    s = rep(s, '"Total AUM exceeded 1,200 bn VND":"總管理資產突破 12,000 億越南盾"',
+               '"Total AUM exceeded 2,000 bn VND":"總管理資產突破 20,000 億越南盾","Growth phase":"成長"')
+    s = rep(s, '"Assets under management exceeded VND 2,000 billion.": "Total AUM exceeded 1,200 bn VND"',
+               '"Assets under management exceeded VND 2,000 billion.": "Total AUM exceeded 2,000 bn VND"')
+    return s
+
+
 # ---------------------------------------------------------------- R4-04: ô giá ở hero VNSHINE và PHVSF
 def p_r4_04(s):
     """Hàng chỉ số (Giá đóng cửa · NAV/CCQ · Ngày) thành lưới cột đều .px-row (CSS ở r4.css, khối R4-04).
@@ -190,4 +203,4 @@ def p_r4_03(s):
     return rep(s, old, new)
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4_04, p_r4_03, p_r4css]
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_r4_04, p_r4_03, p_r4css]
