@@ -52,9 +52,14 @@ def p_r6_04_notes(s):
 # ---------------------------------------------------------------- R6-04 · #3 "Chọn tất cả" bấm được cả dòng
 def p_r6_04_selall(s):
     """#3: ở Tài liệu quỹ chỉ ô tick bấm được, chữ "Chọn tất cả" thì không. Đưa onClick lên cả dòng .fd-head (chữ + ô);
-    ô tick bên trong không còn onClick riêng (tránh bấm một lần mà chọn rồi bỏ chọn)."""
-    return rep(s, '<div class="fd-head" data-keepgrid><span onClick="{{ f.fdToggleAll }}" role="checkbox" class="fd-cb">',
-                  '<div class="fd-head" data-keepgrid onClick="{{ f.fdToggleAll }}" role="checkbox"><span class="fd-cb">')
+    ô tick bên trong không còn onClick riêng (tránh bấm một lần mà chọn rồi bỏ chọn).
+    Review #48: dòng này phải dùng được bằng bàn phím (tabindex, aria-checked, Space/Enter ở site.js, viền focus ở r6c.css).
+    Loại chưa có file (chỉ có dòng tạm) thì ẩn dòng "Chọn tất cả" (data-empty)."""
+    s = rep(s, '<div class="fd-head" data-keepgrid><span onClick="{{ f.fdToggleAll }}" role="checkbox" class="fd-cb">',
+               '<div class="fd-head" data-keepgrid onClick="{{ f.fdToggleAll }}" role="checkbox" tabindex="0" aria-checked="{{ f.fdAria }}" data-empty="{{ f.fdEmpty }}"><span class="fd-cb">')
+    s = rep(s, "fdToggleAll: () => this.setState(", "fdAria: fdAll ? 'true' : 'false', fdEmpty: docs.some(x => !x.ph) ? 'n' : 'y', fdToggleAll: () => this.setState(")
+    s = rep(s, "t.matches('.ld-card,.nm-mgr')", "t.matches('.ld-card,.nm-mgr,.fd-head')")
+    return s
 
 
 # ---------------------------------------------------------------- R6-04 · Q8 loại tài liệu của trang quỹ
