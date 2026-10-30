@@ -84,4 +84,18 @@ def p_r6_04_docs(s):
     return s
 
 
-PATCHES6C = [p_r6c_css, p_r6_04_yield, p_r6_04_eyebrow, p_r6_04_notes, p_r6_04_selall, p_r6_04_docs]
+# ---------------------------------------------------------------- R6-05 · #64 bốn số liệu đầu trang Về chúng tôi
+STATS_OLD = "stats:[{v:'+18',u:b('năm','years'),l:b('Năm hoạt động','Years in operation')},{v:'+2.000',u:b('tỷ VNĐ','bn VND'),l:b('Tổng tài sản quản lý','Total assets under management')},{v:'4',u:b('',''),l:b('Sản phẩm quỹ','Fund products')},{v:'88,45',u:b('tỷ VNĐ','bn VND'),l:b('Vốn điều lệ','Charter capital')}],"
+STATS_NEW = "stats:[{v:b('+18','18+'),u:b('',''),l:b('năm hoạt động','years of operation')},{v:b('+2.000','2,000+'),u:b('',''),l:b('tỷ VND AUM','bn VND AUM')},{v:'4',u:b('',''),l:b('sản phẩm quỹ','fund products')},{v:b('88,45','88.45'),u:b('tỷ VNĐ','bn VND'),l:b('Vốn điều lệ','Charter capital')}],"
+
+def p_r6_05_stats(s):
+    """#64: ba số đầu của Về chúng tôi lấy đúng chuỗi trang chủ (src/parts/th.js, stats):
+    VI "+18 năm hoạt động", "+2.000 tỷ VND AUM", "4 sản phẩm quỹ"; EN "18+ years of operation", "2,000+ bn VND AUM", "4 fund products".
+    Số thứ tư (vốn điều lệ) giữ, bản EN viết số kiểu Anh "88.45 bn VND". Không đổi số.
+    中文: nhãn EN đổi nên bản 中文 hiện chữ EN cho 3 nhãn này tới khi cô Helena duyệt (không thêm khoá PHFM_ZH vì
+    trang chủ dùng chung khoá, thêm vào sẽ làm đổi trang chủ 中文)."""
+    s = rep(s, STATS_OLD, STATS_NEW)
+    return s
+
+
+PATCHES6C = [p_r6c_css, p_r6_04_yield, p_r6_04_eyebrow, p_r6_04_notes, p_r6_04_selall, p_r6_04_docs, p_r6_05_stats]

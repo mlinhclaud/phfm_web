@@ -73,6 +73,7 @@ Chữ mới áp ngay ở VI, EN viết tương đương, 中文 không tự dị
 - **Tài liệu quỹ (PHVSF, VNSHINE)**: 9 loại theo bình luận #134. Chưa có file: Factsheets, Thông tin quỹ, Giấy phép (cả hai quỹ), Khác (PHVSF), Báo cáo tài chính (VNSHINE). Dev nối `url` từng tài liệu khi có file. Biểu mẫu nằm ở trang Biểu mẫu, không còn trong Tài liệu quỹ.
 - **Công bố thông tin**: 8 loại theo bình luận #116 (Thông báo quỹ, Điều lệ quỹ, Bản cáo bạch, Báo cáo tài chính, Báo cáo hoạt động tháng, Báo cáo NAV ngày/tuần, Biểu mẫu, Factsheet). Hai loại Biểu mẫu và Factsheet chưa có tài liệu mẫu.
 - **Chờ cô Helena (中文)**: nhãn hero PHVSF "OPEN-ENDED FUND" (đang hiện EN), dòng "Tài liệu đang được cập nhật" (hiện EN), 9 tên loại tài liệu và "Tỷ suất Lợi nhuận Cổ đông" (zh dùng "股東收益率", không đổi).
+- **Về chúng tôi, bốn số liệu đầu (R6-05, #64)**: ba số đầu lấy đúng chuỗi trang chủ (VI "+18 năm hoạt động", "+2.000 tỷ VND AUM", "4 sản phẩm quỹ"; EN "18+ years of operation", "2,000+ bn VND AUM", "4 fund products"), số vốn điều lệ EN viết "88.45 bn VND". Bản 中文: ba nhãn này đang hiện chữ EN, chờ cô Helena. Tên EN bốn giá trị Tân · Tốc · Thực · Giản: chờ Rin gửi (Q4).
 - Nội dung từ phfm.vn cho PHVSF (`product-service/performance` và `overview` bản EN): Rin chưa gửi (Q9, Q10). Giữ như hiện tại.
 
 ## 7. Ảnh (A11)
