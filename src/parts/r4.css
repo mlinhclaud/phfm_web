@@ -92,4 +92,4 @@
 
 /* #24: mô tả hero VNSHINE bản EN/中文. Luật cũ `main p{text-align:justify}` + script căn đều ép word-spacing -0.2em (EN, chữ dính nhau)
    hoặc giãn khoảng trắng trong "Shareholder Yield" (中文). Căn trái, trả khoảng cách chữ về mặc định. Bản VI giữ nguyên. */
-html:not([lang^="vi"]) .hero-desc[data-fund="FUEPHVNS"]{text-align:left!important;word-spacing:normal!important;letter-spacing:normal!important}
+html:not([lang^="vi"]) .hero-desc{text-align:left!important;word-spacing:normal!important;letter-spacing:normal!important;text-wrap:balance}
