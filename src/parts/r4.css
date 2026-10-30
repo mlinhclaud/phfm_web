@@ -41,6 +41,55 @@
   .nm-ghero>img+div{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 55%,rgba(255,255,255,0) 82%)!important}
 }
 
+/* R4-04: ô giá hero trang quỹ. Hàng chỉ số là lưới (VNSHINE 3 cột, PHVSF 2 cột; --pxc đặt trong template từ renderVals).
+   Số 28px, nhãn 12px, đơn vị 12px nằm dưới số. Ô giá rộng 520px, ngày 28px rộng ~164px nên 3 cột bằng nhau (144px) không đủ chỗ:
+   VNSHINE desktop dùng cột theo nội dung, khoảng cách giữa các cột bằng nhau (space-between).
+   Mobile: VNSHINE 2 cột bằng nhau (Giá + NAV một hàng, Ngày hàng dưới, thẳng cột); PHVSF mỗi chỉ số một hàng vì NAV + ngày 28px không vừa 2 cột. */
+.px-row{display:grid;grid-template-columns:var(--pxc,repeat(3,auto));justify-content:space-between;column-gap:16px;row-gap:20px;align-items:start}
+.px-c{min-width:0}
+.px-l{font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.px-v{font-size:28px;line-height:36px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-top:6px;white-space:nowrap}
+.px-u{font-size:12px;line-height:16px;color:var(--muted);margin-top:2px}
+@media(max-width:760px){.px-row{grid-template-columns:var(--pxm,repeat(2,minmax(0,1fr)))!important;column-gap:12px}}
+@media(max-width:374px){.px-row{grid-template-columns:minmax(0,1fr)!important}}
+
+/* R4-03: Lịch sử hình thành. Nền teal đậm #0A3440, ba cột, trục ngang vàng nối ba điểm mốc.
+   Chữ: năm lớn #E9C46A, tên giai đoạn trắng, sự kiện mist #E3EEF0. Cột cao khác nhau thì để nội dung tự cao (không khung nền, không kéo bằng nhau).
+   Mobile (<= 760px): một cột, trục dọc bên trái. Dưới 1024px dùng bố cục dọc luôn vì năm 40px không vừa cột 1/3. */
+.ab-j{background:#0A3440;color:#E3EEF0}
+.ab-j-in{max-width:1280px;margin:0 auto;padding:72px 48px 80px}
+.ab-j-t{font-size:36px;line-height:44px;font-weight:700;color:#fff;margin:0 0 48px}
+.ab-j-cols{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;align-items:start}
+.ab-j-cols::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:#E9C46A}
+.ab-j-col{position:relative;min-width:0}
+.ab-j-dot{display:block;width:16px;height:16px;border-radius:50%;background:#E9C46A;box-shadow:0 0 0 4px #0A3440;position:relative}
+.ab-j-yr{font-size:clamp(40px,3.05vw,44px);line-height:52px;font-weight:700;letter-spacing:-.02em;color:#E9C46A;margin-top:28px;white-space:nowrap}
+.ab-j-n{font-size:20px;line-height:28px;font-weight:600;color:#fff;margin-top:6px}
+.ab-j-list{margin-top:24px}
+.ab-j-it{display:grid;grid-template-columns:88px minmax(0,1fr);column-gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(216,231,234,.22)}
+.ab-j-y{font-size:16px;line-height:24px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.ab-j-tx{font-size:16px;line-height:24px;color:#E3EEF0;text-wrap:pretty}
+@media(min-width:1024px) and (max-width:1279px){.ab-j-in{padding-left:32px;padding-right:32px}.ab-j-cols{gap:32px}}
+/* cột 3 có nhiều mốc nhất: cho rộng hơn để các cột cao gần bằng nhau, không để mảng nền trống dưới cột 1 và 2 */
+@media(min-width:1024px){
+  .ab-j-cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.6fr)}
+  .ab-j-it{grid-template-columns:72px minmax(0,1fr)}
+}
+@media(max-width:1023px){
+  .ab-j-in{padding:56px 32px 64px}
+  .ab-j-cols{grid-template-columns:minmax(0,1fr);gap:48px;padding-left:36px;max-width:720px}
+  .ab-j-cols::before{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto}
+  .ab-j-dot{position:absolute;left:-36px;top:18px}
+  .ab-j-yr{margin-top:0;font-size:40px;line-height:48px}
+}
+@media(max-width:760px){
+  .ab-j-in{padding:48px 20px 56px}
+  .ab-j-t{font-size:28px;line-height:36px;margin-bottom:32px}
+  .ab-j-cols{padding-left:32px;gap:40px}
+  .ab-j-dot{left:-32px;top:16px}
+  .ab-j-it{grid-template-columns:76px minmax(0,1fr);column-gap:12px}
+}
+
 /* #24: mô tả hero VNSHINE bản EN/中文. Luật cũ `main p{text-align:justify}` + script căn đều ép word-spacing -0.2em (EN, chữ dính nhau)
    hoặc giãn khoảng trắng trong "Shareholder Yield" (中文). Căn trái, trả khoảng cách chữ về mặc định. Bản VI giữ nguyên. */
 html:not([lang^="vi"]) .hero-desc[data-fund="FUEPHVNS"]{text-align:left!important;word-spacing:normal!important;letter-spacing:normal!important}
