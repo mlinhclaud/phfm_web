@@ -28,6 +28,8 @@ inline = '<script>' + react.replace('</script', '<\\/script') + '</script>\n<scr
 s = s.replace('<script>// GENERATED from dc-runtime', inline + '<script>// GENERATED from dc-runtime', 1)
 
 os.makedirs(os.path.join(HERE, '..', 'dist'), exist_ok=True)
-out = os.path.normpath(os.path.join(HERE, '..', 'dist', 'phfm-website.html'))
+# R5=a|b: bản xem trước phối màu, ghi ra file riêng, không đè bản chính
+r5 = os.environ.get('R5', '').strip().lower()
+out = os.path.normpath(os.path.join(HERE, '..', 'dist', 'phfm-website-r5%s.html' % r5 if r5 in ('a', 'b') else 'phfm-website.html'))
 open(out, 'w', encoding='utf-8').write(s)
 print('OK', out, round(len(s.encode('utf-8')) / 1024 / 1024, 2), 'MB')

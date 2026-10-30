@@ -1,0 +1,63 @@
+/* ===== R5 phương án B "sáng" (xem trước, chỉ nạp khi R5=b) =====
+   Hero trang con: nền mist #E3EEF0, tiêu đề #0A3440, ảnh bên phải không phủ lớp tối (chỉ có lớp mờ mist ở mép trái ảnh để chữ nằm trên nền phẳng), nút vàng.
+   Teal đậm #0A3440 chỉ còn một dải nhấn mỗi trang: About = Lịch sử hình thành (giữ nguyên R4-03), VNSHINE = ô chênh lệch giá/NAV; Quỹ thành viên không có dải teal đậm.
+   Thanh mục con: nền trắng, chữ #0B6274, gạch vàng khi chọn. Quỹ phù hợp: mist.
+   Màu chỉ lấy trong brief: #0A3440 #0B6274 #E3EEF0 #D8E7EA #86B4BE #E9C46A #F2D27D #7D5F1A #C0962D #15897D #16262B #4D6066 #FFFFFF */
+
+/* ---------- hero: nền mist, chữ tối ---------- */
+.hero-sub,.dh,.fh{background:#E3EEF0!important;border-bottom:1px solid #D8E7EA!important}
+.dh{--text-gold:#7D5F1A;--espresso:#0A3440;--ink:#16262B;--muted:#4D6066;--gold-ink:#7D5F1A;--sand:#D8E7EA;--ivory:#E3EEF0;--cream:#E3EEF0}
+.dh h1,.dh h1 *,.fh h1,.fh h1 *{color:#0A3440!important;-webkit-text-fill-color:#0A3440!important}
+.dh>img[src*="data:image"][style*="opacity"]{opacity:.3!important}
+
+/* About, Học viện (khung rộng): ảnh tràn bên phải, lớp mờ mist (không phải lớp tối) ở mép trái ảnh */
+.r5-aw-ov{width:46%!important;background:linear-gradient(90deg,#E3EEF0 0%,#E3EEF0 30%,rgba(227,238,240,0) 100%)!important}
+
+/* ba trang dịch vụ: ảnh trong khung bo góc, bóng nhẹ */
+.hero-sub .hero-pic{border-radius:20px!important;box-shadow:0 18px 44px rgba(10,52,64,.16)}
+
+/* trang quỹ: chữ tối trên nền mist, ảnh tràn bên phải với lớp mờ mist */
+.fh>img{object-position:78% 50%!important}
+.fh>img+div{background:linear-gradient(90deg,#E3EEF0 0%,#E3EEF0 40%,rgba(227,238,240,.6) 56%,rgba(227,238,240,0) 76%)!important}
+.fh>div:last-child>div:first-child{color:#16262B}
+.fh>div:last-child>div:first-child>div:first-child,.fh>div:last-child>div:first-child>div:first-child *{color:#4D6066!important}
+.fh>div:last-child>div:first-child>div:nth-child(2){color:#7D5F1A!important}
+.fh h1+div>span{background:#FFFFFF!important;color:#7D5F1A!important;border:1px solid #D8E7EA}
+.fh>div:last-child>div:first-child>p{color:#16262B!important}
+.fh>div:last-child>div:first-child>div:last-child>div:nth-child(2) button,
+.fh>div:last-child>div:first-child>div:last-child>div:nth-child(2) a{color:#0B6274!important;border-color:#0B6274!important;background:transparent!important}
+.fh>div:last-child>div:first-child>div:last-child>div:nth-child(2) button:hover{background:#FFFFFF!important}
+.fh>div:last-child>div:last-child{border:1px solid #D8E7EA!important;box-shadow:0 18px 44px rgba(10,52,64,.16)}
+
+/* ---------- thanh mục con: trắng, chữ teal, gạch vàng ---------- */
+.nm-sbar{background:#FFFFFF!important;border-top:0!important;border-bottom:1px solid #D8E7EA!important;box-shadow:0 8px 20px rgba(10,52,64,.06)}
+.nm-sbar-in>button{position:relative;align-self:stretch;display:flex!important;align-items:center}
+.nm-sbar button,.nm-sbar button *{color:#0B6274!important}
+.nm-sbar button:hover,.nm-sbar button:hover *,.nm-sbar button.scp1,.nm-sbar button.scp1 *,.nm-sbar button.r5-on,.nm-sbar button.r5-on *,.nm-sbar button[style*="font-weight: 700"],.nm-sbar button[style*="font-weight: 700"] *{color:#0A3440!important}
+.nm-sbar button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#E9C46A;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nm-sbar button:hover::after,.nm-sbar button:focus-visible::after,.nm-sbar button.r5-on::after{transform:scaleX(1)}
+.nm-sbar button.r5-on,.nm-sbar button.r5-on *{font-weight:700!important}
+.nm-sbar button:focus-visible{outline:2px solid #0A3440;outline-offset:-2px}
+
+/* ---------- Lịch sử hình thành: giữ nền #0A3440 của R4-03, đây là dải teal đậm duy nhất của About ---------- */
+
+/* ---------- Quỹ phù hợp với bạn: mist ---------- */
+.fit{background:#E3EEF0;color:#16262B}
+.fit-t{color:#0A3440}
+.fit-c{background:#FFFFFF;color:#0B6274}
+.fit-i{border-top-color:#86B4BE}
+.fit-i:last-child{border-bottom-color:#86B4BE}
+.fit-x{color:#16262B}
+
+/* ---------- ô chênh lệch giá/NAV: giữ #0A3440, nhãn #D8E7EA (không dùng vàng chữ nhỏ), vạch vàng trên ---------- */
+.pd-cell{border-top:3px solid #E9C46A}
+.pd-l{color:#D8E7EA}
+
+/* ---------- bố cục xếp dọc ---------- */
+.hero-sub .hero-pic-box>img{border-radius:0}
+@media(max-width:1100px){
+  .fh>img+div{background:linear-gradient(180deg,#E3EEF0 0%,rgba(227,238,240,.95) 50%,rgba(227,238,240,.8) 100%)!important}
+}
+@media(max-width:760px){
+  .dh>img[src*="data:image"][style*="opacity"]{display:none}
+}

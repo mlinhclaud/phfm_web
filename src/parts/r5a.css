@@ -1,0 +1,78 @@
+/* ===== R5 phương án A "chéo như trang chủ" (xem trước, chỉ nạp khi R5=a) =====
+   Hero trang con: nền #0A3440 trái, mảng chéo #0B6274 phải (cùng góc skewX(-16deg), cùng mốc 55% như .hm-skew), ảnh nằm trong khung bo góc trên mảng chéo.
+   Thanh mục con: nền trắng, chữ #0B6274, gạch vàng khi chọn. Lịch sử hình thành, Quỹ phù hợp, ô chênh lệch giá/NAV: nền mist.
+   Màu chỉ lấy trong brief: #0A3440 #0B6274 #E3EEF0 #D8E7EA #86B4BE #E9C46A #F2D27D #7D5F1A #C0962D #15897D #16262B #4D6066 #FFFFFF */
+
+/* ---------- hero: mảng chéo + vòng vàng ---------- */
+.hero-sub{background:#0A3440!important;border-bottom:0!important}
+.hero-sub::before{content:"";position:absolute;top:0;bottom:0;left:55%;width:80%;background:#0B6274;transform:skewX(-16deg);transform-origin:top left;pointer-events:none}
+.hero-sub::after{content:"";position:absolute;z-index:0;width:300px;height:300px;border:2px solid #E9C46A;border-radius:50%;top:-110px;right:calc(max(0px,(100% - 1280px)/2) - 70px);pointer-events:none}
+.hero-sub>.hero-in{z-index:1}
+
+/* About, Học viện (khung rộng): ảnh thành khung bo góc trên mảng chéo, bỏ lớp phủ teal */
+.r5-aw{z-index:1;left:auto!important;right:max(48px,calc((100% - 1280px)/2 + 48px))!important;top:56px!important;bottom:56px!important;width:min(44vw,560px)!important;border-radius:20px;box-shadow:0 24px 56px rgba(10,52,64,.36)}
+.r5-aw-ov{display:none!important}
+
+/* ba trang dịch vụ: ảnh trong khung bo góc, có bóng; đoạn mở đầu hẹp lại để chữ không vắt qua cạnh chéo */
+@media(min-width:761px){.hero-sub:has(.r5-picw) .hero-in>div:nth-child(2)>div:first-child>p{max-width:500px}}
+.hero-sub .hero-pic{border-radius:20px!important;box-shadow:0 24px 56px rgba(10,52,64,.36)}
+.r5-picw{position:relative}
+
+/* trang quỹ: ảnh toàn khung cũ thành ảnh nằm trong mảng chéo (cắt theo cạnh chéo), bỏ lớp phủ teal đậm */
+.fh>img{clip-path:polygon(55% 0,100% 0,100% 100%,calc(55% - 172px) 100%);opacity:.6;z-index:0}
+.fh>img+div{display:none!important}
+.fh>div:last-child>div:last-child{box-shadow:0 24px 56px rgba(10,52,64,.32)}
+
+/* ---------- thanh mục con: trắng, chữ teal, gạch vàng ---------- */
+.nm-sbar{background:#FFFFFF!important;border-top:0!important;border-bottom:1px solid #D8E7EA!important;box-shadow:0 8px 20px rgba(10,52,64,.06)}
+.nm-sbar-in>button{position:relative;align-self:stretch;display:flex!important;align-items:center}
+.nm-sbar button,.nm-sbar button *{color:#0B6274!important}
+.nm-sbar button:hover,.nm-sbar button:hover *,.nm-sbar button.scp1,.nm-sbar button.scp1 *,.nm-sbar button.r5-on,.nm-sbar button.r5-on *,.nm-sbar button[style*="font-weight: 700"],.nm-sbar button[style*="font-weight: 700"] *{color:#0A3440!important}
+.nm-sbar button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#E9C46A;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nm-sbar button:hover::after,.nm-sbar button:focus-visible::after,.nm-sbar button.r5-on::after{transform:scaleX(1)}
+.nm-sbar button.r5-on,.nm-sbar button.r5-on *{font-weight:700!important}
+.nm-sbar button:focus-visible{outline:2px solid #0A3440;outline-offset:-2px}
+
+/* ---------- Lịch sử hình thành: nền mist, mốc teal, trục vàng ---------- */
+.ab-j{background:#E3EEF0;color:#16262B}
+.ab-j-t{color:#0A3440}
+.ab-j-cols::before{background:#E9C46A}
+.ab-j-dot{background:#E9C46A;box-shadow:0 0 0 4px #E3EEF0}
+.ab-j-yr{color:#0B6274}
+.ab-j-n{color:#0A3440}
+.ab-j-it{border-top-color:#86B4BE}
+.ab-j-y{color:#0B6274}
+.ab-j-tx{color:#16262B}
+
+/* ---------- Quỹ phù hợp với bạn: mist ---------- */
+.fit{background:#E3EEF0;color:#16262B}
+.fit-t{color:#0A3440}
+.fit-c{background:#FFFFFF;color:#0B6274}
+.fit-i{border-top-color:#86B4BE}
+.fit-i:last-child{border-bottom-color:#86B4BE}
+.fit-x{color:#16262B}
+
+/* ---------- ô chênh lệch giá/NAV: teal chính #0B6274, số trắng, nhãn #D8E7EA, vạch vàng trên ---------- */
+.pd-cell{background:#0B6274;border-top:3px solid #E9C46A}
+.pd-l{color:#D8E7EA}
+.pd-v{color:#FFFFFF}
+
+/* ---------- bố cục xếp dọc (ảnh nằm dưới chữ): About/Học viện dưới 1400px, trang quỹ dưới 1100px, mọi trang dưới 760px ---------- */
+/* ảnh dưới chữ: dải teal chính cắt chéo ở mép trên, ảnh bo góc nằm trên dải */
+.hero-sub:has(.hero-pic-box)::before,.hero-sub:has(.hero-pic-box)::after{display:none}
+.hero-sub .hero-pic-box{background:#0B6274;height:auto!important;padding:44px max(16px,calc((100% - 1280px)/2 + 48px)) 36px;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);position:relative;z-index:1}
+.hero-sub .hero-pic-box>img{position:static!important;width:100%!important;height:clamp(230px,32vw,380px)!important;border-radius:20px;box-shadow:0 16px 36px rgba(10,52,64,.36)}
+@media(max-width:1100px){
+  .hero-sub::before,.hero-sub::after{display:none}
+  .hero-sub.fh::before{display:block;top:auto;bottom:0;left:0;width:100%;height:480px;transform:none;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%)}
+  .fh>img{top:auto!important;height:480px!important;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);opacity:.6}
+}
+@media(max-width:760px){
+  .hero-sub::before{display:block;top:auto;bottom:0;left:0;width:100%;height:340px;transform:none;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%)}
+  .hero-sub.fh::before{height:480px}
+  .hero-sub:has(.hero-pic-box)::before,.hero-sub:has(.r5-picw)::before{display:none}
+  .hero-sub .hero-pic-box>img{height:230px!important}
+  .r5-picw{isolation:isolate}
+  .r5-picw::before{content:"";position:absolute;z-index:-1;left:-100vw;right:-100vw;top:-28px;bottom:-40px;background:#0B6274;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%)}
+  .hero-sub .hero-pic{box-shadow:0 16px 36px rgba(10,52,64,.36);border-radius:16px!important}
+}
