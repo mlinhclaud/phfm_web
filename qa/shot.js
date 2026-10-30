@@ -1,5 +1,5 @@
 // Chụp một phần tử: node qa/shot.js /vi/vnshine 1440 ".pd-cell" qa/out/pd.png
-const {chromium}=require('playwright');const path=require('path');const F=path.join(__dirname,'..','dist','phfm-website.html');
+const {chromium}=require('playwright');const path=require('path');const F=path.resolve(process.env.HTML||path.join(__dirname,'..','dist','phfm-website.html'));
 const [route,W,sel,out]=process.argv.slice(2);
 (async()=>{const b=await chromium.launch();const p=await (await b.newContext({viewport:{width:+W,height:900},isMobile:+W<500})).newPage();
 await p.goto('file://'+F+'#'+route);await p.waitForTimeout(2500);

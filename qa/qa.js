@@ -2,7 +2,7 @@
 // Chạy: node qa/qa.js   (biến môi trường: PAGES="phvsf about", LANGS="vi", WIDTHS="390")
 // Kết quả: qa/out/audit.json, qa/out/shots/*.png. Lệnh trả mã 1 nếu có trang tràn ngang hoặc lỗi JS.
 const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
-const F=path.join(__dirname,'..','dist','phfm-website.html');const OUT=path.join(__dirname,'out');fs.mkdirSync(OUT+'/shots',{recursive:true});
+const F=path.resolve(process.env.HTML||path.join(__dirname,'..','dist','phfm-website.html'));const OUT=process.env.QAOUT||path.join(__dirname,'out');fs.mkdirSync(OUT+'/shots',{recursive:true});
 const map={};
 const pages=(process.env.PAGES||'home about funds phvsf vnshine member portfolio advisory ir news academy careers contact guidePhvsf guideVnshine faq glossary forms terms privacy').split(' ');
 const langs=(process.env.LANGS||'vi en').split(' ');const widths=(process.env.WIDTHS||'1440 390').split(' ').map(Number);
