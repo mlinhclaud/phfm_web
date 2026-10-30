@@ -1,0 +1,135 @@
+/* ===== Vòng 5 · phương án A "chéo như trang chủ" (Rin chọn) cho 19 trang con. Nạp sau r4.css. =====
+   Hero trang con: nền #0A3440 trái, mảng chéo #0B6274 phải (cùng góc skewX(-16deg), cùng mốc 55% như .hm-skew), ảnh nằm trong khung bo góc trên mảng chéo.
+   Thanh mục con: nền trắng, chữ #0B6274, gạch vàng khi chọn. Lịch sử hình thành, Quỹ phù hợp, ô chênh lệch giá/NAV: nền mist.
+   Màu chỉ lấy trong brief: #0A3440 #0B6274 #E3EEF0 #D8E7EA #86B4BE #E9C46A #F2D27D #7D5F1A #C0962D #15897D #16262B #4D6066 #FFFFFF */
+
+/* ---------- hero: mảng chéo + vòng vàng ---------- */
+.hero-sub{background:#0A3440!important;border-bottom:0!important}
+.hero-sub::before{content:"";position:absolute;top:0;bottom:0;left:55%;width:80%;background:#0B6274;transform:skewX(-16deg);transform-origin:top left;pointer-events:none}
+.hero-sub::after{content:"";position:absolute;z-index:0;width:300px;height:300px;border:2px solid #E9C46A;border-radius:50%;top:-110px;right:calc(max(0px,(100% - 1280px)/2) - 70px);pointer-events:none}
+.hero-sub>.hero-in{z-index:1}
+
+/* About, Học viện (khung rộng): ảnh thành khung bo góc trên mảng chéo, bỏ lớp phủ teal */
+.r5-aw{z-index:1;left:auto!important;right:max(48px,calc((100% - 1280px)/2 + 48px))!important;top:56px!important;bottom:56px!important;width:min(44vw,560px)!important;border-radius:20px;box-shadow:0 24px 56px rgba(10,52,64,.36)}
+.r5-aw-ov{display:none!important}
+
+/* ba trang dịch vụ: ảnh trong khung bo góc, có bóng; đoạn mở đầu hẹp lại để chữ không vắt qua cạnh chéo */
+@media(min-width:761px){.hero-sub:has(.r5-picw) .hero-in>div:nth-child(2)>div:first-child>p{max-width:500px}}
+.hero-sub .hero-pic{border-radius:20px!important;box-shadow:0 24px 56px rgba(10,52,64,.36)}
+.r5-picw{position:relative}
+
+/* trang quỹ: ảnh toàn khung cũ thành ảnh nằm trong mảng chéo (cắt theo cạnh chéo), bỏ lớp phủ teal đậm */
+.fh>img{clip-path:polygon(55% 0,100% 0,100% 100%,calc(55% - 172px) 100%);opacity:.6;z-index:0}
+.fh>img+div{display:none!important}
+.fh>div:last-child>div:last-child{box-shadow:0 24px 56px rgba(10,52,64,.32)}
+
+/* ---------- thanh mục con: mist #E3EEF0, chữ teal, gạch vàng khi rê chuột hoặc focus ----------
+   Mist (không trắng) để hero teal đậm, thanh mục con và section đầu (trắng) là ba màu khác nhau, không hai khối liền nhau cùng nền. */
+.nm-sbar{background:#E3EEF0!important;border-top:0!important;border-bottom:1px solid #D8E7EA!important;box-shadow:0 8px 20px rgba(10,52,64,.06)}
+.nm-sbar-in>button{position:relative;align-self:stretch;display:flex!important;align-items:center}
+.nm-sbar button,.nm-sbar button *{color:#0B6274!important}
+.nm-sbar button:hover,.nm-sbar button:hover *,.nm-sbar button:focus-visible,.nm-sbar button:focus-visible *{color:#0A3440!important}
+.nm-sbar button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#E9C46A;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nm-sbar button:hover::after,.nm-sbar button:focus-visible::after{transform:scaleX(1)}
+.nm-sbar button:focus-visible{outline:2px solid #0A3440;outline-offset:-2px}
+
+/* ---------- Lịch sử hình thành: nền mist, mốc teal, trục vàng ---------- */
+.ab-j{background:#E3EEF0;color:#16262B}
+.ab-j-t{color:#0A3440}
+.ab-j-cols::before{background:#E9C46A}
+.ab-j-dot{background:#E9C46A;box-shadow:0 0 0 4px #E3EEF0}
+.ab-j-yr{color:#0B6274}
+.ab-j-n{color:#0A3440}
+.ab-j-it{border-top-color:#86B4BE}
+.ab-j-y{color:#0B6274}
+.ab-j-tx{color:#16262B}
+
+/* ---------- Quỹ phù hợp với bạn: mist ---------- */
+.fit{background:#E3EEF0;color:#16262B}
+.fit-t{color:#0A3440}
+.fit-c{background:#FFFFFF;color:#0B6274}
+.fit-i{border-top-color:#86B4BE}
+.fit-i:last-child{border-bottom-color:#86B4BE}
+.fit-x{color:#16262B}
+
+/* ---------- ô chênh lệch giá/NAV: teal chính #0B6274, số trắng, nhãn #D8E7EA, vạch vàng trên ---------- */
+.pd-cell{background:#0B6274;border-top:3px solid #E9C46A}
+.pd-l{color:#D8E7EA}
+.pd-v{color:#FFFFFF}
+
+/* ---------- bố cục xếp dọc (ảnh nằm dưới chữ): About/Học viện dưới 1400px, trang quỹ dưới 1100px, mọi trang dưới 760px ---------- */
+/* ảnh dưới chữ: dải teal chính cắt chéo ở mép trên, ảnh bo góc nằm trên dải */
+.hero-sub:has(.hero-pic-box)::before,.hero-sub:has(.hero-pic-box)::after{display:none}
+.hero-sub .hero-pic-box{background:#0B6274;height:auto!important;padding:44px max(16px,calc((100% - 1280px)/2 + 48px)) 36px;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);position:relative;z-index:1}
+.hero-sub .hero-pic-box>img{position:static!important;width:100%!important;height:clamp(230px,32vw,380px)!important;border-radius:20px;box-shadow:0 16px 36px rgba(10,52,64,.36)}
+@media(max-width:1100px){
+  .hero-sub::before,.hero-sub::after{display:none}
+  .hero-sub.fh::before{display:block;top:auto;bottom:0;left:0;width:100%;height:480px;transform:none;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%)}
+  .fh>img{top:auto!important;height:480px!important;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);opacity:.6}
+}
+@media(max-width:760px){
+  .hero-sub::before{display:block;top:auto;bottom:0;left:0;width:100%;height:340px;transform:none;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%)}
+  .hero-sub.fh::before{height:480px}
+  .hero-sub:has(.hero-pic-box)::before,.hero-sub:has(.r5-picw)::before{display:none}
+  .hero-sub .hero-pic-box>img{height:230px!important}
+  .r5-picw{isolation:isolate}
+  .r5-picw::before{content:"";position:absolute;z-index:-1;left:-100vw;right:-100vw;top:-28px;bottom:-40px;background:#0B6274;clip-path:polygon(0 36px,100% 0,100% 100%,0 100%)}
+  .hero-sub .hero-pic{box-shadow:0 16px 36px rgba(10,52,64,.36);border-radius:16px!important}
+}
+
+/* ---------- Lịch sử hình thành: cỡ chữ nhỏ lại (Rin: chữ to quá) ----------
+   Năm giai đoạn 28-32px (trước 40-44px), tên giai đoạn 18px (trước 20px), năm mốc và sự kiện 15px (trước 16px). Trục vàng, mốc vàng, nền mist giữ nguyên. */
+.ab-j-yr{font-size:clamp(28px,2.2vw,32px)!important;line-height:40px!important;letter-spacing:-.015em}
+.ab-j-n{font-size:18px!important;line-height:26px!important}
+.ab-j-y,.ab-j-tx{font-size:15px!important;line-height:22px!important}
+.ab-j-it{padding:12px 0}
+@media(max-width:1023px){.ab-j-yr{font-size:30px!important;line-height:38px!important}.ab-j-dot{top:14px}}
+@media(max-width:760px){.ab-j-yr{font-size:28px!important;line-height:36px!important}.ab-j-dot{top:12px}}
+
+/* ---------- Menu header: mỗi mục chỉ một gạch vàng ----------
+   Nguyên nhân: template gạch "mục đang chọn" là <div style="...height:2px..."> nhưng trình duyệt ghi lại style thành "height: 2px" (có dấu cách),
+   nên luật r3.css/theme.css dùng [style*="height:2px"] không khớp: gạch active nằm lệch (bottom -1px, vàng đậm #C0962D) và gạch hover (::after, bottom 4px, vàng #E9C46A) hiện cùng lúc.
+   Sửa: patches5 gắn class .th-act cho gạch active; hover ::after ẩn ở mục đang chọn; gạch active cùng vị trí và màu với gạch hover.
+   Focus bàn phím: vòng teal bo tròn, cách chữ 4px, nằm ngoài gạch vàng (vòng đen mặc định sát gạch trông như gạch thứ hai). Trang chủ không có mục đang chọn nên giữ nguyên. */
+header .th-nav>div:has(>.th-act)::after{display:none!important}
+header .th-nav>div>.th-act{left:0!important;right:0!important;bottom:4px!important;height:2px!important;border-radius:2px!important;background:#E9C46A!important}
+header .th-nav>div>button:focus-visible{outline:2px solid #0B6274!important;outline-offset:4px;border-radius:6px!important}
+
+/* ---------- Chữ không bị ép: trang con căn trái, không dính, không giãn ----------
+   Luật cũ main p,li{text-align:justify} cộng script căn đều (okBlock/fit) ép word-spacing -0.04..-0.2em và letter-spacing âm cho vừa dòng, nên chữ dính nhau.
+   Trang con: đoạn căn trái, text-wrap:pretty (tránh dòng cuối chỉ một chữ), tiêu đề text-wrap:balance. patches5 tắt script fit trên trang con. Trang chủ (main[data-hm]) và chân trang không đổi. */
+main:not([data-hm]) p,main:not([data-hm]) li,main:not([data-hm]) dd,main:not([data-hm]) blockquote,main:not([data-hm]) figcaption,#rd5 .bd p,#rd5 .bd li{text-align:left!important;text-justify:auto!important;text-wrap:pretty!important;word-spacing:normal!important}
+main:not([data-hm]) h1,main:not([data-hm]) h2,main:not([data-hm]) h3{text-wrap:balance!important}
+
+/* ---------- Xen kẽ nền section: không có hai section liền nhau cùng màu (trắng / mist) ----------
+   Thứ tự mỗi trang ghi ở specs/changelog.md và PR. Quy tắc: hero teal đậm, thanh mục con mist, section đầu trắng, rồi trắng, mist, trắng...
+   Section nào trùng nền với section kề thì đổi sang màu còn lại. Chân trang (mist, viền vàng 4px) không tính. Trang chủ không đổi.
+   Nhiều section chỉ rộng 1280px (max-width + margin auto), nên nền phủ kín ngang bằng box-shadow 100vmax và clip-path cắt trên/dưới. */
+.r5-m{background:#E3EEF0!important;box-shadow:0 0 0 100vmax #E3EEF0;clip-path:inset(0 -100vmax)}
+.r5-w{background:#FFFFFF!important;box-shadow:0 0 0 100vmax #FFFFFF;clip-path:inset(0 -100vmax)}
+/* Về chúng tôi: ... Giá trị cốt lõi (trắng) > Trụ sở (mist) > Ban lãnh đạo (trắng) > Đối tác (mist) */
+#ab-hq{background:#E3EEF0!important;box-shadow:0 0 0 100vmax #E3EEF0;clip-path:inset(0 -100vmax)}
+#ab-leaders{background:#FFFFFF!important}
+/* PHVSF: ... Kết quả (trắng) > Lịch sử NAV (mist) > Ban điều hành (trắng) > Tài liệu (mist) > Hướng dẫn (trắng)
+   VNSHINE: Kết quả (trắng) > Lịch sử NAV (mist) > Giao dịch (trắng) > Ban điều hành (mist) > Tài liệu (trắng) > Hướng dẫn (mist) */
+#sec-nav,#sec-trading~#sec-team,#sec-trading~#sec-guide{background:#E3EEF0!important;box-shadow:0 0 0 100vmax #E3EEF0;clip-path:inset(0 -100vmax)}
+#sec-trading,#sec-trading~#sec-docs{background:#FFFFFF!important;box-shadow:0 0 0 100vmax #FFFFFF;clip-path:inset(0 -100vmax)}
+/* Học viện: 3 section trắng > trắng, mist, trắng. Công bố thông tin, Hỏi đáp, Thuật ngữ: khối đầu trang mist, thân trang trắng, khối cuối (hỏi đáp, thuật ngữ) mist.
+   Góc nhìn & Tin tức: đầu trang mist > tìm kiếm trắng > bài nổi bật mist > lưới bài trắng > đăng ký báo cáo mist.
+   Hướng dẫn (2 trang): thanh bước (trắng) > bước 1 mist > bước 2 trắng > bước 3 mist > bước 4 trắng > khối cuối mist */
+.pg-academy>section:nth-child(3),.pg-ir>section:nth-child(1),.pg-faq>section:nth-child(1),.pg-faq>section:nth-child(3),.pg-glossary>section:nth-child(1),.pg-glossary>section:nth-child(3),
+.pg-news>section:nth-child(1),.pg-news>section:nth-child(3),.pg-news>section:nth-child(5),#buoc-01,#buoc-03{background:#E3EEF0!important;box-shadow:0 0 0 100vmax #E3EEF0;clip-path:inset(0 -100vmax)}
+#buoc-02,#buoc-04{background:#FFFFFF!important;box-shadow:0 0 0 100vmax #FFFFFF;clip-path:inset(0 -100vmax)}
+.pg-faq>section:nth-child(3)>div,.pg-glossary>section:nth-child(3)>div{background:#FFFFFF!important}
+.pg-ir>section:nth-child(1),.pg-faq>section:nth-child(1),.pg-glossary>section:nth-child(1),.pg-news>section:nth-child(1){padding-bottom:40px!important}
+/* Hướng dẫn VNSHINE: hero > giới thiệu (trắng) > thanh bước (mist) > giao dịch sơ cấp (trắng) > giao dịch thứ cấp (mist) > khối cuối.
+   Hero Hướng dẫn dùng mist #E3EEF0 như hero Hướng dẫn PHVSF (trước đây #EEF3F4, ngoài bảng màu). */
+.nm-ghero{background:#E3EEF0!important}
+.nm-gnav:has(+main>#so-cap){background:#E3EEF0!important}
+#so-cap{background:#FFFFFF!important;box-shadow:0 0 0 100vmax #FFFFFF;clip-path:inset(0 -100vmax)}
+#thu-cap{background:#E3EEF0!important;box-shadow:0 0 0 100vmax #E3EEF0;clip-path:inset(0 -100vmax)}
+/* bảng Lịch sử NAV trên nền mist: hàng trắng, hàng tiêu đề #D8E7EA để còn thấy khung bảng */
+#sec-nav .nm-tbl{background:#FFFFFF!important}
+#sec-nav .nm-tbl[style*="var(--cream)"]{background:#D8E7EA!important}
+/* cột năm của danh sách mốc đủ rộng cho "2012 - 2013" trên một dòng */
+.ab-j-it,.ab-j-it{grid-template-columns:90px minmax(0,1fr)!important}
