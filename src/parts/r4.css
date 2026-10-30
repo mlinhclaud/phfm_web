@@ -89,3 +89,8 @@
   .ab-j-dot{left:-32px;top:16px}
   .ab-j-it{grid-template-columns:76px minmax(0,1fr);column-gap:12px}
 }
+/* Fix 17: lưới Giá trị cốt lõi (about) bị luật mobile cũ `main section>div{padding:0 18px!important}` thụt thêm 18px,
+   viền trên thừa ra ngoài ô, mép phải mất viền. Section bọc ngoài đã có padding, nên bỏ padding riêng của lưới này. */
+@media(max-width:760px){
+  #ab-values>div[style*="grid"]{padding-left:0!important;padding-right:0!important}
+}
