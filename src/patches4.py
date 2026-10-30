@@ -203,4 +203,17 @@ def p_r4_03(s):
     return rep(s, old, new)
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_r4_04, p_r4_03, p_r4css]
+# ---------------------------------------------------------------- #20: hero About và Học viện dùng layout rộng từ 1280px
+def p_fix20(s):
+    """heroNarrow = vw < 1400 làm About và Học viện ở 1280-1399 dùng layout hẹp (ảnh dưới chữ), hero cao 840-1130px.
+    Hạ ngưỡng xuống 1280: từ 1280 ảnh nằm bên phải như bản 1440. Dưới 1280 vẫn là layout hẹp (.hero-nar)."""
+    s = rep(s, 'const heroWide = vw >= 1400, heroNarrow = !heroWide;', 'const heroWide = vw >= 1280, heroNarrow = !heroWide;')
+    # Học viện ở 1280-1319 (VI) bị chữ mồ côi "tư" xuống dòng 2; luật chung `main h1{text-wrap:wrap!important}` chặn text-wrap.
+    # Gắn class .ac-h1 vào h1 hero Học viện (layout rộng) để r4.css đặt text-wrap:pretty riêng ở 1280-1399.
+    ey = '{{ d.academy.eyebrow }}</x-import>\n            '
+    h1 = 'h1 style="font-size:clamp(36px,3.6vw,52px);line-height:1.15;font-weight:700;color:var(--espresso);margin:16px 0 0;letter-spacing:-.02em;text-wrap:balance">{{ d.academy.title }}</h1>'
+    s = rep(s, ey + '<' + h1, ey + '<h1 class="ac-h1" ' + h1[3:], 2)  # hai bản (rộng, hẹp); CSS chỉ áp 1280-1399, lúc đó chỉ bản rộng hiện
+    return s
+
+
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_r4_04, p_r4_03, p_fix20, p_r4css]

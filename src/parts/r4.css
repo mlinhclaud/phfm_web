@@ -10,7 +10,7 @@
    nên khoảng trên 64px đặt bằng margin-top; padding-top để 0. */
 .hero-sub{min-height:560px}
 .hero-sub.fh{min-height:600px}
-/* .hero-nar = layout hẹp (About, Học viện, dưới 1400px): giữ padding cũ ở 1280–1399 */
+/* .hero-nar = layout hẹp (About, Học viện, dưới 1280px, xem p_fix20): giữ padding cũ. Từ 1280 hai trang này dùng layout rộng như các hero khác */
 @media(min-width:1280px){.hero-sub>.hero-in:not(.hero-nar){margin-top:64px!important;padding-top:0!important;padding-bottom:64px!important}}
 .hero-sub .hero-pic{aspect-ratio:10/9!important;object-position:50% 50%}
 @media(max-width:1279px){.hero-sub,.hero-sub.fh{min-height:480px}}
@@ -88,4 +88,8 @@
   .ab-j-cols{padding-left:32px;gap:40px}
   .ab-j-dot{left:-32px;top:16px}
   .ab-j-it{grid-template-columns:76px minmax(0,1fr);column-gap:12px}
+}
+/* Fix 20: hero Học viện dùng layout rộng từ 1280px. Luật chung `main h1{text-wrap:wrap!important}` chặn text-wrap nên chữ "tư" mồ côi ở 1280–1319 (VI). */
+@media(min-width:1280px) and (max-width:1399px){
+  .ac-h1{text-wrap:pretty!important}
 }
