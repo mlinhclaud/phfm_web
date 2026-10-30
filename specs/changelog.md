@@ -73,3 +73,9 @@ Cột: Trang | Thay đổi | Lý do. Vòng mới nối thêm ở cuối bảng.
 | Hướng dẫn đầu tư (VNSHINE, PHVSF) | Số bước 01-04 đổi từ `#C0962D` sang vàng đậm `#7D5F1A`: 5,04:1 trên mist, 5,96:1 trên trắng (trước 2,32:1 trên mist) | Tương phản chữ lớn trên nền sáng |
 | Menu header | Vòng focus bàn phím đổi sang teal đậm `#0A3440` (13,3:1 trên nền trắng) | Brief: viền focus teal đậm trên nền sáng |
 | Công cụ QA | `qa.js`, `shot.js`, `insp.js` nhận biến `HTML`. Thêm `r5sections.js` (thứ tự nền section), `r5menu.js` (gạch menu), `r5spacing.js` (chữ ép), `r5hero.js` + `r5herocmp.py` (cỡ chữ hero), `r5contrast.js` (tương phản), `r5pixdiff.py` (so điểm ảnh), `survey-teal.js`, `r5bgprobe.js`, `r5shots.js` | Kiểm vòng 5 |
+
+## Vòng 6
+
+| Trang | Thay đổi | Lý do |
+|---|---|---|
+| Hướng dẫn VNSHINE (EN, 中文) | Hai thẻ phương thức ("View details" / "查看詳情") đổi `href="#so-cap"`, `href="#thu-cap"` thành `href="#"` (site.js đã chặn), thêm `cursor:pointer` như bản VI. Bấm thẻ cuộn mượt tới mục, giữ `#/en/guideVnshine`, `#/zh/guideVnshine`. Hàm vá `p_r6_02_anchor` trong `src/patches6b.py` (mới). Thêm `qa/r6anchors.js` (bấm mọi link neo ở hai trang Hướng dẫn, VI/EN/中文, báo link làm đổi route) và `qa/r6click.js` | Bình luận #34, #84: bấm thẻ làm hash đổi sang `#so-cap` nên mất route, về trang chủ. Các link neo còn lại ở hai trang Hướng dẫn đã kiểm: không còn link nào làm mất route |
