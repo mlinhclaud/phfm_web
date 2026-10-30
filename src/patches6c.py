@@ -98,4 +98,20 @@ def p_r6_05_stats(s):
     return s
 
 
-PATCHES6C = [p_r6c_css, p_r6_04_yield, p_r6_04_eyebrow, p_r6_04_notes, p_r6_04_selall, p_r6_04_docs, p_r6_05_stats]
+# ---------------------------------------------------------------- Ảnh hero mới (bàn giao 30/10, mục 5)
+HERO_R6 = {'about_hero': 2, 'acad_hero': 2, 'cr_hero': 1}
+HERO_R6_JS = ['phvsf_hero', 'vns_hero', 'member_hero', 'pf_hero', 'adv_hero']
+
+def p_r6_hero(s):
+    """8 ảnh hero trang con thay bộ r5_* (ảnh sáng ban ngày, hợp nền hero bản gốc màu A). Ảnh gốc assets/source/generated/r6_*.webp,
+    nguồn ghi ở specs/image-sources.json. Đổi khoá theo đúng số chỗ dùng; Học viện: ảnh ở hero hai cột đặt object-position 78% 60% để nhóm người nằm trong khung (review #52)."""
+    for k, n in HERO_R6.items():
+        s = rep(s, '{{ img.r5_%s }}' % k, '{{ img.r6_%s }}' % k, n)
+    for k in HERO_R6_JS:
+        s = rep(s, 'window.__I.r5_%s' % k, 'window.__I.r6_%s' % k)
+    s = rep(s, '{{ img.r6_acad_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%',
+               '{{ img.r6_acad_hero }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% 60%')
+    return s
+
+
+PATCHES6C = [p_r6c_css, p_r6_04_yield, p_r6_04_eyebrow, p_r6_04_notes, p_r6_04_selall, p_r6_04_docs, p_r6_05_stats, p_r6_hero]
