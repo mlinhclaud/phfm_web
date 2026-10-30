@@ -134,4 +134,60 @@ def p_r4_04(s):
     return s
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4_04, p_r4css]
+# ---------------------------------------------------------------- R4-03: Lịch sử hình thành (#ab-journey) kiểu Vanguard
+def p_r4_03(s):
+    """Nền teal đậm, ba giai đoạn thành ba cột (năm lớn vàng + tên giai đoạn + danh sách năm/sự kiện), trục ngang mảnh nối ba điểm mốc.
+    Bỏ khung thẻ trắng cao bằng nhau. Dữ liệu d.about.phases giữ nguyên. CSS ở r4.css (khối R4-03).
+    Khối nằm giữa phần Giới thiệu (nền ivory) và Sứ mệnh (ảnh), nên không dính với hero teal của trang."""
+    old = r'''      <section id="ab-journey" style="background:var(--cream);border-top:1px solid var(--sand)"><div style="max-width:1280px;margin:0 auto;padding:72px 48px">
+        <h2 style="font-size:36px;line-height:44px;font-weight:700;color:var(--espresso);margin:0">{{ d.about.historyT }}</h2>
+        <div style="height:0;margin:0 0 32px"></div>
+        <div style="position:relative">
+          <div style="position:absolute;left:0;right:0;top:11px;height:2px;background:var(--gold);opacity:.55"></div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative">
+          <sc-for list="{{ d.about.phases }}" as="ph" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column">
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--gold);border:4px solid var(--cream);box-sizing:border-box;box-shadow:0 0 0 2px var(--gold)"></div>
+              <div style="margin-top:20px;background:var(--white);border:1px solid var(--sand);border-top:3px solid var(--gold);padding:28px;flex:1;display:flex;flex-direction:column;gap:16px">
+                <div>
+                  <div style="font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--gold-ink)">{{ ph.p }}</div>
+                  <div style="font-size:22px;line-height:30px;font-weight:700;color:var(--espresso);margin-top:6px">{{ ph.n }}</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--sand);padding-top:16px">
+                  <sc-for list="{{ ph.items }}" as="it" hint-placeholder-count="3">
+                    <div style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:baseline">
+                      <div style="font-size:15px;font-weight:700;color:var(--gold-ink);font-variant-numeric:tabular-nums">{{ it.y }}</div>
+                      <div style="font-size:15px;line-height:23px;color:var(--ink);text-wrap:pretty">{{ it.t }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+          </div>
+        </div>
+      </div></section>'''
+    new = r'''      <section id="ab-journey" class="ab-j"><div class="ab-j-in">
+        <h2 class="ab-j-t">{{ d.about.historyT }}</h2>
+        <div data-keepgrid class="ab-j-cols">
+          <sc-for list="{{ d.about.phases }}" as="ph" hint-placeholder-count="3">
+            <div class="ab-j-col">
+              <span class="ab-j-dot"></span>
+              <div class="ab-j-yr">{{ ph.p }}</div>
+              <div class="ab-j-n">{{ ph.n }}</div>
+              <div class="ab-j-list">
+                <sc-for list="{{ ph.items }}" as="it" hint-placeholder-count="3">
+                  <div class="ab-j-it">
+                    <div class="ab-j-y">{{ it.y }}</div>
+                    <div class="ab-j-tx">{{ it.t }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div></section>'''
+    return rep(s, old, new)
+
+
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_r4_04, p_r4_03, p_r4css]
