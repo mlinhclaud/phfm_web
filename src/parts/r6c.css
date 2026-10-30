@@ -4,6 +4,8 @@
 .fd-head{cursor:pointer;user-select:none}
 .fd-head:hover{background:#D8E7EA}
 .fd-head>.fd-cb{pointer-events:none}
+.fd-head:focus-visible{outline:2px solid #0B6274;outline-offset:-2px}
+.fd-head[data-empty="y"]{display:none}
 
 /* R6-04 · #71: Danh sách quỹ, tiêu đề cột và ô "Giao dịch" ("Hằng ngày") một dòng, không xuống dòng "GIAO / DỊCH" */
 .e-fl-wrap th{white-space:nowrap}
