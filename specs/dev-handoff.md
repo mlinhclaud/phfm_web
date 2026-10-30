@@ -61,6 +61,20 @@ Bản 中文 chưa làm. Nút 中文 vẫn còn, nhưng nội dung sẽ được
 - Nút "Công cụ" ở góc phải dưới mở 3 công cụ: Ước tính đầu tư định kỳ, Trắc nghiệm khẩu vị rủi ro, Bắt đầu từ con số 0. Kết quả chỉ mang tính minh hoạ, đã ghi rõ trong công cụ.
 - Code nằm trong script cuối `<body>` (id `pt-fab`).
 
+## 6d. Chờ pháp chế và việc còn thiếu (vòng 6)
+
+Chữ mới áp ngay ở VI, EN viết tương đương, 中文 không tự dịch (cô Helena duyệt). Mọi chữ dưới đây chờ pháp chế trước go-live.
+
+- **"Tỷ suất Lợi nhuận Cổ đông"** (VI) thay "Lợi suất Cổ đông" toàn site (Q5, issue #9). EN giữ "Shareholder Yield".
+- **"Quỹ ETF đầu tiên tại Việt Nam được xây dựng theo Chiến lược Tỷ suất Lợi nhuận Cổ đông - Shareholder Yield"** (hero và thẻ VNSHINE, VI/EN): giữ theo ý Rin (Q6). "Đầu tiên" là tuyên bố cần pháp chế xác nhận; nếu không xác nhận được thì đổi sang "một trong những quỹ ETF tiên phong" (brand-rules: không viết như độc quyền).
+- Nhãn hero PHVSF "QUỸ MỞ" / "OPEN-ENDED FUND" (R6-04).
+- Dòng "Tài liệu đang được cập nhật." / "This document is being updated." trong Tài liệu quỹ khi loại tài liệu chưa có file (R6-04).
+- Dòng "Số liệu minh hoạ, cập nhật đến ngày…" giữ đến khi có số thật từ CMS (Q7), chữ nhỏ in nghiêng.
+- **Tài liệu quỹ (PHVSF, VNSHINE)**: 9 loại theo bình luận #134. Chưa có file: Factsheets, Thông tin quỹ, Giấy phép (cả hai quỹ), Khác (PHVSF), Báo cáo tài chính (VNSHINE). Dev nối `url` từng tài liệu khi có file. Biểu mẫu nằm ở trang Biểu mẫu, không còn trong Tài liệu quỹ.
+- **Công bố thông tin**: 8 loại theo bình luận #116 (Thông báo quỹ, Điều lệ quỹ, Bản cáo bạch, Báo cáo tài chính, Báo cáo hoạt động tháng, Báo cáo NAV ngày/tuần, Biểu mẫu, Factsheet). Hai loại Biểu mẫu và Factsheet chưa có tài liệu mẫu.
+- **Chờ cô Helena (中文)**: nhãn hero PHVSF "OPEN-ENDED FUND" (đang hiện EN), dòng "Tài liệu đang được cập nhật" (hiện EN), 9 tên loại tài liệu và "Tỷ suất Lợi nhuận Cổ đông" (zh dùng "股東收益率", không đổi).
+- Nội dung từ phfm.vn cho PHVSF (`product-service/performance` và `overview` bản EN): Rin chưa gửi (Q9, Q10). Giữ như hiện tại.
+
 ## 7. Ảnh (A11)
 
 - Ảnh mới được nén WebP chất lượng 84. Ảnh hero và ảnh dải ngang rộng 1920px. Ảnh thẻ và ảnh bài viết rộng 960px, khoảng 2 lần khung hiển thị lớn nhất, nên vẫn nét trên màn hình retina.

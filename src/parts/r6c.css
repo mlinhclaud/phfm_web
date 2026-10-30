@@ -1,0 +1,12 @@
+/* ===== Vòng 6 · R6-04, R6-05. Nạp sau r6.css. ===== */
+
+/* R6-04 · #3: cả dòng "Chọn tất cả" (chữ + ô tick) bấm được */
+.fd-head{cursor:pointer;user-select:none}
+.fd-head:hover{background:#D8E7EA}
+.fd-head>.fd-cb{pointer-events:none}
+.fd-head:focus-visible{outline:2px solid #0B6274;outline-offset:-2px}
+.fd-head[data-empty="y"]{display:none}
+
+/* R6-04 · #71: Danh sách quỹ, tiêu đề cột và ô "Giao dịch" ("Hằng ngày") một dòng, không xuống dòng "GIAO / DỊCH" */
+.e-fl-wrap th{white-space:nowrap}
+.e-fl-wrap th:nth-child(4),.e-fl-wrap td:nth-child(4){white-space:nowrap}

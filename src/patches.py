@@ -296,4 +296,5 @@ import patches4 as _p4
 import patches5 as _p5
 import patches6 as _p6
 import patches6b as _p6b
-PATCHES = [p_routing, p_template, p_imgmap] + _p2.PRE + [p_images, p_home, p_header, p_scripts_exempt, p_fonts, p_retheme, p_funddata, p_dates, p_fixes] + _p2.POST + _p4.PATCHES4 + _p5.PATCHES5 + _p6.PATCHES6 + _p6b.PATCHES6B
+import patches6c as _p6c
+PATCHES = [p_routing, p_template, p_imgmap] + _p2.PRE + [p_images, p_home, p_header, p_scripts_exempt, p_fonts, p_retheme, p_funddata, p_dates, p_fixes] + _p2.POST + _p4.PATCHES4 + _p5.PATCHES5 + _p6.PATCHES6 + _p6b.PATCHES6B + _p6c.PATCHES6C
