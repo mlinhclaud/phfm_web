@@ -77,12 +77,12 @@ Bản 中文 chưa làm. Nút 中文 vẫn còn, nhưng nội dung sẽ được
 
 | Khối | Nền | Chữ / nhấn |
 |---|---|---|
-| Hero `.dh` / `.fh` | Teal đậm `#0A3440` bên trái, mảng chéo teal `#0B6274` bên phải (skewX -16deg, mốc 55%, như `.hm-skew`), vòng vàng `#E9C46A` ở góc | Chữ trắng, nhãn vàng. Ảnh trong khung bo 20px trên mảng chéo (trang quỹ: ảnh cắt theo cạnh chéo, mờ 60%). Dưới 1100px mảng chéo thành dải teal chính dưới chữ |
+| Hero `.dh` / `.fh` | Teal đậm `#0A3440` bên trái, mảng chéo teal `#0B6274` bên phải (skewX -16deg, mốc 55%, như `.hm-skew`), vòng vàng `#E9C46A` ở góc | Chữ trắng, nhãn vàng. Ảnh trong khung bo 20px trên mảng chéo (trang quỹ: ảnh cắt theo cạnh chéo, mờ 60%). Hero hai cột (Quỹ thành viên, Quản lý danh mục, Tư vấn, Tuyển dụng, từ 761px) giữ mảng chéo và vòng vàng; dưới 761px thành dải teal chính dưới chữ. Trang quỹ xếp dọc dưới 1100px (JS `wide` = từ 1100px): thẻ giá bọc trong `.r5-fhc` có dải teal và bản sao ảnh, bắt đầu dưới hàng nút. `.hero-sub` là `position:relative; overflow:hidden` cho mọi hero |
 | Thanh mục con `.nm-sbar` | Mist `#E3EEF0`, viền dưới `#D8E7EA` | Chữ teal `#0B6274`, hover/focus chữ `#0A3440` và gạch vàng 3px |
 | Lịch sử hình thành `.ab-j` | Mist `#E3EEF0` | Trục và mốc vàng `#E9C46A`; năm giai đoạn teal 28-32px, tên giai đoạn `#0A3440` 18px, năm mốc teal và sự kiện `#16262B` 15px |
 | Quỹ phù hợp `.fit` | Mist `#E3EEF0`, ô tích trắng | Chữ `#16262B`, tiêu đề `#0A3440` |
 | Ô chênh lệch giá/NAV `.pd-cell` | Teal `#0B6274`, vạch vàng 3px phía trên | Số trắng, nhãn `#D8E7EA` |
-| Section thân trang | Xen kẽ trắng `#FFFFFF` và mist `#E3EEF0`, không hai section liền nhau cùng nền (hero teal đậm, thanh mục con mist, section đầu trắng). Chân trang mist có viền vàng 4px, không tính vào quy tắc | Thẻ trong section giữ nền trắng có viền `#D8E7EA`. Section chỉ rộng 1280px được phủ nền kín ngang bằng `box-shadow: 0 0 0 100vmax` và `clip-path: inset(0 -100vmax)` (class `.r5-m`, `.r5-w`, hoặc theo id) |
+| Section thân trang | Xen kẽ trắng `#FFFFFF` và mist `#E3EEF0`, không hai section liền nhau cùng nền (hero teal đậm, thanh mục con mist, section đầu trắng). Chân trang mist có viền vàng 4px, không tính vào quy tắc | Thẻ trong section giữ nền trắng có viền `#D8E7EA`. Section chỉ rộng 1280px được phủ nền kín ngang bằng `box-shadow: 0 0 0 100vmax` và `clip-path: inset(0 -100vmax)` (viết theo id hoặc class trang trong `r5.css`) |
 | Hero trang Hướng dẫn `.nm-ghero` | Mist `#E3EEF0` (trước đây VNSHINE dùng `#EEF3F4`, ngoài bảng màu) | |
 
 - Thứ tự nền từng trang: xem bảng trong PR vòng 5 (R5-01) và `qa/r5sections.js` (chạy lại sau mỗi lần thêm section: phải không còn cờ `=SAME`).

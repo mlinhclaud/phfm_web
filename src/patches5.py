@@ -15,6 +15,24 @@ def p_r5_markup(s):
     return s
 
 
+def p_r5_fhband(s):
+    """Trang quỹ (PHVSF, VNSHINE), bố cục xếp dọc dưới 1100px: thẻ giá bọc trong .r5-fhc, kèm bản sao ảnh hero.
+    r5.css dùng .r5-fhc làm dải teal + ảnh nằm ngay sau hàng nút (dải bám theo thẻ, không còn cao cố định 480px cắt ngang nút).
+    Từ 1100px trở lên .r5-fhc là display:contents và ảnh bản sao ẩn, bố cục hai cột không đổi."""
+    s = rep(s, '<div style="background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--sand);border-radius:16px;padding:28px 28px 24px">',
+               '<div class="r5-fhc"><img class="r5-fhi" src="{{ f.heroImg }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%;display:none">\n'
+               '          <div style="background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--sand);border-radius:16px;padding:28px 28px 24px">')
+    s = rep(s, '{{ f.heroNote }}</div>\n          </div>\n        </div>\n      </section>',
+               '{{ f.heroNote }}</div>\n          </div>\n          </div>\n        </div>\n      </section>')
+    return s
+
+
+def p_r5_careers(s):
+    """Tuyển dụng: ảnh hero vào khung bo góc có bóng như ba trang dịch vụ (class r5-crpic)."""
+    return rep(s, '<img src="{{ img.r5_cr_hero }}" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px">',
+                  '<img class="r5-crpic" src="{{ img.r5_cr_hero }}" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px">')
+
+
 def p_r5_menu(s):
     """Gạch "mục đang chọn" của menu header (7 mục) gắn class th-act để r5.css ẩn gạch hover trên cùng mục và đặt cùng vị trí/màu."""
     return rep(s, '<div style="position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold)"></div></sc-if>',
@@ -39,4 +57,4 @@ def p_r5css(s):
     return rep(s, '</helmet>', '<style>' + part('r5.css') + '</style></helmet>')
 
 
-PATCHES5 = [p_r5_markup, p_r5_menu, p_r5_nofit, p_r5_pages, p_r5css]
+PATCHES5 = [p_r5_markup, p_r5_fhband, p_r5_careers, p_r5_menu, p_r5_nofit, p_r5_pages, p_r5css]
