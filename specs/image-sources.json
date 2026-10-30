@@ -301,41 +301,57 @@
  "r6_about_hero": {
   "source": "generated/r6_about_hero.webp",
   "maxw": 1920,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "d64ba9d9-5ba3-4f45-b608-e56aa46ca7a6",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_phvsf_hero": {
   "source": "generated/r6_phvsf_hero.webp",
   "maxw": 1920,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "5ae9dcfe-047f-499f-a5d3-b369a8a6165b",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_vns_hero": {
   "source": "generated/r6_vns_hero.webp",
   "maxw": 1920,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "081a5c02-7e5e-4b34-88c3-000e472fca46",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_member_hero": {
   "source": "generated/r6_member_hero.webp",
   "maxw": 960,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "9af8d1df-dd0b-4a43-b71b-93d1912fe4a0",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_pf_hero": {
   "source": "generated/r6_pf_hero.webp",
   "maxw": 960,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "f4f11806-7a13-4083-bfc6-4c245cbfbf74",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_adv_hero": {
   "source": "generated/r6_adv_hero.webp",
   "maxw": 960,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "e13b79e5-dc82-43d8-a761-3753502e1c6b",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_acad_hero": {
   "source": "generated/r6_acad_hero.webp",
   "maxw": 1920,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "1ca9b9b4-d19c-462c-9515-3495fe63262b",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  },
  "r6_cr_hero": {
   "source": "generated/r6_cr_hero.webp",
   "maxw": 1200,
-  "crop": null
+  "crop": null,
+  "higgsfield_job": "e7b71349-a799-4c8e-aa95-e143925d8167",
+  "model": "nano_banana_pro (gọi đúng model id; job Higgsfield ghi loại \"nano_banana_2\")"
  }
 }
