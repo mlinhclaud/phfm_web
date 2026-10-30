@@ -42,3 +42,4 @@ Cột: Trang | Thay đổi | Lý do. Vòng mới nối thêm ở cuối bảng.
 | Trang | Thay đổi | Lý do |
 |---|---|---|
 | Toàn site | Thêm khung vòng 4: `src/patches4.py`, `src/parts/r4.css` (nạp sau r3.css). Giao diện không đổi, build giống hệt trước | Chuẩn bị cho R4-01 đến R4-05 |
+| Về chúng tôi | Giá trị cốt lõi: hiện chữ Hán 新 速 實 簡 trên tên giá trị (Noto Serif TC, 60px desktop / 56px mobile, vàng logo `#C0962D`); font subset 4 chữ nhúng base64 (2 KB) | Dữ liệu `values[].c` đã có nhưng template chưa hiện |
