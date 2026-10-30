@@ -26,17 +26,17 @@ def p_r4_05(s):
               <div style="font-size:20px;font-weight:700;color:var(--espresso)">{{ v.n }}</div>""")
 
 
-# ---------------------------------------------------------------- R4-01: thu chiều cao hero các trang con
+# ---------------------------------------------------------------- R4-01 (vòng 6: đã trả chiều cao gốc, chỉ còn gắn class móc cho CSS màu A)
 MH = 'min-height:min(900px, calc(100vh - var(--hdr-h, 121px)));'
 
 def p_r4_01(s):
-    """Bỏ min-height:min(900px, ...) ở hero trang con. Gắn class dùng chung:
-    .hero-sub = section hero, .hero-in = khung nội dung bên trong, .hero-pic = ảnh minh hoạ trong hero.
-    Chiều cao và padding viết một chỗ ở r4.css (khối R4-01), hero mới (R4-09...) chỉ cần thêm class."""
+    """Vòng 6 (R6-01): KHÔNG còn bỏ min-height:min(900px, ...), padding hay tỉ lệ ảnh của hero (hình học về bản gốc 3131e7e).
+    Chỉ gắn class dùng chung cho CSS màu A của vòng 5: .hero-sub = section hero, .hero-in = khung nội dung bên trong,
+    .hero-pic = ảnh minh hoạ trong hero, .hero-pic-box = khung ảnh dưới chữ (About)."""
     # section hero
-    s = rep(s, '<section id="ab-overview" style="' + MH, '<section id="ab-overview" class="hero-sub" style="')
-    s = rep(s, '<section class="fh" style="' + MH, '<section class="fh hero-sub" style="')
-    s = rep(s, '<section class="dh" style="' + MH, '<section class="dh hero-sub" style="', 3)
+    s = rep(s, '<section id="ab-overview" style="' + MH, '<section id="ab-overview" class="hero-sub" style="' + MH)
+    s = rep(s, '<section class="fh" style="' + MH, '<section class="fh hero-sub" style="' + MH)
+    s = rep(s, '<section class="dh" style="' + MH, '<section class="dh hero-sub" style="' + MH, 3)
     # khung nội dung bên trong
     s = rep(s, '<div style="position:relative;max-width:1280px;margin:0 auto;padding:56px 48px 72px;display:grid;grid-template-columns:{{ f.heroCols2 }}',
                '<div class="hero-in" style="position:relative;max-width:1280px;margin:0 auto;padding:56px 48px 72px;display:grid;grid-template-columns:{{ f.heroCols2 }}')
@@ -48,7 +48,7 @@ def p_r4_01(s):
                '<sc-if value="{{ heroNarrow }}">\n        <div class="hero-in hero-nar" style="max-width:1280px;margin:0 auto;padding:40px 48px 56px">')
     s = rep(s, 'background:var(--ivory)">\n        <div style="max-width:1280px;margin:0 auto;padding:40px 48px 96px">',
                'background:var(--ivory)">\n        <div class="hero-in" style="max-width:1280px;margin:0 auto;padding:40px 48px 96px">')
-    # ảnh trang dịch vụ (member, portfolio, advisory): tỉ lệ 4/5 làm hero cao 800px, đổi sang ngang hơn
+    # ảnh trang dịch vụ (member, portfolio, advisory): giữ tỉ lệ 4/5 gốc (vòng 6)
     s = rep(s, '<img src="{{ svc.img }}" alt="" style="display:block;width:100%;aspect-ratio:4/5;',
                '<img class="hero-pic" data-svc="{{ svc.k }}" src="{{ svc.img }}" alt="" style="display:block;width:100%;aspect-ratio:4/5;')
     # khoá trang dịch vụ (member, portfolio, advisory) để chỉnh khung cắt riêng từng ảnh
@@ -56,7 +56,7 @@ def p_r4_01(s):
     # Học viện, layout hẹp: khung nội dung chưa có class
     s = rep(s, '<div style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">',
                '<div class="hero-in hero-nar" style="width:100%;max-width:1280px;margin:0 auto;padding:40px 48px 56px;box-sizing:border-box">')
-    # about, mobile: khối ảnh dưới chữ cao 420px, gắn class để thu ở r4.css
+    # about, mobile: khối ảnh dưới chữ cao 420px (giữ nguyên), gắn class cho CSS màu A
     s = rep(s, '<div style="position:relative;height:420px;overflow:hidden">',
                '<div class="hero-pic-box" style="position:relative;height:420px;overflow:hidden">')
     return s
@@ -133,96 +133,4 @@ def p_fix27(s):
     return s
 
 
-# ---------------------------------------------------------------- R4-04: ô giá ở hero VNSHINE và PHVSF
-def p_r4_04(s):
-    """Hàng chỉ số (Giá đóng cửa · NAV/CCQ · Ngày) thành lưới cột đều .px-row (CSS ở r4.css, khối R4-04).
-    Bảng hiệu quả giữ nguyên như trước (Rin quyết giữ cột 3 tháng, ô trống hiện "—")"""
-    LB = 'font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)'
-    old = """<div style="display:flex;gap:40px;flex-wrap:wrap">
-              <sc-if value="{{ f.isEtf }}"><div><div style="%s">{{ d.fundUi.closePrice }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuPrice }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div></sc-if>
-              <div><div style="%s">{{ f.navLabel }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuNav }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div>
-              <div><div style="%s">{{ d.fundUi.date }}</div><div style="font-size:24px;line-height:40px;font-weight:700;color:var(--ink);margin-top:6px">{{ f.asOf }}</div></div>
-            </div>""" % (LB, LB, LB)
-    new = """<div data-keepgrid class="px-row" style="--pxc:{{ f.pxCols }};--pxm:{{ f.pxColsM }}">
-              <sc-if value="{{ f.isEtf }}"><div class="px-c"><div class="px-l">{{ d.fundUi.closePrice }}</div><div class="px-v">{{ f.cuPrice }}</div><div class="px-u">{{ f.navUnit }}</div></div></sc-if>
-              <div class="px-c"><div class="px-l">{{ f.navLabel }}</div><div class="px-v">{{ f.cuNav }}</div><div class="px-u">{{ f.navUnit }}</div></div>
-              <div class="px-c"><div class="px-l">{{ d.fundUi.date }}</div><div class="px-v">{{ f.asOf }}</div></div>
-            </div>"""
-    s = rep(s, old, new)
-    # số cột của lưới chỉ số (desktop và mobile), tính sẵn trong renderVals
-    s = rep(s, "        f.heroCols2 = wide ?",
-               """        f.pxCols = F.isEtf ? 'repeat(3,auto)' : 'repeat(2,minmax(0,1fr))'; f.pxColsM = F.isEtf ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)';
-        f.heroCols2 = wide ?""")
-    return s
-
-
-# ---------------------------------------------------------------- R4-03: Lịch sử hình thành (#ab-journey) kiểu Vanguard
-def p_r4_03(s):
-    """Nền teal đậm, ba giai đoạn thành ba cột (năm lớn vàng + tên giai đoạn + danh sách năm/sự kiện), trục ngang mảnh nối ba điểm mốc.
-    Bỏ khung thẻ trắng cao bằng nhau. Dữ liệu d.about.phases giữ nguyên. CSS ở r4.css (khối R4-03).
-    Khối nằm giữa phần Giới thiệu (nền ivory) và Sứ mệnh (ảnh), nên không dính với hero teal của trang."""
-    old = r'''      <section id="ab-journey" style="background:var(--cream);border-top:1px solid var(--sand)"><div style="max-width:1280px;margin:0 auto;padding:72px 48px">
-        <h2 style="font-size:36px;line-height:44px;font-weight:700;color:var(--espresso);margin:0">{{ d.about.historyT }}</h2>
-        <div style="height:0;margin:0 0 32px"></div>
-        <div style="position:relative">
-          <div style="position:absolute;left:0;right:0;top:11px;height:2px;background:var(--gold);opacity:.55"></div>
-          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative">
-          <sc-for list="{{ d.about.phases }}" as="ph" hint-placeholder-count="3">
-            <div style="display:flex;flex-direction:column">
-              <div style="width:24px;height:24px;border-radius:50%;background:var(--gold);border:4px solid var(--cream);box-sizing:border-box;box-shadow:0 0 0 2px var(--gold)"></div>
-              <div style="margin-top:20px;background:var(--white);border:1px solid var(--sand);border-top:3px solid var(--gold);padding:28px;flex:1;display:flex;flex-direction:column;gap:16px">
-                <div>
-                  <div style="font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--gold-ink)">{{ ph.p }}</div>
-                  <div style="font-size:22px;line-height:30px;font-weight:700;color:var(--espresso);margin-top:6px">{{ ph.n }}</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--sand);padding-top:16px">
-                  <sc-for list="{{ ph.items }}" as="it" hint-placeholder-count="3">
-                    <div style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:baseline">
-                      <div style="font-size:15px;font-weight:700;color:var(--gold-ink);font-variant-numeric:tabular-nums">{{ it.y }}</div>
-                      <div style="font-size:15px;line-height:23px;color:var(--ink);text-wrap:pretty">{{ it.t }}</div>
-                    </div>
-                  </sc-for>
-                </div>
-              </div>
-            </div>
-          </sc-for>
-          </div>
-        </div>
-      </div></section>'''
-    new = r'''      <section id="ab-journey" class="ab-j"><div class="ab-j-in">
-        <h2 class="ab-j-t">{{ d.about.historyT }}</h2>
-        <div data-keepgrid class="ab-j-cols">
-          <sc-for list="{{ d.about.phases }}" as="ph" hint-placeholder-count="3">
-            <div class="ab-j-col">
-              <span class="ab-j-dot"></span>
-              <div class="ab-j-yr">{{ ph.p }}</div>
-              <div class="ab-j-n">{{ ph.n }}</div>
-              <div class="ab-j-list">
-                <sc-for list="{{ ph.items }}" as="it" hint-placeholder-count="3">
-                  <div class="ab-j-it">
-                    <div class="ab-j-y">{{ it.y }}</div>
-                    <div class="ab-j-tx">{{ it.t }}</div>
-                  </div>
-                </sc-for>
-              </div>
-            </div>
-          </sc-for>
-        </div>
-      </div></section>'''
-    return rep(s, old, new)
-
-
-# ---------------------------------------------------------------- #20: hero About và Học viện dùng layout rộng từ 1280px
-def p_fix20(s):
-    """heroNarrow = vw < 1400 làm About và Học viện ở 1280-1399 dùng layout hẹp (ảnh dưới chữ), hero cao 840-1130px.
-    Hạ ngưỡng xuống 1280: từ 1280 ảnh nằm bên phải như bản 1440. Dưới 1280 vẫn là layout hẹp (.hero-nar)."""
-    s = rep(s, 'const heroWide = vw >= 1400, heroNarrow = !heroWide;', 'const heroWide = vw >= 1280, heroNarrow = !heroWide;')
-    # Học viện ở 1280-1319 (VI) bị chữ mồ côi "tư" xuống dòng 2; luật chung `main h1{text-wrap:wrap!important}` chặn text-wrap.
-    # Gắn class .ac-h1 vào h1 hero Học viện (layout rộng) để r4.css đặt text-wrap:pretty riêng ở 1280-1399.
-    ey = '{{ d.academy.eyebrow }}</x-import>\n            '
-    h1 = 'h1 style="font-size:clamp(36px,3.6vw,52px);line-height:1.15;font-weight:700;color:var(--espresso);margin:16px 0 0;letter-spacing:-.02em;text-wrap:balance">{{ d.academy.title }}</h1>'
-    s = rep(s, ey + '<' + h1, ey + '<h1 class="ac-h1" ' + h1[3:], 2)  # hai bản (rộng, hẹp); CSS chỉ áp 1280-1399, lúc đó chỉ bản rộng hiện
-    return s
-
-
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_r4_04, p_r4_03, p_fix24, p_fix20, p_r4css]
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_fix24, p_r4css]
