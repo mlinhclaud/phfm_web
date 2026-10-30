@@ -1,8 +1,20 @@
 # PHFM website · bản Teal (VI/EN) · ghi chú cho dev
 
-File bàn giao: `dist/phfm-website.html` (tạo bằng `python3 src/build.py`) (8 MB). Mọi thứ nằm gọn trong một file: React 18.3.1, font Inter (latin + vietnamese, 300–700) và toàn bộ ảnh WebP. File không gọi CDN hay Google Fonts.
+File bàn giao: `dist/phfm-website.html` (tạo bằng `python3 src/build.py`, khoảng 8,5 MB). Mọi thứ nằm gọn trong một file: React 18.3.1, font Inter (latin + vietnamese, 300–700) và toàn bộ ảnh WebP. File không gọi CDN hay Google Fonts.
 
-Bản 中文 chưa làm. Nút 中文 vẫn còn, nhưng nội dung sẽ được làm ở vòng sau.
+Có ba bản VI, EN, 中文. Chữ 中文 do cô Helena duyệt; chỗ chưa có bản dịch đang hiện chữ EN (xem `specs/pending.md` mục 3).
+
+## Gói bàn giao (vòng 6, 30/10/2026)
+
+| File | Nội dung |
+|---|---|
+| `dist/phfm-website.html` | Bản build cuối, mở `#/vi/<trang>`, `#/en/<trang>`, `#/zh/<trang>` |
+| `handoff/screens/` | Ảnh toàn trang 20 trang × VI/EN/中文 × 1440/390 |
+| `specs/ui-spec.md` | Specs giao diện: màu, chữ, khoảng cách, thành phần, responsive |
+| `specs/data-spec.md` | Specs dữ liệu: `PHFM_DATA`, `PHFM_ASOF`, trường CMS/API, form, tải tài liệu, tìm kiếm, link giao dịch |
+| `specs/pending.md` | Placeholder, chờ pháp chế, chờ cô Helena, issue chờ Rin |
+| `specs/brand-rules.md` | Luật thương hiệu |
+| `specs/changelog.md` | Mọi thay đổi theo vòng |
 
 ## 1. Đường dẫn trang (A01)
 
