@@ -28,6 +28,8 @@ Bản 中文 chưa làm. Nút 中文 vẫn còn, nhưng nội dung sẽ được
 - Tài liệu chưa có file nên khi bấm nút tải, trang hiện thông báo "Tài liệu đang được cập nhật. Vui lòng quay lại sau."
 - Đoạn này nằm trong script cuối `<body>`, bắt các nút có `aria-label` hoặc chữ "Tải về / Tải xuống / Download / CSV/Excel / (PCF)".
 - Khi có file thật: gắn `href` tới file và bỏ khớp regex `DL` cho nút đó.
+- Vòng 6 (R6-03): nút "Tải về ↓" mới có thuộc tính `data-dl="1"` (script cũng bắt thuộc tính này, để bản 中文 chữ "下載" cũng hiện thông báo). Nằm ở: mục "Phiếu đăng ký mở tài khoản giao dịch chứng chỉ quỹ mở" trong Hồ sơ Nhà đầu tư cá nhân và khối "Biểu mẫu" (4 biểu mẫu Quỹ mở PHVSF) ở Hướng dẫn PHVSF. Khi có file: bỏ `data-dl`, gắn `href` tới file.
+- **[placeholder] file PDF** cho 5 nút này (và cho các biểu mẫu ở trang Biểu mẫu): chưa có file. Danh sách cần PHFM cấp: Phiếu đăng ký mở tài khoản giao dịch chứng chỉ quỹ mở; Phiếu đăng ký mua/bán chứng chỉ quỹ mở; Mẫu thông tin bổ sung dành cho nhà đầu tư tổ chức; Biểu mẫu khai báo FATCA và AML. Dữ liệu 4 biểu mẫu lấy từ `PHFM_DATA.forms.groups[0].items`, nên khi nối CMS khối ở Hướng dẫn PHVSF tự đổi theo trang Biểu mẫu.
 
 ## 4. Tìm kiếm (A06)
 
