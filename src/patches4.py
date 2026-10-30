@@ -111,6 +111,15 @@ def p_r4_09(s):
     return s
 
 
+# ---------------------------------------------------------------- #24: mô tả hero VNSHINE bản EN/中文 bị dính chữ / giãn chữ
+def p_fix24(s):
+    """Nguyên nhân: luật cũ `main p{text-align:justify}` + script căn đều (`okBlock`/`fit`).
+    EN: câu dài hơn khung 560px một chút, script cố nhét vào một dòng bằng word-spacing -0.2em (-4px) nên các từ dính nhau.
+    中文: justify kéo giãn khoảng trắng duy nhất trong "Shareholder Yield" ở dòng đầu.
+    Sửa: đánh dấu <p> hero (class hero-desc, data-fund theo mã quỹ) rồi ở r4.css căn trái, trả khoảng cách chữ về mặc định.
+    Chỉ áp cho EN/中文 của VNSHINE; bản VI giữ nguyên."""
+    return rep(s, '<p style="font-size:20px;line-height:30px;color:var(--ink);margin:24px 0 0;max-width:560px;text-wrap:pretty">{{ f.heroDesc }}</p>',
+               '<p class="hero-desc" data-fund="{{ f.code }}" style="font-size:20px;line-height:30px;color:var(--ink);margin:24px 0 0;max-width:560px;text-wrap:pretty">{{ f.heroDesc }}</p>')
 # ---------------------------------------------------------------- #27: bản 中文 Lịch sử hình thành khớp bản Việt
 def p_fix27(s):
     """Dữ liệu zh nằm ở window.PHFM_ZH (khoá tiếng Anh -> chữ Trung), edits.json chỉ áp cho vi/en nên vá thẳng bảng này.
@@ -203,4 +212,4 @@ def p_r4_03(s):
     return rep(s, old, new)
 
 
-PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_r4_04, p_r4_03, p_r4css]
+PATCHES4 = [p_r4_01, p_r4_05, p_r4_09, p_fix27, p_r4_04, p_r4_03, p_fix24, p_r4css]
