@@ -7,7 +7,7 @@
 | Vai trò | Mã |
 |---|---|
 | Teal chính, link, nút phụ | `#0B6274` |
-| Teal đậm: hero trang con, thanh mục con, khối nhấn | `#0A3440` |
+| Teal đậm: hero trang con, khối nhấn (thanh mục con dùng nền mist, chữ teal, theo phương án A vòng 5) | `#0A3440` |
 | Mist: nền phụ, nền khối thông tin | `#E3EEF0` |
 | Viền, đường kẻ | `#D8E7EA` |
 | Vàng nút (nút chính) | `#E9C46A` (hover `#F2D27D`) |

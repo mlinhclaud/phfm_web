@@ -1,14 +1,14 @@
 # PHFM website · bản Teal (VI/EN) · ghi chú cho dev
 
-File bàn giao: `dist/phfm-website.html` (tạo bằng `python3 src/build.py`, khoảng 8,5 MB). Mọi thứ nằm gọn trong một file: React 18.3.1, font Inter (latin + vietnamese, 300–700) và toàn bộ ảnh WebP. File không gọi CDN hay Google Fonts.
+File bàn giao: `handoff/phfm-website-r6.html` (khoảng 8,5 MB). Tự build lại bằng `python3 src/build.py` ra `dist/phfm-website.html` (thư mục `dist/` không commit). Mọi thứ nằm gọn trong một file: React 18.3.1, font Inter (latin + vietnamese, 300–700) và toàn bộ ảnh WebP. File không gọi CDN hay Google Fonts.
 
 Có ba bản VI, EN, 中文. Chữ 中文 do cô Helena duyệt; chỗ chưa có bản dịch đang hiện chữ EN (xem `specs/pending.md` mục 3).
 
-## Gói bàn giao (vòng 6, 30/10/2026)
+## Gói bàn giao (vòng 6, cập nhật 31/10/2026)
 
 | File | Nội dung |
 |---|---|
-| `dist/phfm-website.html` | Bản build cuối, mở `#/vi/<trang>`, `#/en/<trang>`, `#/zh/<trang>` |
+| `handoff/phfm-website-r6.html` (bản tự build: `dist/phfm-website.html`, không commit) | Bản build cuối, mở `#/vi/<trang>`, `#/en/<trang>`, `#/zh/<trang>` |
 | `handoff/screens/` | Ảnh toàn trang 20 trang × VI/EN/中文 × 1440/390 |
 | `specs/ui-spec.md` | Specs giao diện: màu, chữ, khoảng cách, thành phần, responsive |
 | `specs/data-spec.md` | Specs dữ liệu: `PHFM_DATA`, `PHFM_ASOF`, trường CMS/API, form, tải tài liệu, tìm kiếm, link giao dịch |
@@ -83,7 +83,7 @@ Chữ mới áp ngay ở VI, EN viết tương đương, 中文 không tự dị
 - Dòng "Tài liệu đang được cập nhật." / "This document is being updated." trong Tài liệu quỹ khi loại tài liệu chưa có file (R6-04).
 - Dòng "Số liệu minh hoạ, cập nhật đến ngày…" giữ đến khi có số thật từ CMS (Q7), chữ nhỏ in nghiêng.
 - **Tài liệu quỹ (PHVSF, VNSHINE)**: 9 loại theo bình luận #134. Chưa có file: Factsheets, Thông tin quỹ, Giấy phép (cả hai quỹ), Khác (PHVSF), Báo cáo tài chính (VNSHINE). Dev nối `url` từng tài liệu khi có file. Biểu mẫu nằm ở trang Biểu mẫu, không còn trong Tài liệu quỹ.
-- **Công bố thông tin**: 8 loại theo bình luận #116 (Thông báo quỹ, Điều lệ quỹ, Bản cáo bạch, Báo cáo tài chính, Báo cáo hoạt động tháng, Báo cáo NAV ngày/tuần, Biểu mẫu, Factsheet). Hai loại Biểu mẫu và Factsheet chưa có tài liệu mẫu.
+- **Công bố thông tin**: 8 loại theo bình luận #116 (Thông báo quỹ, Điều lệ quỹ, Bản cáo bạch, Báo cáo tài chính, Báo cáo hoạt động tháng, Báo cáo NAV ngày/tuần, Biểu mẫu, Factsheet). Ba loại Điều lệ quỹ, Biểu mẫu và Factsheet chưa có tài liệu mẫu.
 - **Chờ cô Helena (中文)**: nhãn hero PHVSF "OPEN-ENDED FUND" (đang hiện EN), dòng "Tài liệu đang được cập nhật" (hiện EN), 9 tên loại tài liệu và "Tỷ suất Lợi nhuận Cổ đông" (zh dùng "股東收益率", không đổi).
 - **Về chúng tôi, bốn số liệu đầu (R6-05, #64)**: ba số đầu lấy đúng chuỗi trang chủ (VI "+18 năm hoạt động", "+2.000 tỷ VND AUM", "4 sản phẩm quỹ"; EN "18+ years of operation", "2,000+ bn VND AUM", "4 fund products"), số vốn điều lệ EN viết "88.45 bn VND". Bản 中文: ba nhãn này đang hiện chữ EN, chờ cô Helena. Tên EN bốn giá trị Tân · Tốc · Thực · Giản: chờ Rin gửi (Q4).
 - Nội dung từ phfm.vn cho PHVSF (`product-service/performance` và `overview` bản EN): Rin chưa gửi (Q9, Q10). Giữ như hiện tại.

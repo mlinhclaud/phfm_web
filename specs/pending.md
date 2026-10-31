@@ -9,7 +9,7 @@ Cập nhật 31/10/2026, sau vòng 6 (đã gồm sửa #47: đậm màu số % t
 | Chuỗi NAV, giá, chỉ số tham chiếu | PHVSF, VNSHINE, Danh sách quỹ, trang chủ | Chuỗi minh hoạ từ `fundCalc()`, ngày `PHFM_ASOF = 2026-10-14` | API/CMS số thật. Xoá dòng "Số liệu minh hoạ…" khi nối |
 | Tài liệu quỹ (từng file) | PHVSF, VNSHINE | Nút tải hiện "Tài liệu đang được cập nhật" | `url` từng file. API nén ZIP cho "Tải tài liệu đã chọn" |
 | Loại tài liệu chưa có file | PHVSF, VNSHINE | Một dòng tạm "Tài liệu đang được cập nhật" | Factsheets, Thông tin quỹ, Giấy phép (cả hai quỹ); Khác (PHVSF); Báo cáo tài chính (VNSHINE) |
-| Công bố thông tin | IR | Danh sách mẫu, chưa có file | `url` từng tài liệu; loại Biểu mẫu và Factsheet chưa có mục nào |
+| Công bố thông tin | IR | Danh sách mẫu, chưa có file | `url` từng tài liệu; loại Điều lệ quỹ, Biểu mẫu, Factsheet chưa có mục nào |
 | Biểu mẫu | Biểu mẫu, Hướng dẫn PHVSF | Nút "Tải về" hiện thông báo | File PDF các biểu mẫu, Phiếu đăng ký mở tài khoản (Rin gửi) |
 | Form liên hệ, form dịch vụ, nhận báo cáo | Liên hệ, Quỹ thành viên, Quản lý danh mục, Tư vấn, Tin tức | Chỉ báo thành công ở trình duyệt | API hoặc email nhận form, chống spam, lưu đồng ý xử lý dữ liệu |
 | Ứng tuyển | Tuyển dụng | `mailto:cskh@phfm.vn` | Xác nhận email nhận CV hoặc form upload |
@@ -59,6 +59,8 @@ Claude không tự dịch bản 中文. Những chỗ đang hiện chữ EN ho�
 | #50 | EN "Thông báo quỹ" đang là "Fund Information", trùng "Thông tin quỹ" |
 | #55 | Bản EN còn viết số kiểu Việt (dấu phẩy thập phân, dấu chấm hàng nghìn) |
 | #8 | Đăng lại canvas Trang con theo bản build cuối (việc của Cowork) |
+| #56 | PHVSF 390px: nút Công cụ nổi đè cột "Từ khi thành lập" của thẻ giá |
+| #7 | R4-06 QA tổng vòng 4: đã thay bằng QA tổng vòng 6 (240 lượt xanh), Rin đồng ý thì đóng |
 
 Câu hỏi phụ:
 - Có thêm nút Tải về Phiếu đăng ký cho tab Hồ sơ tổ chức ở Hướng dẫn PHVSF không?

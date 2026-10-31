@@ -1,6 +1,6 @@
 # Specs giao diện (UI/UX) · website PHFM bản Teal
 
-Bản này mô tả giao diện đã chốt tới vòng 6 (30/10/2026) để dev dựng lại trên nền tảng thật (CMS/frontend framework). Nguồn chuẩn để so là file `dist/phfm-website.html` và bộ ảnh toàn trang trong gói bàn giao. Số đo lấy trực tiếp từ bản build (đo bằng trình duyệt), bản VI.
+Bản này mô tả giao diện đã chốt tới vòng 6 (30/10/2026) để dev dựng lại trên nền tảng thật (CMS/frontend framework). Nguồn chuẩn để so là file `handoff/phfm-website-r6.html` và bộ ảnh toàn trang trong gói bàn giao. Số đo lấy trực tiếp từ bản build (đo bằng trình duyệt), bản VI.
 
 ## 1. Màu
 
@@ -14,7 +14,7 @@ Bản này mô tả giao diện đã chốt tới vòng 6 (30/10/2026) để dev
 | Vàng logo | `#C0962D` | Chữ Hán 新 速 實 簡, nhấn nhỏ |
 | Vàng chữ (trên nền sáng) | `#7D5F1A` | Nhãn nhỏ (eyebrow), số liệu nổi bật trên nền trắng (đạt tương phản AA) |
 | Chữ chính / phụ | `#16262B` / `#4D6066` | Thân bài / mô tả, ghi chú |
-| Tăng / giảm | `#15897D` / đỏ dữ liệu; riêng thẻ giá ở hero quỹ: `#0F7468` / `#B4472E` | Chỉ dùng cho số liệu tăng giảm. Thẻ giá dùng màu đậm hơn để đạt tương phản ≥ 4,7:1 trên nền ảnh (issue #47, PR #53) |
+| Tăng / giảm | Nền sáng: `--up-on-light #15897D` / `--down-on-light #C8452A`. Nền tối: `--up-on-dark #12A98C` / `--down-on-dark #E15B3E`. Riêng thẻ giá ở hero quỹ (`.r6-pxcard`): `#0F7468` / `#B4472E` | Chỉ dùng cho số liệu tăng giảm. Thẻ giá dùng màu đậm hơn để đạt tương phản ≥ 4,7:1 trên nền ảnh (issue #47, PR #53) |
 
 Không dùng nền đen/than chì, không be/kem/nâu (`specs/brand-rules.md`).
 
@@ -40,7 +40,7 @@ Không ép giãn chữ (letter-spacing âm) để chữ vừa một dòng; chữ
 
 - Khung nội dung: rộng tối đa **1280px**, lề trái/phải **48px** (desktop), **18px** (mobile ≤760px).
 - Section: đệm trên/dưới **60px** desktop, **34px** mobile (một số khối 56–72px theo bản gốc).
-- Hero trang con (đo ở 1440): Về chúng tôi, PHVSF, VNSHINE, Học viện, Tuyển dụng **775px**; Quỹ thành viên, Quản lý danh mục, Tư vấn **795px**; Hướng dẫn PHVSF **345px**, Hướng dẫn VNSHINE **327px**. Công thức gốc: `min-height: min(900px, calc(100vh - chiều cao header))`.
+- Hero trang con (đo ở cửa sổ 1440×900; chiều cao phụ thuộc chiều cao cửa sổ qua `calc(100vh - 125px)`): Về chúng tôi, PHVSF, VNSHINE, Học viện, Tuyển dụng **775px**; Quỹ thành viên, Quản lý danh mục, Tư vấn **795px**; Hướng dẫn PHVSF **345px**, Hướng dẫn VNSHINE **327px**. Công thức gốc: `min-height: min(900px, calc(100vh - chiều cao header))`.
 - Bo góc: thẻ 12–16px, nút bo tròn (pill), khung ảnh hero 20px.
 - Vùng chạm tối thiểu **44px** trên mobile (nút, ô tick, link trong bảng).
 

@@ -26,8 +26,8 @@ Mọi khối (hero, bảng hiệu quả, biểu đồ, Lịch sử NAV, thông t
 
 | Nơi | Cấu trúc một dòng | Loại (bộ lọc) |
 |---|---|---|
-| Tài liệu quỹ `funds.<mã>.docs` | `{c: mã loại, t: tên, d: mô tả, date: 'dd.mm.yyyy', size}` + cần thêm `url` | 9 loại (#134): Báo cáo ngày, tuần / Báo cáo tài chính / Báo cáo hoạt động tháng / Factsheets / Bản cáo bạch / Điều lệ quỹ / Thông tin quỹ / Giấy phép / Khác |
-| Công bố thông tin `ir.items` | `{e: đơn vị, ty: loại, t: tên, date, y: năm}` + `url` | 8 loại (#116): Thông báo quỹ / Điều lệ quỹ / Bản cáo bạch / Báo cáo tài chính / Báo cáo hoạt động tháng / Báo cáo NAV ngày, tuần / Biểu mẫu / Factsheet. Đơn vị: PHFM, PHVSF, VNSHINE ETF, HTDF, VPDF |
+| Tài liệu quỹ `funds.<mã>.docs` | `{c: mã loại, t: tên, d: mô tả, date: 'dd.mm.yyyy', size}` + cần thêm `url` | 9 loại (bình luận #134 trên bảng góp ý): Báo cáo ngày, tuần / Báo cáo tài chính / Báo cáo hoạt động tháng / Factsheets / Bản cáo bạch / Điều lệ quỹ / Thông tin quỹ / Giấy phép / Khác |
+| Công bố thông tin `ir.items` | `{e: đơn vị, ty: loại, t: tên, date, y: năm}` + `url` | 8 loại (bình luận #116 trên bảng góp ý): Thông báo quỹ / Điều lệ quỹ / Bản cáo bạch / Báo cáo tài chính / Báo cáo hoạt động tháng / Báo cáo NAV ngày, tuần / Biểu mẫu / Factsheet. Đơn vị: PHFM, PHVSF, VNSHINE ETF, HTDF, VPDF |
 | Biểu mẫu `forms.groups[].items` | `{t, d}` + `url` | Nhóm theo quỹ/dịch vụ |
 
 - Hiện chưa có file: bấm tải hiện thông báo "Tài liệu đang được cập nhật" (`site.js`, regex `DL`). Có file thì gắn `href` và bỏ khớp regex cho nút đó.
@@ -54,9 +54,12 @@ Dev cần: API nhận form (hoặc email), chống spam (captcha/hidden field), 
 
 | Link | Đích hiện tại |
 |---|---|
-| PHFM Trading (header, hero quỹ) | `https://fund.phfm.vn/` (PHVSF), `https://fund.phfm.vn/home` (Hướng dẫn) |
+| Nút "PHFM Trading" ở header (mọi trang) | `https://fund.phfm.vn/home` |
+| Nút "Đầu tư ngay" ở hero PHVSF | `https://fund.phfm.vn` |
+| Link giao dịch ở Hướng dẫn PHVSF | `https://fund.phfm.vn/home` |
+| Hero VNSHINE | Không có link giao dịch (ETF mua bán qua công ty chứng khoán) |
 | App Store | `https://apps.apple.com/us/app/phfm-mobile/id6451093704` |
-| Google Play | `https://play.google.com/store/apps/details?id=com.fplatform.PhuHung` |
+| Google Play | `https://play.google.com/store/apps/details?id=com.fplatform.PhuHung&pcampaignid=web_share&pli=1` (dev có thể bỏ hai tham số chia sẻ `pcampaignid`, `pli`). Nút "Tải app để đầu tư ngay" ở PHVSF chỉ dẫn tới Google Play |
 | Hotline / email | `tel:02854137991`, `mailto:phfm@phfm.vn`, `mailto:cskh@phfm.vn` |
 | Mạng xã hội | LinkedIn, Facebook, YouTube, Instagram, Zalo OA (footer) |
 
