@@ -14,7 +14,7 @@ Bản này mô tả giao diện đã chốt tới vòng 6 (30/10/2026) để dev
 | Vàng logo | `#C0962D` | Chữ Hán 新 速 實 簡, nhấn nhỏ |
 | Vàng chữ (trên nền sáng) | `#7D5F1A` | Nhãn nhỏ (eyebrow), số liệu nổi bật trên nền trắng (đạt tương phản AA) |
 | Chữ chính / phụ | `#16262B` / `#4D6066` | Thân bài / mô tả, ghi chú |
-| Tăng / giảm | `#15897D` / đỏ dữ liệu | Chỉ dùng cho số liệu tăng giảm (xem issue #47 về tương phản) |
+| Tăng / giảm | `#15897D` / đỏ dữ liệu; riêng thẻ giá ở hero quỹ: `#0F7468` / `#B4472E` | Chỉ dùng cho số liệu tăng giảm. Thẻ giá dùng màu đậm hơn để đạt tương phản ≥ 4,7:1 trên nền ảnh (issue #47, PR #53) |
 
 Không dùng nền đen/than chì, không be/kem/nâu (`specs/brand-rules.md`).
 

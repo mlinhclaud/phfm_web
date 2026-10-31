@@ -1,6 +1,6 @@
 # Việc còn chờ trước go-live · website PHFM bản Teal
 
-Cập nhật 30/10/2026, sau vòng 6. Danh sách này gom mọi chỗ còn thiếu file, thiếu số thật, hoặc chờ người duyệt. Chi tiết kỹ thuật ở `specs/dev-handoff.md`, `specs/data-spec.md`.
+Cập nhật 31/10/2026, sau vòng 6 (đã gồm sửa #47: đậm màu số % trong thẻ giá). Danh sách này gom mọi chỗ còn thiếu file, thiếu số thật, hoặc chờ người duyệt. Chi tiết kỹ thuật ở `specs/dev-handoff.md`, `specs/data-spec.md`.
 
 ## 1. Placeholder: thiếu file, link hoặc số thật
 
@@ -41,7 +41,7 @@ Claude không tự dịch bản 中文. Những chỗ đang hiện chữ EN ho�
 - Dòng "Tài liệu đang được cập nhật", 9 tên loại tài liệu quỹ.
 - Ba nhãn số liệu Về chúng tôi (trước đây có "營運年數", "總管理資產"; nay hiện EN giống trang chủ).
 - Khối Biểu mẫu ở Hướng dẫn PHVSF: tiêu đề và nút đều là "表單", lead còn tiếng Anh.
-- Các chữ 中文 còn tiếng Anh ở issue #34, #25.
+- Các chữ 中文 còn tiếng Anh ở issue #34.
 - "Tỷ suất Lợi nhuận Cổ đông" bản 中文 đang là "股東收益率" (không đổi).
 
 ## 4. Issue mở chờ Rin quyết
@@ -51,13 +51,14 @@ Claude không tự dịch bản 中文. Những chỗ đang hiện chữ EN ho�
 | #10 | Hero PHVSF trên mobile: ảnh gần như bị lớp teal phủ |
 | #22 | Ảnh PHVSF bị ô giá che (ảnh mới không có người, xét lại) |
 | #31 | Hero 中文 hẹp 44px |
-| #34, #25 | Chữ 中文 còn tiếng Anh |
+| #34 | Chữ 中文 còn tiếng Anh |
 | #39 | Ghi chú CMS lộ ở Danh sách quỹ |
 | #40 | "1 documents" |
 | #41 | Form ở 768 bị tràn |
-| #47 | Tương phản màu đỏ/xanh của số % |
 | #49 | Ô tick từng tài liệu chưa dùng được bằng bàn phím |
 | #50 | EN "Thông báo quỹ" đang là "Fund Information", trùng "Thông tin quỹ" |
+| #55 | Bản EN còn viết số kiểu Việt (dấu phẩy thập phân, dấu chấm hàng nghìn) |
+| #8 | Đăng lại canvas Trang con theo bản build cuối (việc của Cowork) |
 
 Câu hỏi phụ:
 - Có thêm nút Tải về Phiếu đăng ký cho tab Hồ sơ tổ chức ở Hướng dẫn PHVSF không?

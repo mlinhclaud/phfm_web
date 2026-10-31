@@ -8060,6 +8060,8 @@ main:has(#r6-forms)+section{background:#FFFFFF!important}
 /* R6-04 · #71: Danh sách quỹ, tiêu đề cột và ô "Giao dịch" ("Hằng ngày") một dòng, không xuống dòng "GIAO / DỊCH" */
 .e-fl-wrap th{white-space:nowrap}
 .e-fl-wrap th:nth-child(4),.e-fl-wrap td:nth-child(4){white-space:nowrap}
+</style><style>/* #47 · Thẻ giá hero PHVSF/VNSHINE: màu tăng/giảm đậm hơn để chữ 15px đạt tương phản ≥ 4,5:1 trên nền trắng mờ đè ảnh */
+.r6-pxcard{--down-on-light:#B4472E;--up-on-light:#0F7468}
 </style></helmet>
 <div data-screen-label="PHFM Website" style="overflow-x:clip;min-height:100vh;background:var(--ivory);font-family:var(--font-sans);color:var(--ink);font-variant-numeric:tabular-nums">
 
@@ -8280,7 +8282,7 @@ main:has(#r6-forms)+section{background:#FFFFFF!important}
             </div>
           </div>
           <div class="r5-fhc"><img class="r5-fhi" src="{{ f.heroImg }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%;display:none">
-          <div style="background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--sand);border-radius:16px;padding:28px 28px 24px">
+          <div class="r6-pxcard" style="background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--sand);border-radius:16px;padding:28px 28px 24px">
             <div style="display:flex;gap:40px;flex-wrap:wrap">
               <sc-if value="{{ f.isEtf }}"><div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">{{ d.fundUi.closePrice }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuPrice }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div></sc-if>
               <div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">{{ f.navLabel }}</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:6px"><span style="font-size:32px;line-height:40px;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums">{{ f.cuNav }}</span><span style="font-size:14px;color:var(--muted)">{{ f.navUnit }}</span></div></div>
